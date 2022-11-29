@@ -1,0 +1,4 @@
+/snap/clion/209/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/209/bin/ninja/linux/ninja -G Ninja -S "/mnt/4E24B13824B1243D/Users/queri/Documents/ECE/ECE ING 1/Algo et Prog/Projet semestriel/Code projet" -B "/mnt/4E24B13824B1243D/Users/queri/Documents/ECE/ECE ING 1/Algo et Prog/Projet semestriel/Code projet/cmake-build-debug"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/4E24B13824B1243D/Users/queri/Documents/ECE/ECE ING 1/Algo et Prog/Projet semestriel/Code projet/cmake-build-debug
