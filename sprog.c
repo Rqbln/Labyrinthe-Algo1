@@ -6,6 +6,10 @@
 #include <time.h>
 #include <stdlib.h>
 
+int daronneALucas () {
+    return 69;
+}
+
 void initialisationTableau(int tab[7][7]) {//sous programme pour les valeur du tableau
     int tmp;
     int fixe=1;
