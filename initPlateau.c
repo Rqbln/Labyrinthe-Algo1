@@ -24,21 +24,18 @@ void initialisationTableau(int tab[7][7]) {//sous programme pour les valeur du t
             else{
                 int p=0;
                 int verif=1;
-                for(int v; v<34;v++){
-                    verif = 0;
-                    tmp = 20 + rand() % 53;   //creation d une variable aleatoire
-                    do {
-                        verifieur[v] = tmp;
-                        for (int l = 0; l < (p); l++) {
+                while(verif==1) {
+                        verif=0;
+                        tmp = 20 + rand() % 53;   //creation d une variable aleatoire
+                        for (int l = 0; l < 34; l++) {
 
                             if (verifieur[l] == tmp) {
                                 verif = 1;
                             }
                         }
-                        p+=1;
                     }
-                    while(verif==1);
-                }
+
+
                 verifieur[p]=tmp;
                 p+=1;
                 tab[i][j]= tmp;
