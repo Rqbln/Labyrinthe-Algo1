@@ -7,6 +7,24 @@ int main() {   //programme principale
     int ligne, colonne;
     int tab[7][7];
     int n;
+    int choix;
+    printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\nChoix :");
+    scanf("%d",&choix);
+    if (choix==1){
+
+    }
+    if (choix==2){
+
+    }
+    if (choix==3){
+
+    }
+    if (choix==4){
+
+    }
+    if (choix==0){
+
+    }
     initialisationTableau(&tab[7][7]);  //initialise un tableau  de chiffre entre 0 et 5
     affichageTableau(&tab[7][7]);
     //finJeu(&ligne, &colonne, &tab[7][7], &n);

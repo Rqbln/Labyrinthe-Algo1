@@ -1,4 +1,8 @@
 # ninja log v5
-0	133	6926324712351638	CMakeFiles/Labyrinthe_Algo1.dir/main.c.obj	495054ba9db25c81
-9	282	6926324713849938	CMakeFiles/Labyrinthe_Algo1.dir/sprog.c.obj	576d9588c897d696
-283	454	6926324715496275	Labyrinthe_Algo1.exe	6212da8591645901
+2	56	6927250731848298	CMakeFiles/Labyrinthe_Algo1.dir/main.c.obj	495054ba9db25c81
+6	67	6927250731960075	CMakeFiles/Labyrinthe_Algo1.dir/sprog.c.obj	576d9588c897d696
+67	136	6927250732628651	Labyrinthe_Algo1.exe	6212da8591645901
+2	63	6927253381532618	CMakeFiles/Labyrinthe_Algo1.dir/main.c.obj	495054ba9db25c81
+6	69	6927253381598802	CMakeFiles/Labyrinthe_Algo1.dir/sprog.c.obj	576d9588c897d696
+10	73	6927253381642449	CMakeFiles/Labyrinthe_Algo1.dir/initPlateau.c.obj	ce41d8aaba1661f1
+73	142	6927253382297634	Labyrinthe_Algo1.exe	64154a8000e65cab

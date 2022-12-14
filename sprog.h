@@ -7,7 +7,6 @@
 
 #endif //LABYRINTE_SPROG_H
 
-int daronneALucas();
 void initialisationTableau(int tab[7][7]);
 void affichageTableau(int tab[7][7]);
 void essaieJoueur(int *ligne, int *colonne, int *point, int tab[10][10]);
