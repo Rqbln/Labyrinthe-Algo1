@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/bapti/OneDrive/Documents/GitHub/Labyrinthe-Algo1/initPlateau.c">
+			<Option target="Labyrinthe_Algo1"/>
+		</Unit>
 		<Unit filename="C:/Users/bapti/OneDrive/Documents/GitHub/Labyrinthe-Algo1/main.c">
 			<Option target="Labyrinthe_Algo1"/>
 		</Unit>

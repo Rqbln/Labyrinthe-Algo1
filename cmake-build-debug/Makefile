@@ -128,6 +128,30 @@ Labyrinthe_Algo1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/build
 .PHONY : Labyrinthe_Algo1/fast
 
+initPlateau.obj: initPlateau.c.obj
+.PHONY : initPlateau.obj
+
+# target to build an object file
+initPlateau.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateau.c.obj
+.PHONY : initPlateau.c.obj
+
+initPlateau.i: initPlateau.c.i
+.PHONY : initPlateau.i
+
+# target to preprocess a source file
+initPlateau.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateau.c.i
+.PHONY : initPlateau.c.i
+
+initPlateau.s: initPlateau.c.s
+.PHONY : initPlateau.s
+
+# target to generate assembly for a file
+initPlateau.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateau.c.s
+.PHONY : initPlateau.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -185,6 +209,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Labyrinthe_Algo1
+	@echo ... initPlateau.obj
+	@echo ... initPlateau.i
+	@echo ... initPlateau.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
