@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-void initialisationTableau(int tab[7][7]) {//sous programme pour les valeur du tableau
+void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les valeur du tableau
     int tmp;
     int fixe=0;
     int verifieur[34];
@@ -15,8 +15,8 @@ void initialisationTableau(int tab[7][7]) {//sous programme pour les valeur du t
     //for(int i = 0; i < 26; i++) {
     //   result[i] = 0;
     //}
-    for (int i = 0; i<(7);i++){              //lignes
-        for (int j = 0; j<(7);j++){          //colones
+    for (int i = 0; i<(LARGEUR);i++){              //lignes
+        for (int j = 0; j<(LARGEUR);j++){          //colones
             //printf("entrez valeur:");       //demande a l'utilisateur d entrer une valeur//scanf("%f",&tab[i][j]);  //entrée utilisateur
             if(i%2==0 && j%2==0){
                 tab[i][j]=fixe;
@@ -26,7 +26,7 @@ void initialisationTableau(int tab[7][7]) {//sous programme pour les valeur du t
                 int verif=1;
                 while(verif==1) {
                         verif=0;
-                        tmp = 16 + rand() % 34;   //creation d une variable aleatoire
+                        tmp = ((LARGEUR/2)+1)*((LARGEUR/2)+1) + rand() % 34;   //creation d une variable aleatoire
                         for (int l = 0; l < 34; l++) {
 
                             if (verifieur[l] == tmp) {
