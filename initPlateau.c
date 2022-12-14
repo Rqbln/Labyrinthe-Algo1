@@ -5,8 +5,9 @@
 
 void initialisationTableau(int tab[7][7]) {//sous programme pour les valeur du tableau
     int tmp;
-    int fixe=1;
+    int fixe=0;
     int verifieur[34];
+    int p=0;
     srand(time(NULL));            //creation de du module aleatoire en fonction du temps
     //int tab[7][7];                       //creation de la variable/tableau
     //int tmp;
@@ -22,11 +23,10 @@ void initialisationTableau(int tab[7][7]) {//sous programme pour les valeur du t
                 fixe+=1;
             }
             else{
-                int p=0;
                 int verif=1;
                 while(verif==1) {
                         verif=0;
-                        tmp = 20 + rand() % 53;   //creation d une variable aleatoire
+                        tmp = 16 + rand() % 34;   //creation d une variable aleatoire
                         for (int l = 0; l < 34; l++) {
 
                             if (verifieur[l] == tmp) {
