@@ -4,7 +4,6 @@ int main() {   //programme principale
     int joueur1;
     int joueur2;
     int point;
-    int la_daron_de_lucas;
     int ligne, colonne;
     int tab[7][7];
     int n;
