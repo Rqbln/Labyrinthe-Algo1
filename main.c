@@ -6,7 +6,6 @@ int main() {   //programme principale
     int point;
     int ligne, colonne;
     int tab[7][7];
-    int tab[7][7];
     char tableau[21][21];
     int n;
     int choix;
