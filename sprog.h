@@ -13,3 +13,4 @@ void initialisationTableau(int tab[7][7]);
 void affichageTableau(int tab[7][7]);
 void essaieJoueur(int *ligne, int *colonne, int *point, int tab[10][10]);
 void finJeu(int *ligne, int *colonne, int tab[7][7], int*n);
+void convertab(int tab[7][7], char tableau[21][21]);

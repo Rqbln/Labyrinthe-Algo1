@@ -6,6 +6,8 @@ int main() {   //programme principale
     int point;
     int ligne, colonne;
     int tab[7][7];
+    int tab[7][7];
+    char tableau[21][21];
     int n;
     int choix;
     printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\nChoix :");
@@ -26,6 +28,7 @@ int main() {   //programme principale
 
     }
     initialisationTableau(&tab[7][7]);  //initialise un tableau  de chiffre entre 0 et 5
+    convertab(&tab[7][7], &tableau[21][21]);
     affichageTableau(&tab[7][7]);
     //finJeu(&ligne, &colonne, &tab[7][7], &n);
     do {
