@@ -3,7 +3,6 @@
 int main() {   //programme principale
     int joueur1;
     int joueur2;
-    int miamzouille;
     int point;
     int ligne, colonne;
     int tab[7][7];
