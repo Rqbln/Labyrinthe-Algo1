@@ -9,6 +9,13 @@ int main() {   //programme principale
     char tableau[21][21];
     int n;
     int choix;
+    char**terrain;
+    int taille = 7;
+    bg_color(WHITE);
+    text_color(RED);
+    printf("\n\t\t LA MEME MATRICE MAIS 4 AFFICHAGES DIFFERENTS !\n\n");
+    bg_color(BLACK);
+    text_color(WHITE);
     printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\nChoix :");
     scanf("%d",&choix);
     if (choix==1){
@@ -29,6 +36,7 @@ int main() {   //programme principale
     initialisationTableau(&tab[7][7]);  //initialise un tableau  de chiffre entre 0 et 5
     convertab(&tab[7][7], &tableau[21][21]);
     affichageTableau(&tab[7][7]);
+    afficherTerrain4(&tab[LARGEUR][LARGEUR],taille);
     //finJeu(&ligne, &colonne, &tab[7][7], &n);
     do {
         printf("joueur 1\n");
