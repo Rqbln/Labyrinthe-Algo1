@@ -128,29 +128,53 @@ Labyrinthe_Algo1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/build
 .PHONY : Labyrinthe_Algo1/fast
 
-initPlateau.obj: initPlateau.c.obj
-.PHONY : initPlateau.obj
+initPlateauColor.obj: initPlateauColor.c.obj
+.PHONY : initPlateauColor.obj
 
 # target to build an object file
-initPlateau.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateau.c.obj
-.PHONY : initPlateau.c.obj
+initPlateauColor.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateauColor.c.obj
+.PHONY : initPlateauColor.c.obj
 
-initPlateau.i: initPlateau.c.i
-.PHONY : initPlateau.i
+initPlateauColor.i: initPlateauColor.c.i
+.PHONY : initPlateauColor.i
 
 # target to preprocess a source file
-initPlateau.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateau.c.i
-.PHONY : initPlateau.c.i
+initPlateauColor.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateauColor.c.i
+.PHONY : initPlateauColor.c.i
 
-initPlateau.s: initPlateau.c.s
-.PHONY : initPlateau.s
+initPlateauColor.s: initPlateauColor.c.s
+.PHONY : initPlateauColor.s
 
 # target to generate assembly for a file
-initPlateau.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateau.c.s
-.PHONY : initPlateau.c.s
+initPlateauColor.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateauColor.c.s
+.PHONY : initPlateauColor.c.s
+
+initcarte.obj: initcarte.c.obj
+.PHONY : initcarte.obj
+
+# target to build an object file
+initcarte.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initcarte.c.obj
+.PHONY : initcarte.c.obj
+
+initcarte.i: initcarte.c.i
+.PHONY : initcarte.i
+
+# target to preprocess a source file
+initcarte.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initcarte.c.i
+.PHONY : initcarte.c.i
+
+initcarte.s: initcarte.c.s
+.PHONY : initcarte.s
+
+# target to generate assembly for a file
+initcarte.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initcarte.c.s
+.PHONY : initcarte.c.s
 
 main.obj: main.c.obj
 .PHONY : main.obj
@@ -209,9 +233,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Labyrinthe_Algo1
-	@echo ... initPlateau.obj
-	@echo ... initPlateau.i
-	@echo ... initPlateau.s
+	@echo ... initPlateauColor.obj
+	@echo ... initPlateauColor.i
+	@echo ... initPlateauColor.s
+	@echo ... initcarte.obj
+	@echo ... initcarte.i
+	@echo ... initcarte.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
