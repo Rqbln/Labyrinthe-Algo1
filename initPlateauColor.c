@@ -20,6 +20,46 @@ void bg_color(int color){
 //change la couleur du texte et du fond
 
 void afficherTerrain4(int tab[LARGEUR][LARGEUR], int taille){
+    int caseT1[3][3]={0,0,0,
+                      1,1,1,
+                      0,1,0,};
+
+    int caseT2[3][3]={0,1,0,
+                      1,1,0,
+                      0,1,0,};
+
+    int caseT3[3][3]={0,1,0,
+                      1,1,1,
+                      0,0,0,};
+
+    int caseT4[3][3]={0,1,0,
+                      0,1,1,
+                      0,1,0,};
+
+    int caseL1[3][3]={0,1,0,
+                      0,1,1,
+                      0,0,0};
+
+    int caseL2[3][3]={0,0,0,
+                      0,1,1,
+                      0,1,0};
+
+    int caseL3[3][3]={0,0,0,
+                      1,1,0,
+                      0,1,0};
+
+    int caseL4[3][3]={0,1,0,
+                      1,1,0,
+                      0,0,0};
+
+    int caseI1[3][3]={0,1,0,
+                      0,1,0,
+                      0,1,0};
+
+    int caseI2[3][3]={0,0,0,
+                      1,1,1,
+                      0,0,0};
+
     int i,j;
     printf("\n\n    |");
     bg_color(CYAN);
@@ -39,75 +79,152 @@ void afficherTerrain4(int tab[LARGEUR][LARGEUR], int taille){
         printf("|");
         bg_color(WHITE);
         for(j=0;j<taille;j++){
-            if(tab[i][j] == 0){
-                bg_color(RED);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 1,2,6,50){ //T1
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseT1[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseT1[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
             }
-            if(tab[i][j] == 1){
-                bg_color(GREEN);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 7,10,11,51){   //T2
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseT2[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseT2[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
             }
-            if(tab[i][j] == 2){
-                bg_color(BLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 9,13,14,52){   //T3
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseT3[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseT3[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
             }
-            if(tab[i][j] == 3){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 4,5,8,53){   //T4
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseT4[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseT4[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
+
             }
-            if(tab[i][j] == 4){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 12,60,70){   //L1
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseL1[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseL1[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
+
             }
-            if(tab[i][j] == 5){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 0,61,71){   //L2
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseL2[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseL2[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
+
             }
-            if(tab[i][j] == 6){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 3,62,72){   //L3
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseL3[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseL3[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
+
             }
-            if(tab[i][j] == 7){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 15,63,73){   //L4
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseL4[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseL4[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
+
             }
-            if(tab[i][j] == 8){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 80){   //I1
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseI1[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseI1[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
+
             }
-            if(tab[i][j] == 9){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
-            }
-            if(tab[i][j] == 10){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
-            }
-            if(tab[i][j] == 11){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
-            }
-            if(tab[i][j] == 12){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
-            }
-            if(tab[i][j] == 13){
-                bg_color(LIGHTBLUE);
-                printf(" %2c  ",' ');
-                bg_color(WHITE);
+            if(tab[i][j] == 81){   //I2
+                for (int k = 0; k < (3); k++) {
+                    for (int l = 0; l < (3); j++) {
+                        if (caseI2[i][j] = 0) {
+                            bg_color(ORANGE);
+                            printf(" %2c  ", ' ');
+                        }
+                        if (caseI2[i][j] = 1) {
+                            bg_color(YELLOW);
+                            printf(" %2c  ", ' ');
+                        }
+                    }
+                }
+
             }
             text_color(WHITE);
         }
