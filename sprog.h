@@ -40,4 +40,4 @@ void convertab(int tab[7][7], char tableau[21][21]);
 void text_color(int color);
 //change la couleur de fond
 void bg_color(int color);
-void afficherTerrain4(int tab[LARGEUR][LARGEUR], int taille);
+void afficherTerrain4(int tab[LARGEUR][LARGEUR]);

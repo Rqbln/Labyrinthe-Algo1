@@ -10,8 +10,7 @@ int main() {   //programme principale
     int n;
     int choix;
     char**terrain;
-    int taille = 7;
-    bg_color(WHITE);
+    //bg_color(WHITE);
     text_color(RED);
     printf("\n\t\t LA MEME MATRICE MAIS 4 AFFICHAGES DIFFERENTS !\n\n");
     bg_color(BLACK);
@@ -36,7 +35,7 @@ int main() {   //programme principale
     initialisationTableau(&tab[7][7]);  //initialise un tableau  de chiffre entre 0 et 5
     convertab(&tab[7][7], &tableau[21][21]);
     affichageTableau(&tab[7][7]);
-    afficherTerrain4(&tab[LARGEUR][LARGEUR],taille);
+    afficherTerrain4(&tab[LARGEUR][LARGEUR]);
     //finJeu(&ligne, &colonne, &tab[7][7], &n);
     do {
         printf("joueur 1\n");
