@@ -37,35 +37,166 @@ void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les
         }
     }
 }
-void affichageTableau(int tab[7][7]) {                   //sous programme pour les afficher le tableau
+void affichageTableau(int tab[LARGEUR][LARGEUR], char tableau[LARGEUR][LARGEUR], int tabite[21][21]) {                   //sous programme pour les afficher le tableau
     //int tab[10][10];
-    for (int i = 0; i < (7); i++) {
-        for (int j = 0; j < (7); j++) {
+    for (int i = 0; i < (LARGEUR); i++) {
+        for (int j = 0; j < (LARGEUR); j++) {
             printf("%d ", tab[i][j]); //affichage des valeur
+        }
+        printf("\n");
+    }
+   /* for (int i = 0; i < (LARGEUR); i++) {
+        for (int j = 0; j < (LARGEUR); j++) {
+            printf("%c ", tableau[i][j]); //affichage des valeur
+        }
+        printf("\n");
+    }*/
+    for (int i = 0; i < (21); i++) {
+        for (int j = 0; j < (21); j++) {
+            printf("%d ", tabite[i][j]); //affichage des valeur
         }
         printf("\n");
     }
 
 }
-void convertab(int tab[7][7], char tableau[21][21]){
+void convertab(int tab[LARGEUR][LARGEUR], char tableau[LARGEUR][LARGEUR]){
     int T;
-    for (int i = 0; i < (7); i++) {
-        for (int j = 0; j < (7); j++) {
+    for (int i = 0; i < (LARGEUR); i++) {
+        for (int j = 0; j < (LARGEUR); j++) {
             if (tab[i][j]>16 && tab[i][j]<23){
                 tab[i][j]=50 + rand() % 4;   //case en T avec tresor 50
+                if (tab[i][j]==50){
+                    tableau[i][j]='T1';
+                }
+                if (tab[i][j]==51){
+                    tableau[i][j]='T2';
+                }
+                if (tab[i][j]==52){
+                    tableau[i][j]='T3';
+                }
+                if (tab[i][j]==53){
+                    tableau[i][j]='T4';
+                }
             }
             if (tab[i][j]>22 && tab[i][j]<28){
                 tab[i][j]=60 + rand() % 4;   //case en L avec tresor 51
+                if (tab[i][j]==60){
+                    tableau[i][j]='L1';
+                }
+                if (tab[i][j]==61){
+                    tableau[i][j]='L2';
+                }
+                if (tab[i][j]==62){
+                    tableau[i][j]='L3';
+                }
+                if (tab[i][j]==63){
+                    tableau[i][j]='L4';
+                }
             }
             if (tab[i][j]>27 && tab[i][j]<38){
                 tab[i][j]=70 + rand() % 4;   //case en L classique 52
+                if (tab[i][j]==70){
+                    tableau[i][j]='l1';
+                }
+                if (tab[i][j]==71){
+                    tableau[i][j]='l2';
+                }
+                if (tab[i][j]==72){
+                    tableau[i][j]='l3';
+                }
+                if (tab[i][j]==73){
+                    tableau[i][j]='l4';
+                }
             }
             if (tab[i][j]>37 && tab[i][j]<50){
                 tab[i][j]=80 + rand() % 2;   //case en I classique 53
+                if (tab[i][j]==80){
+                    tableau[i][j]='I1';
+                }
+                if (tab[i][j]==81){
+                    tableau[i][j]='I2';
+                }
             }
             // de 0 a 15 case fixe
         }
     }
 }
+void affect(int tabite[21][21], int *x, int *y, int cases[3][3]){  //tabite est le tableau qui rassemblera toute les donnees
+    tabite[*x*3][*y*3]=cases[0][0];
+    tabite[*x*3][*y*3+1]=cases[0][1];
+    tabite[*x*3][*y*3+2]=cases[0][2];
+    tabite[*x*3+1][*y*3]=cases[1][0];
+    tabite[*x*3+1][*y*3+1]=cases[1][1];
+    tabite[*x*3+1][*y*3+2]=cases[1][2];
+    tabite[*x*3+2][*y*3]=cases[2][0];
+    tabite[*x*3+2][*y*3+1]=cases[2][1];
+    tabite[*x*3+2][*y*3+2]=cases[2][2];
+}
+void coordonne(int tabite[21][21], int *x, int *y, int cases[3][3], int tab[LARGEUR][LARGEUR]){
+    //on definit toutes les cases differente
+    int caseT1[3][3] = {0,0,0, 1,8,1, 0,1,0};
+    int caseT2[3][3] = {0,1,0, 1,8,0, 0,1,0};
+    int caseT3[3][3] = {0,1,0, 1,8,1, 0,0,0};
+    int caseT4[3][3] = {0,1,0, 0,8,1, 0,1,0};
+    int caseL1[3][3] = {0,1,0, 0,1,1, 0,0,0};
+    int caseL2[3][3] = {0,0,0, 0,1,1, 0,1,0};
+    int caseL3[3][3] = {0,0,0, 1,1,0, 0,1,0};
+    int caseL4[3][3] = {0,1,0, 1,1,0, 0,0,0};
+    int caseLT1[3][3] = {0,1,0, 0,8,1, 0,0,0};
+    int caseLT2[3][3] = {0,0,0, 0,8,1, 0,1,0};
+    int caseLT3[3][3] = {0,0,0, 1,8,0, 0,1,0};
+    int caseLT4[3][3] = {0,1,0, 1,8,0, 0,0,0};
+    int caseI1[3][3] = {0,1,0, 0,1,0, 0,1,0};
+    int caseI2[3][3] = {0,0,0, 1,1,1, 0,0,0};
+    for (int i = 0; i < LARGEUR; ++i) {
+        for (int j = 0; j < LARGEUR; ++j) {
+            int value = tab[i][j];
+            if (value == 1 || value == 2 || value == 6 || value == 50){
+                affect(tabite[21][21], &x, &y, caseT1[3][3]);
+            }
+            if (value == 7 || value == 10 || value == 11 || value == 51){
+                affect(tabite[21][21], &x, &y, caseT2[3][3]);
+            }
+            if (value == 9 || value == 13 || value == 14 || value == 52){
+                affect(tabite[21][21], &x, &y, caseT3[3][3]);
+            }
+            if (value == 4 || value == 5 || value == 8 || value == 53){
+                affect(tabite[21][21], &x, &y, caseT4[3][3]);
+            }//tabite prend les cases T
 
+            if (value == 70){
+                affect(tabite[21][21], &x, &y, caseL1[3][3]);
+            }
+            if (value == 71){
+                affect(tabite[21][21], &x, &y, caseL2[3][3]);
+            }
+            if (value == 72){
+                affect(tabite[21][21], &x, &y, caseL3[3][3]);
+            }
+            if (value == 73){
+                affect(tabite[21][21], &x, &y, caseL4[3][3]);
+            }//tabite prend les cases L
 
+            if (value == 12 || value == 60){
+                affect(tabite[21][21], &x, &y, caseLT1[3][3]);
+            }
+            if (value == 0 || value == 61){
+                affect(tabite[21][21], &x, &y, caseLT2[3][3]);
+            }
+            if (value == 3 || value == 62){
+                affect(tabite[21][21], &x, &y, caseLT3[3][3]);
+            }
+            if (value == 15 || value == 63){
+                affect(tabite[21][21], &x, &y, caseLT4[3][3]);
+            }//tabite prend les cases L Tresor
+
+            if (value == 80){
+                affect(tabite[21][21], &x, &y, caseI1[3][3]);
+            }
+            if (value == 81){
+                affect(tabite[21][21], &x, &y, caseI2[3][3]);
+            }//tabite prend les cases I
+
+        }
+    }
+}

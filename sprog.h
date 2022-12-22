@@ -32,12 +32,14 @@ typedef enum{
     WHITE
 } COLORS;
 
-void initialisationTableau(int tab[7][7]);
-void affichageTableau(int tab[7][7]);
+void initialisationTableau(int tab[LARGEUR][LARGEUR]);
+void affichageTableau(int tab[LARGEUR][LARGEUR], char tableau[LARGEUR][LARGEUR], int tabite[21][21]);
 void essaieJoueur(int *ligne, int *colonne, int *point, int tab[10][10]);
-void finJeu(int *ligne, int *colonne, int tab[7][7], int*n);
-void convertab(int tab[7][7], char tableau[21][21]);
+void finJeu(int *ligne, int *colonne, int tab[LARGEUR][LARGEUR], int*n);
+void convertab(int tab[LARGEUR][LARGEUR], char tableau[LARGEUR][LARGEUR]);
 void text_color(int color);
 //change la couleur de fond
 void bg_color(int color);
 void afficherTerrain4(int tab[LARGEUR][LARGEUR]);
+void coordonne(int tabite[21][21], int *x, int *y, int cases[3][3], int tab[LARGEUR][LARGEUR]);
+void affect(int tabite[21][21], int *x, int *y, int cases[3][3]);
