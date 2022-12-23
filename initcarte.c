@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-
+#include <fcntl.h>
+#include <io.h>
 void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les valeur du tableau
     int tmp;
     int fixe=0;
@@ -60,6 +61,24 @@ void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {        
             printf("%d ", tabfinal[i][j]); //affichage des valeur
         }
         printf("\n");
+    }
+    for (int i = 0; i < (21); i++) {
+        for (int j = 0; j < (21); j++) {
+            if (tabfinal[i][j]==0) {
+                _setmode(_fileno(stdout), _O_U16TEXT);
+                wprintf(L"\x2588\x2588"); //affichage des valeur
+            }
+            if (tabfinal[i][j]==1) {
+                _setmode(_fileno(stdout), _O_U16TEXT);
+                wprintf(L"\x00A0\x00A0"); //affichage des valeur
+            }
+            if (tabfinal[i][j]==8) {
+                _setmode(_fileno(stdout), _O_U16TEXT);
+                wprintf(L"\x01B8\x01B7"); //affichage des valeur
+            }
+        }
+        _setmode(_fileno(stdout), _O_U16TEXT);
+        wprintf(L"\n");
     }
 
 }
