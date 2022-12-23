@@ -65,57 +65,19 @@ void convertab(int tab[LARGEUR][LARGEUR], char tableau[LARGEUR][LARGEUR]){
         for (int j = 0; j < (LARGEUR); j++) {
             if (tab[i][j]>15 && tab[i][j]<23){
                 tab[i][j]=50 + rand() % 4;   //case en T avec tresor 50
-                if (tab[i][j]==50){
-                    tableau[i][j]='T1';
-                }
-                if (tab[i][j]==51){
-                    tableau[i][j]='T2';
-                }
-                if (tab[i][j]==52){
-                    tableau[i][j]='T3';
-                }
-                if (tab[i][j]==53){
-                    tableau[i][j]='T4';
-                }
+
             }
             if (tab[i][j]>22 && tab[i][j]<28){
                 tab[i][j]=60 + rand() % 4;   //case en L avec tresor 51
-                if (tab[i][j]==60){
-                    tableau[i][j]='L1';
-                }
-                if (tab[i][j]==61){
-                    tableau[i][j]='L2';
-                }
-                if (tab[i][j]==62){
-                    tableau[i][j]='L3';
-                }
-                if (tab[i][j]==63){
-                    tableau[i][j]='L4';
-                }
+
             }
             if (tab[i][j]>27 && tab[i][j]<38){
                 tab[i][j]=70 + rand() % 4;   //case en L classique 52
-                if (tab[i][j]==70){
-                    tableau[i][j]='l1';
-                }
-                if (tab[i][j]==71){
-                    tableau[i][j]='l2';
-                }
-                if (tab[i][j]==72){
-                    tableau[i][j]='l3';
-                }
-                if (tab[i][j]==73){
-                    tableau[i][j]='l4';
-                }
+
             }
             if (tab[i][j]>37 && tab[i][j]<50){
                 tab[i][j]=80 + rand() % 2;   //case en I classique 53
-                if (tab[i][j]==80){
-                    tableau[i][j]='I1';
-                }
-                if (tab[i][j]==81){
-                    tableau[i][j]='I2';
-                }
+
             }
             // de 0 a 15 case fixe
         }
