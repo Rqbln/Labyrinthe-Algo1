@@ -114,49 +114,49 @@ void coordonne(int tabite[21][21], int *x, int *y, int cases[3][3], int tab[LARG
         for (int j = 0; j < LARGEUR; ++j) {
             int value = tab[i][j];
             if (value == 1 || value == 2 || value == 6 || value == 50){
-                affect(tabite[21][21], &*x, &*y, caseT1[3][3]);
+                affect(tabite, &*x, &*y, caseT1[3][3]);
             }
             if (value == 7 || value == 10 || value == 11 || value == 51){
-                affect(tabite[21][21], &*x, &*y, caseT2[3][3]);
+                affect(tabite, &*x, &*y, caseT2[3][3]);
             }
             if (value == 9 || value == 13 || value == 14 || value == 52){
-                affect(tabite[21][21], &*x, &*y, caseT3[3][3]);
+                affect(tabite, &*x, &*y, caseT3[3][3]);
             }
             if (value == 4 || value == 5 || value == 8 || value == 53){
-                affect(tabite[21][21], &*x, &*y, caseT4[3][3]);
+                affect(tabite, &*x, &*y, caseT4);
             }//tabite prend les cases T
 
             if (value == 70){
-                affect(tabite[21][21], &*x, &*y, caseL1[3][3]);
+                affect(tabite, &*x, &*y, caseL1);
             }
             if (value == 71){
-                affect(tabite[21][21], &*x, &*y, caseL2[3][3]);
+                affect(tabite, &*x, &*y, caseL2);
             }
             if (value == 72){
-                affect(tabite[21][21], &*x, &*y, caseL3[3][3]);
+                affect(tabite, &*x, &*y, caseL3);
             }
             if (value == 73){
-                affect(tabite[21][21], &*x, &*y, caseL4[3][3]);
+                affect(tabite, &*x, &*y, caseL4);
             }//tabite prend les cases L
 
             if (value == 12 || value == 60){
-                affect(tabite[21][21], &*x, &*y, caseLT1[3][3]);
+                affect(tabite, &*x, &*y, caseLT1);
             }
             if (value == 0 || value == 61){
-                affect(tabite[21][21], &*x, &*y, caseLT2[3][3]);
+                affect(tabite, &*x, &*y, caseLT2);
             }
             if (value == 3 || value == 62){
-                affect(tabite[21][21], &*x, &*y, caseLT3[3][3]);
+                affect(tabite, &*x, &*y, caseLT3);
             }
             if (value == 15 || value == 63){
-                affect(tabite[21][21], &*x, &*y, caseLT4[3][3]);
+                affect(tabite, &*x, &*y, caseLT4);
             }//tabite prend les cases L Tresor
 
             if (value == 80){
-                affect(tabite[21][21], &*x, &*y, caseI1[3][3]);
+                affect(tabite, &*x, &*y, caseI1);
             }
             if (value == 81){
-                affect(tabite[21][21], &*x, &*y, caseI2[3][3]);
+                affect(tabite, &*x, &*y, caseI2);
             }//tabite prend les cases I
 
         }
