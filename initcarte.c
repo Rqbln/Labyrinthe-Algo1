@@ -117,51 +117,53 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
 
     for (int i = 0; i < LARGEUR; ++i) {
         for (int j = 0; j < LARGEUR; ++j) {
+            *x = i;
+            *y = j ;
             int value = tab[i][j];
             if (value == 1 || value == 2 || value == 6 || value == 50){
-                affect(tabfinal, &*x, &*y, caseT1);
+                affect(tabfinal, &i, &j, caseT1);
             }
             if (value == 7 || value == 10 || value == 11 || value == 51){
-                affect(tabfinal, &*x, &*y, caseT2);
+                affect(tabfinal, &i ,&j, caseT2);
             }
             if (value == 9 || value == 13 || value == 14 || value == 52){
-                affect(tabfinal, &*x, &*y, caseT3);
+                affect(tabfinal, &i, &j, caseT3);
             }
             if (value == 4 || value == 5 || value == 8 || value == 53){
-                affect(tabfinal, &*x, &*y, caseT4);
+                affect(tabfinal, &i, &j, caseT4);
             }//tabfinal prend les cases T
 
             if (value == 70){
-                affect(tabfinal, &*x, &*y, caseL1);
+                affect(tabfinal, &i, &j, caseL1);
             }
             if (value == 71){
-                affect(tabfinal, &*x, &*y, caseL2);
+                affect(tabfinal, &i, &j, caseL2);
             }
             if (value == 72){
-                affect(tabfinal, &*x, &*y, caseL3);
+                affect(tabfinal, &i, &j, caseL3);
             }
             if (value == 73){
-                affect(tabfinal, &*x, &*y, caseL4);
+                affect(tabfinal, &i, &j, caseL4);
             }//tabfinal prend les cases L
 
             if (value == 12 || value == 60){
-                affect(tabfinal, &*x, &*y, caseLT1);
+                affect(tabfinal, &i, &j, caseLT1);
             }
             if (value == 0 || value == 61){
-                affect(tabfinal, &*x, &*y, caseLT2);
+                affect(tabfinal, &i, &j, caseLT2);
             }
             if (value == 3 || value == 62){
-                affect(tabfinal, &*x, &*y, caseLT3);
+                affect(tabfinal, &i, &j, caseLT3);
             }
             if (value == 15 || value == 63){
-                affect(tabfinal, &*x, &*y, caseLT4);
+                affect(tabfinal, &i, &j, caseLT4);
             }//tabfinal prend les cases L Tresor
 
             if (value == 80){
-                affect(tabfinal, &*x, &*y, caseI1);
+                affect(tabfinal, &i, &j, caseI1);
             }
             if (value == 81){
-                affect(tabfinal, &*x, &*y, caseI2);
+                affect(tabfinal, &i, &j, caseI2);
             }//tabfinal prend les cases I
 
         }
