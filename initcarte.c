@@ -1,6 +1,3 @@
-//
-// Created by bapti on 20/12/2022.
-//
 #include "sprog.h"
 #include <stdio.h>
 #include <time.h>
@@ -62,6 +59,8 @@ void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {        
         }
         printf("\n");
     }
+    printf("\n");
+    printf("\n");
     for (int i = 0; i < (21); i++) {
         for (int j = 0; j < (21); j++) {
             if (tabfinal[i][j]==0) {

@@ -43,3 +43,4 @@ void bg_color(int color);
 void afficherTerrain4(int tab[LARGEUR][LARGEUR]);
 void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]);
 void affect(int tabfinal[21][21], int *x, int *y, int cases[3][3]);
+void afficherTitre();
