@@ -6,13 +6,13 @@ int main() {   //programme principale
     int point;
     int ligne, colonne;
     int tab[LARGEUR][LARGEUR];
-    char tableau[LARGEUR][LARGEUR];
+
     int n;
     int choix;
     char**terrain;
     int cases[3][3];
     int x,y;
-    int tabite[21][21];
+    int tabfinal[21][21];
     //bg_color(WHITE);
     //text_color(RED);
     //printf("\n\t\t LA MEME MATRICE MAIS 4 AFFICHAGES DIFFERENTS !\n\n");
@@ -35,22 +35,22 @@ int main() {   //programme principale
     if (choix==0){
 
     }
-    initialisationTableau(&tab[LARGEUR][LARGEUR]);  //initialise un tableau  de chiffre entre 0 et 5
-    convertab(&tab[LARGEUR][LARGEUR], &tableau[LARGEUR][LARGEUR]);
-    affichageTableau(&tab[LARGEUR][LARGEUR], &tableau[LARGEUR][LARGEUR], &tabite[21][21]);
-    coordonne(&tabite[21][21], &x, &y, &cases[3][3], &tab[LARGEUR][LARGEUR]);
+    initialisationTableau(tab);  //initialise un tableau  de chiffre entre 0 et 5
+    convertab(tab);
+    affichageTableau(tab, tabfinal);
+    coordonne(tabfinal, &x, &y, tab);
     //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
     //finJeu(&ligne, &colonne, &tab[7][7], &n);
     do {
         printf("joueur 1\n");
-        essaieJoueur(&ligne, &colonne, &point, &tab[7][7]);
+        essaieJoueur(&ligne, &colonne, &point, tab);
         joueur1+= point;
         printf("ton nombre de point est egale a : %d\n",joueur1);
         printf("joueur 2\n");
-        essaieJoueur(&ligne, &colonne, &point, &tab[10][10]);
+        essaieJoueur(&ligne, &colonne, &point, tab);
         joueur2+= point;
         printf("ton nombre de point est egale a : %d\n",joueur2);
-        finJeu(&ligne, &colonne,&tab[10][10], &n);
+        finJeu(&ligne, &colonne,tab, &n);
     }
     while(n == 0);
     return 0;
