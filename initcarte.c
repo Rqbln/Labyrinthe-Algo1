@@ -114,13 +114,13 @@ void coordonne(int tabite[21][21], int *x, int *y, int cases[3][3], int tab[LARG
         for (int j = 0; j < LARGEUR; ++j) {
             int value = tab[i][j];
             if (value == 1 || value == 2 || value == 6 || value == 50){
-                affect(tabite, &*x, &*y, caseT1[3][3]);
+                affect(tabite, &*x, &*y, caseT1);
             }
             if (value == 7 || value == 10 || value == 11 || value == 51){
-                affect(tabite, &*x, &*y, caseT2[3][3]);
+                affect(tabite, &*x, &*y, caseT2);
             }
             if (value == 9 || value == 13 || value == 14 || value == 52){
-                affect(tabite, &*x, &*y, caseT3[3][3]);
+                affect(tabite, &*x, &*y, caseT3);
             }
             if (value == 4 || value == 5 || value == 8 || value == 53){
                 affect(tabite, &*x, &*y, caseT4);
