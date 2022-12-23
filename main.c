@@ -37,21 +37,10 @@ int main() {   //programme principale
     }
     initialisationTableau(tab);  //initialise un tableau  de chiffre entre 0 et 5
     convertab(tab);
-    affichageTableau(tab, tabfinal);
     coordonne(tabfinal, &x, &y, tab);
+    affichageTableau(tab, tabfinal);
     //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
     //finJeu(&ligne, &colonne, &tab[7][7], &n);
-    do {
-        printf("joueur 1\n");
-        essaieJoueur(&ligne, &colonne, &point, tab);
-        joueur1+= point;
-        printf("ton nombre de point est egale a : %d\n",joueur1);
-        printf("joueur 2\n");
-        essaieJoueur(&ligne, &colonne, &point, tab);
-        joueur2+= point;
-        printf("ton nombre de point est egale a : %d\n",joueur2);
-        finJeu(&ligne, &colonne,tab, &n);
-    }
-    while(n == 0);
+
     return 0;
 }
