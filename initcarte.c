@@ -74,7 +74,7 @@ void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {        
             }
             if (tabfinal[i][j]==8) {
                 _setmode(_fileno(stdout), _O_U16TEXT);
-                wprintf(L"\x01B8\x01B7"); //affichage des valeur
+                wprintf(L"\x0054\x0052"); //affichage des valeur
             }
         }
         _setmode(_fileno(stdout), _O_U16TEXT);
