@@ -24,15 +24,6 @@ void afficherTitre (){
 
 
 
-
-
-
-
-
-
-
-
-
 void essaieJoueur(int *ligne, int *colonne, int *point, int tab[7][7]){
     //for (int i = 0; i < (7); i++) {
     //    for (int j = 0; j < (7); j++) {
