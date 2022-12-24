@@ -7,7 +7,7 @@ int main() {   //programme principale
     int nbJoueurs;
     int tabfinal[21][21];
     int partie = 0;
-    int credit = 0;
+    int credit =0;
     int sauvegarde1tab[LARGEUR][LARGEUR];
     int sauvegardetourjoueur;
     int numjoueur;
