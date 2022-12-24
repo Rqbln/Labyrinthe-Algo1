@@ -19,8 +19,12 @@ int main() {   //programme principale
         initialisationTableau(tab);
         convertab(tab);
         coordonne(tabfinal, &x, &y, tab);
-        affichageTableau(tab, tabfinal);
+        //afficheplateauprog(tab, tabfinal);
+        //afficheplateaubinaire(tab, tabfinal);
+        afficheplateaufinal(tab, tabfinal);
         //affichageTableau(tab, tabfinal);
+
+
         //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
         //finJeu(&ligne, &colonne, &tab[7][7], &n);
     }
