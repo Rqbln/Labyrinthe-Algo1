@@ -21,7 +21,52 @@ void bg_color(int color) {
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(h, __FOREGROUND + (__BACKGROUND << 4));
 }
+void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {                   //sous programme pour les afficher le tableau
+    //int tab[10][10];
+    for (int i = 0; i < (LARGEUR); i++) {
+        for (int j = 0; j < (LARGEUR); j++) {
+            printf("%d ", tab[i][j]); //affichage des valeur
+        }
+        printf("\n");
 
+    }
+    printf("\n");
+    printf("\n");
+    /* for (int i = 0; i < (LARGEUR); i++) {
+         for (int j = 0; j < (LARGEUR); j++) {
+             printf("%c ", tableau[i][j]); //affichage des valeur
+         }
+         printf("\n");
+     }*/
+    for (int i = 0; i < (21); i++) {
+        for (int j = 0; j < (21); j++) {
+            printf("%d ", tabfinal[i][j]); //affichage des valeur
+        }
+        printf("\n");
+    }
+    printf("\n");
+    printf("\n");
+    for (int i = 0; i < (21); i++) {
+        for (int j = 0; j < (21); j++) {
+            if (tabfinal[i][j]==0) {
+                _setmode(_fileno(stdout), _O_U16TEXT);
+                wprintf(L"\x2588\x2588"); //affichage des valeur
+            }
+            if (tabfinal[i][j]==1) {
+                _setmode(_fileno(stdout), _O_U16TEXT);
+                wprintf(L"\x00A0\x00A0"); //affichage des valeur
+            }
+            if (tabfinal[i][j]==8) {
+                _setmode(_fileno(stdout), _O_U16TEXT);
+                wprintf(L"\x0054\x0052"); //affichage des valeur
+            }
+        }
+        _setmode(_fileno(stdout), _O_U16TEXT);
+        wprintf(L"\n");
+    }
+
+    _setmode(_fileno(stdout), _O_TEXT);
+}
 // Affiche le terrain de jeu sur la console
 /*void afficherTerrain4(int tab[LARGEUR][LARGEUR]) {
     // Déclare les tableaux pour chaque forme
