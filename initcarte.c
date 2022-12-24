@@ -306,63 +306,63 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
                     break;
                 case 19:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0050"); //affichage des valeur
+                    wprintf(L"\x0054\x004A"); //affichage des valeur
                     break;
                 case 20:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0051"); //affichage des valeur
+                    wprintf(L"\x0054\x004B"); //affichage des valeur
                     break;
                 case 21:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0052"); //affichage des valeur
+                    wprintf(L"\x0054\x004C"); //affichage des valeur
                     break;
                 case 22:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0053"); //affichage des valeur
+                    wprintf(L"\x0054\x004D"); //affichage des valeur
                     break;
                 case 23:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0054"); //affichage des valeur
+                    wprintf(L"\x0054\x004E"); //affichage des valeur
                     break;
                 case 24:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0055"); //affichage des valeur
+                    wprintf(L"\x0054\x004F"); //affichage des valeur
                     break;
                 case 25:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0056"); //affichage des valeur
+                    wprintf(L"\x0054\x0050"); //affichage des valeur
                     break;
                 case 26:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0057"); //affichage des valeur
+                    wprintf(L"\x0054\x0051"); //affichage des valeur
                     break;
                 case 27:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0058"); //affichage des valeur
+                    wprintf(L"\x0054\x0052"); //affichage des valeur
                     break;
                 case 28:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0059"); //affichage des valeur
+                    wprintf(L"\x0054\x0053"); //affichage des valeur
                     break;
                 case 29:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0060"); //affichage des valeur
+                    wprintf(L"\x0054\x0054"); //affichage des valeur
                     break;
                 case 30:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0061"); //affichage des valeur
+                    wprintf(L"\x0054\x0055"); //affichage des valeur
                     break;
                 case 31:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0062"); //affichage des valeur
+                    wprintf(L"\x0054\x0056"); //affichage des valeur
                     break;
                 case 32:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0063"); //affichage des valeur
+                    wprintf(L"\x0054\x0057"); //affichage des valeur
                     break;
                 case 33:
                     _setmode(_fileno(stdout), _O_U16TEXT);
-                    wprintf(L"\x0054\x0064"); //affichage des valeur
+                    wprintf(L"\x0054\x0058"); //affichage des valeur
                     break;
 
             }
