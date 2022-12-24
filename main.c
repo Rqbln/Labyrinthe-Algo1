@@ -40,7 +40,11 @@ int main() {   //programme principale
                 break;
             case 2:
                 printf("Sauvegarde de la partie en cours...\n");
-                sauvegarde1tab[LARGEUR][LARGEUR]=tab[LARGEUR][LARGEUR];
+                for (int i = 0; i < LARGEUR; ++i) {
+                    for (int j = 0; j < LARGEUR; ++j) {
+                        sauvegarde1tab[i][j]=tab[i][j];
+                    }
+                }
                 sauvegardetourjoueur=numjoueur;
                 printf("Sauvegarde terminee\n");
 
