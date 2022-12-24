@@ -17,9 +17,11 @@ int main() {   //programme principale
 
     printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\nEntrer n importe quelle valeur pour quitter le jeu\n\n");
 
-    while (partie==0){
+    while(partie==0) {
         printf("Choix :");
         scanf("%d",&choix);
+
+
         switch (choix) {
             case 1:
                 printf("Nombre de joueurs :");
@@ -68,8 +70,7 @@ int main() {   //programme principale
         }
 
 
+
     }
-
-
     return 0;
 }
