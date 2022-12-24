@@ -18,7 +18,32 @@ void afficherTitre (){
     wprintf(L"\x00A0\x00A0\x00A0\x255A\x2550\x255D\x00A0\x00A0\x00A0\x255A\x2550\x255D\x00A0\x00A0\x255A\x2550\x255D\x255A\x2550\x2550\x2550\x2550\x2550\x2550\x255D\x00A0\x00A0\x00A0\x00A0\x255A\x2550\x2550\x2550\x2550\x2550\x2550\x255D\x255A\x2550\x255D\x00A0\x00A0\x255A\x2550\x255D\x255A\x2550\x2550\x2550\x2550\x2550\x255D\x00A0\x00A0\x00A0\x00A0\x255A\x2550\x255D\x00A0\x00A0\x00A0\x255A\x2550\x255D\x00A0\x00A0\x255A\x2550\x255D\x255A\x2550\x255D\x255A\x2550\x255D\x00A0\x00A0\x255A\x2550\x2550\x2550\x255D\x00A0\x00A0\x00A0\x255A\x2550\x255D\x00A0\x00A0\x00A0\x255A\x2550\x255D\x00A0\x00A0\x255A\x2550\x255D\n");
     _setmode(_fileno(stdout), _O_TEXT);
 }
+void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs){
+    while (*echap==0){
+        switch(*numjoueur){
+            case 1 :
 
+
+                break;
+            case 2 :
+
+                break;
+            case 3 :
+
+                break;
+            case 4 :
+
+                break;
+        }
+        if (*numjoueur==*nbJoueurs){
+            *numjoueur=1;
+        }
+        else{
+            *numjoueur+=1;
+        }
+    }
+
+}
 
 
 

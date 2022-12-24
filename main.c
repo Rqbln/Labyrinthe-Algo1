@@ -1,5 +1,6 @@
 #include "sprog.h"
 #include <stdio.h>
+#include <stdlib.h> // bibliothèque pour la fonction system
 int main() {   //programme principale
     int tab[LARGEUR][LARGEUR];
     int choix;
@@ -10,7 +11,8 @@ int main() {   //programme principale
     int credit =0;
     int sauvegarde1tab[LARGEUR][LARGEUR];
     int sauvegardetourjoueur;
-    int numjoueur;
+    int numjoueur=1;
+    int echap=0;
 
     printf("\n");
     afficherTitre();
@@ -23,8 +25,11 @@ int main() {   //programme principale
         printf("\n");
         switch (choix) {
             case 1:
-                printf("Nombre de joueurs :");
-                scanf("%d",&nbJoueurs);
+
+                while(nbJoueurs<2 || nbJoueurs>4){
+                    printf("Nombre de joueurs(entre 2 et 4 :");
+                    scanf("%d",&nbJoueurs);
+                }
                 printf("Nombre de joueurs choisis : %d\n\n",nbJoueurs);
                 initialisationTableau(tab);
                 convertab(tab);
@@ -33,10 +38,20 @@ int main() {   //programme principale
                 //afficheplateaubinaire(tab, tabfinal);
                 afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
-
+                //tourjoueur(&numjoueur, &echap, &nbJoueurs);
 
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
+                printf("\n");
+                printf("\n");
+
+                //getchar(); // attend que l'utilisateur appuie sur une touche
+                //fgetc(stdin);
+
+
+                system("cls"); // "nettoyage" de la console en effaçant tout le contenu de la fenêtre
+
+                printf("La console a ete nettoyee.\n");
                 break;
             case 2:
                 printf("Sauvegarde de la partie en cours...\n");

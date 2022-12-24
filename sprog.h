@@ -43,6 +43,8 @@ void afficheplateauprog(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void afficheplateaubinaire(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 
+void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs);
+
 
 
 
