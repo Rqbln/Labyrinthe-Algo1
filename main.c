@@ -8,7 +8,7 @@ int main() {   //programme principale
     int tabfinal[21][21];
 
     printf("\n");
-    //afficherTitre();
+    afficherTitre();
 
     printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\nChoix :");
     scanf("%d",&choix);
@@ -20,6 +20,7 @@ int main() {   //programme principale
         convertab(tab);
         coordonne(tabfinal, &x, &y, tab);
         affichageTableau(tab, tabfinal);
+        //affichageTableau(tab, tabfinal);
         //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
         //finJeu(&ligne, &colonne, &tab[7][7], &n);
     }

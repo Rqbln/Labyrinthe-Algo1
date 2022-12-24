@@ -80,6 +80,7 @@ void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {        
         wprintf(L"\n");
     }
 
+    _setmode(_fileno(stdout), _O_TEXT);
 }
 void convertab(int tab[LARGEUR][LARGEUR]){
     for (int i = 0; i < (LARGEUR); i++) {
