@@ -4,19 +4,18 @@
 int main() {   //programme principale
     int tab[LARGEUR][LARGEUR];
     int x,y;
-    char nbJoueurs;
+    char choix, nbJoueurs;
     int tabfinal[21][21];
-    char choix;
-    int partie = 0;
-    int credit =0;
+    int tresorTot[24],tresor1[24],tresor2[24],tresor3[24],tresor4[24];
+    int partie=0;
     int sauvegarde1tab[LARGEUR][LARGEUR];
     int sauvegardetourjoueur;
     int numjoueur=1;
     int echap=0;
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
     printf("\n");
     afficherTitre();
-
 
     printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\n\n");
 
@@ -32,6 +31,7 @@ int main() {   //programme principale
             case '1':
 
                 while (nbJoueurs!='2' && nbJoueurs!='3' && nbJoueurs!='4'){
+
                     printf("Nombre de joueurs (entre 2 et 4) :");
                     scanf("%s",&nbJoueurs);
                 }
@@ -45,6 +45,7 @@ int main() {   //programme principale
                 afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
+                distributionCartes(&nbJoueurs, tresorTot, tresor1, tresor2, tresor3, tresor4);
 
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
@@ -77,7 +78,6 @@ int main() {   //programme principale
                 afficheplateaufinal(sauvegarde1tab, tabfinal);
                 break;
             case '4':
-                printf("Vous avez %d credit(s)\n\n", credit);
                 printf("Regles du jeu de societe Labyrinthe:\n\n");
                 printf("Le but du jeu est d'etre le premier a trouver la sortie du labyrinthe avec son pion.\n");
                 printf("Pour se deplacer, les joueurs tirent un de et avancent leur pion du nombre de cases correspondant.\n");

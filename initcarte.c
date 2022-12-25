@@ -270,98 +270,123 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
                     break;
                 case 10:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0041"); //affichage des valeur
                     break;
                 case 11:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0042"); //affichage des valeur
                     break;
                 case 12:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0043"); //affichage des valeur
                     break;
                 case 13:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0044"); //affichage des valeur
                     break;
                 case 14:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0045"); //affichage des valeur
                     break;
                 case 15:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0046"); //affichage des valeur
                     break;
                 case 16:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0047"); //affichage des valeur
                     break;
                 case 17:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0048"); //affichage des valeur
                     break;
                 case 18:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0049"); //affichage des valeur
                     break;
                 case 19:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x004A"); //affichage des valeur
                     break;
                 case 20:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x004B"); //affichage des valeur
                     break;
                 case 21:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x004C"); //affichage des valeur
                     break;
                 case 22:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x004D"); //affichage des valeur
                     break;
                 case 23:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x004E"); //affichage des valeur
                     break;
                 case 24:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x004F"); //affichage des valeur
                     break;
                 case 25:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0050"); //affichage des valeur
                     break;
                 case 26:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0051"); //affichage des valeur
                     break;
                 case 27:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0052"); //affichage des valeur
                     break;
                 case 28:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0053"); //affichage des valeur
                     break;
                 case 29:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0054"); //affichage des valeur
                     break;
                 case 30:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0055"); //affichage des valeur
                     break;
                 case 31:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0056"); //affichage des valeur
                     break;
                 case 32:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0057"); //affichage des valeur
                     break;
                 case 33:
+
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x0054\x0058"); //affichage des valeur
                     break;
 
@@ -385,4 +410,37 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
     }
 
     _setmode(_fileno(stdout), _O_TEXT);
+}
+
+void distributionCartes (char* nbJoueurs, int tresor[24],int tresor1[12],int tresor2[12],int tresor3[12],int tresor4[12]){
+    int nbCartes;
+    int verifieur[24];
+
+    srand(time(NULL));
+
+    if (*nbJoueurs=='2') {
+        nbCartes = 12;
+
+    //Manque le code de triage, réutiliser pareil que pour le labyrinthe
+
+
+    printf("Joueur 1, tes cartes tresors sont :");
+    for (int i = 0; i < nbCartes; ++i) {
+        printf("%d",tresor1[i]);
+    }
+    printf("Joueur 2, tes cartes tresors sont :");
+    for (int i = 0; i < nbCartes; ++i) {
+        printf("%d",tresor2[i]);
+    }
+
+
+    if (*nbJoueurs=='3') {
+        nbCartes = 7;// 24/3 ne tombe pas juste, on arrondit en dessous
+    }
+    if (*nbJoueurs=='4') {
+        nbCartes = 6;
+    }
+
+
+
 }

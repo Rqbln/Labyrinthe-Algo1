@@ -8,6 +8,7 @@
 #endif //LABYRINTE_SPROG_H
 
 #define LARGEUR 7
+
 //#ifndef INITPLATEAU_H_INCLUDED
 //#define AFFICHAGEC_H_INCLUDED
 #include <windows.h>
@@ -18,7 +19,6 @@ typedef enum{
     CYAN,
     RED,
     ORANGE,
-
     MAGENTA,
     BROWN,
     LIGHTGRAY,
@@ -29,8 +29,10 @@ typedef enum{
     LIGHTRED,
     LIGHTMAGENTA,
     YELLOW,
-    WHITE
+    WHITE,
 } COLORS;
+
+
 void afficherTitre();
 
 void initialisationTableau(int tab[LARGEUR][LARGEUR]);
@@ -43,17 +45,9 @@ void afficheplateauprog(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void afficheplateaubinaire(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 
+void distributionCartes (char* nbJoueurs, int tresor[24],int tresor1[12],int tresor2[12],int tresor3[12],int tresor4[12]);
 void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs);
 
+void text_color(int color); //change la couleur du texte
+void bg_color(int color); //change la couleur de fond
 
-
-
-
-
-
-void essaieJoueur(int *ligne, int *colonne, int *point, int tab[7][7]);
-void finJeu(int *ligne, int *colonne, int tab[LARGEUR][LARGEUR], int*n);
-void text_color(int color);
-//change la couleur de fond
-void bg_color(int color);
-void afficherTerrain4(int tab[LARGEUR][LARGEUR]);
