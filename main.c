@@ -21,9 +21,11 @@ int main() {   //programme principale
     printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\n\n");
 
     while (partie==0){
+
         printf("Choix :");
         scanf("%s",&choix);
         switch (choix) {
+
             case '0':
                 printf("Deconnexion... A bientot !\n");
                 partie=1;
@@ -53,9 +55,6 @@ int main() {   //programme principale
                 //fgetc(stdin);
 
 
-                system("cls"); // "nettoyage" de la console en effaçant tout le contenu de la fenêtre
-
-                printf("La console a ete nettoyee.\n");
                 break;
             case '2':
                 printf("Sauvegarde de la partie en cours...\n");
