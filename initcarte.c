@@ -192,10 +192,10 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
             if (value == 12 || value == 60){
                 switch (value) {
                     case 12:
-                        caseLT1[1][1]=26;
+                        caseLT1[1][1]=42;
                         break;
                     case 60:
-                        caseLT1[1][1]=27;
+                        caseLT1[1][1]=26;
                         break;
                 }
                 affect(tabfinal, &i, &j, caseLT1);
@@ -203,10 +203,10 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
             if (value == 0 || value == 61){
                 switch (value) {
                     case 0:
-                        caseLT2[1][1]=28;
+                        caseLT2[1][1]=40;
                         break;
                     case 61:
-                        caseLT2[1][1]=29;
+                        caseLT2[1][1]=27;
                         break;
                 }
                 affect(tabfinal, &i, &j, caseLT2);
@@ -214,10 +214,10 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
             if (value == 3 || value == 62){
                 switch (value) {
                     case 3:
-                        caseLT3[1][1]=30;
+                        caseLT3[1][1]=41;
                         break;
                     case 62:
-                        caseLT3[1][1]=31;
+                        caseLT3[1][1]=28;
                         break;
                 }
                 affect(tabfinal, &i, &j, caseLT3);
@@ -225,10 +225,10 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
             if (value == 15 || value == 63){
                 switch (value) {
                     case 15:
-                        caseLT4[1][1]=32;
+                        caseLT4[1][1]=43;
                         break;
                     case 63:
-                        caseLT4[1][1]=33;
+                        caseLT4[1][1]=29;
                         break;
                 }
                 affect(tabfinal, &i, &j, caseLT4);
@@ -393,26 +393,26 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
 
                     wprintf(L"\x0054\x0054"); //affichage des valeur
                     break;
-                case 30:
+                case 40:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0055"); //affichage des valeur
+                    wprintf(L"\x2592\x2592"); //affichage des valeur
                     break;
-                case 31:
+                case 41:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0056"); //affichage des valeur
+                    wprintf(L"\x2592\x2592"); //affichage des valeur
                     break;
-                case 32:
+                case 42:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0057"); //affichage des valeur
+                    wprintf(L"\x2592\x2592"); //affichage des valeur
                     break;
-                case 33:
+                case 43:
 
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0058"); //affichage des valeur
+                    wprintf(L"\x2592\x2592"); //affichage des valeur
                     break;
 
             }
