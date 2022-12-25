@@ -12,6 +12,7 @@ int main() {   //programme principale
     int sauvegardetourjoueur;
     int numjoueur=1;
     int echap=0;
+    int carterestante;
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
     printf("\n");
@@ -38,6 +39,7 @@ int main() {   //programme principale
 
                 printf("Nombre de joueurs choisis : %c\n\n",nbJoueurs);
                 initialisationTableau(tab);
+                init_carte_en_plus(tab, &carterestante);
                 convertab(tab);
                 coordonne(tabfinal, &x, &y, tab);
                 //afficheplateauprog(tab, tabfinal);
@@ -51,6 +53,8 @@ int main() {   //programme principale
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");
                 printf("\n");
+                printf("%d", carterestante);
+
 
                 //getchar(); // attend que l'utilisateur appuie sur une touche
                 //fgetc(stdin);

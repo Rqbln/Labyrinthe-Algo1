@@ -21,7 +21,7 @@ void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les
                 int verif=1;
                 while(verif==1) {
                     verif=0;
-                    tmp = ((LARGEUR/2)+1)*((LARGEUR/2)+1) + rand() % 34;   //creation d une variable aleatoire
+                    tmp = ((LARGEUR/2)+1)*((LARGEUR/2)+1) + rand() % 35;   //creation d une variable aleatoire
                     for (int l = 0; l < 34; l++) {
 
                         if (verifieur[l] == tmp) {
@@ -34,6 +34,29 @@ void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les
                 tab[i][j]= tmp;
             }
         }
+    }
+}
+void init_carte_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
+    int tmp;
+    tmp=rand() % 7;
+    srand(time(NULL));
+    *carterestante=tab[3][tmp];
+    tab[3][tmp]=49;
+    if (*carterestante>15 && *carterestante<22){
+        *carterestante=50 + rand() % 4;   //case en T avec tresor 50  X6
+
+    }
+    if (*carterestante>21 && *carterestante<28){
+        *carterestante=60 + rand() % 4;   //case en L avec tresor 60  X6
+
+    }
+    if (*carterestante>27 && *carterestante<38){
+        *carterestante=70 + rand() % 4;   //case en L classique 70 X10
+
+    }
+    if (*carterestante>37 && *carterestante<50){
+        *carterestante=80 + rand() % 2;   //case en I classique 80  X12
+
     }
 }
 void convertab(int tab[LARGEUR][LARGEUR]){

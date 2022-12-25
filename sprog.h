@@ -36,6 +36,7 @@ typedef enum{
 void afficherTitre();
 
 void initialisationTableau(int tab[LARGEUR][LARGEUR]);
+void init_carte_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante);
 void convertab(int tab[LARGEUR][LARGEUR]);
 void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]);
 void affect(int tabfinal[21][21], int *x, int *y, int cases[3][3]);
