@@ -36,8 +36,10 @@ void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les
         }
     }
 }
-void init_carte_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
+void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
+
     int tmp;
+
     tmp=rand() % 7;
     srand(time(NULL));
     *carterestante=tab[3][tmp];
@@ -435,35 +437,264 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
     _setmode(_fileno(stdout), _O_TEXT);
 }
 
-void distributionCartes (char* nbJoueurs, int tresor[24],int tresor1[12],int tresor2[12],int tresor3[12],int tresor4[12]){
-    int nbCartes;
-    int verifieur[24];
+void affiche_case_en_plus(int *carterestante) {
+    int caseT1[3][3] = {0, 0, 0, 1, 8, 1, 0, 1, 0}; //https://i.imgur.com/aXB8t7o.png
+    int caseT2[3][3] = {0, 1, 0, 1, 8, 0, 0, 1, 0};
+    int caseT3[3][3] = {0, 1, 0, 1, 8, 1, 0, 0, 0};
+    int caseT4[3][3] = {0, 1, 0, 0, 8, 1, 0, 1, 0};
+    int caseL1[3][3] = {0, 1, 0, 0, 1, 1, 0, 0, 0}; //https://i.imgur.com/Vn94Xo6.png
+    int caseL2[3][3] = {0, 0, 0, 0, 1, 1, 0, 1, 0};
+    int caseL3[3][3] = {0, 0, 0, 1, 1, 0, 0, 1, 0};
+    int caseL4[3][3] = {0, 1, 0, 1, 1, 0, 0, 0, 0};
+    int caseLT1[3][3] = {0, 1, 0, 0, 8, 1, 0, 0, 0}; //https://i.imgur.com/u5g71NJ.png
+    int caseLT2[3][3] = {0, 0, 0, 0, 8, 1, 0, 1, 0};
+    int caseLT3[3][3] = {0, 0, 0, 1, 8, 0, 0, 1, 0};
+    int caseLT4[3][3] = {0, 1, 0, 1, 8, 0, 0, 0, 0};
+    int caseI1[3][3] = {0, 1, 0, 0, 1, 0, 0, 1, 0};
+    int caseI2[3][3] = {0, 0, 0, 1, 1, 1, 0, 0, 0};
+    int casefinal[3][3];
+    switch (*carterestante) {
+        case 50:
+            caseT1[1][1] = 13;
+            break;
+        case 51:
+            caseT2[1][1] = 17;
+            break;
+        case 52:
+            caseT3[1][1] = 21;
+            break;
+        case 53:
+            caseT4[1][1] = 25;
+            break;
+        case 60:
+            caseL1[1][1] = 27;
+            break;
+        case 61:
+            caseL2[1][1] = 29;
+            break;
+        case 62:
+            caseL3[1][1] = 31;
+            break;
+        case 63:
+            caseL4[1][1] = 33;
+            break;
+    }
+    switch (*carterestante / 10) {
+        case 5:
+            switch (*carterestante % 10) {
+                case 0:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseT1[i][j];
+                        }
+                    }
+                    break;
+                case 1:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseT2[i][j];
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseT3[i][j];
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseT4[i][j];
+                        }
+                    }
+                    break;
+            }
 
-    srand(time(NULL));
+            break;
+        case 6:
+            switch (*carterestante % 10) {
+                case 0:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseLT1[i][j];
+                        }
+                    }
+                    break;
+                case 1:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseLT2[i][j];
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseLT3[i][j];
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseLT4[i][j];
+                        }
+                    }
+                    break;
+            }
+            break;
+        case 7:
+            switch (*carterestante % 10) {
+                case 0:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseL1[i][j];
+                        }
+                    }
+                    break;
+                case 1:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseL2[i][j];
+                        }
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseL3[i][j];
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseL4[i][j];
+                        }
+                    }
+                    break;
+            }
+            break;
+        case 8:
+            switch (*carterestante % 10) {
+                case 0:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseI1[i][j];
+                        }
+                    }
+                    break;
+                case 1:
+                    for (int i = 0; i < 3; ++i) {
+                        for (int j = 0; j < 3; ++j) {
+                            casefinal[i][j] = caseI2[i][j];
+                        }
+                    }
+                    break;
+            }
+            break;
+    }
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            switch (casefinal[i][j]) {
+                case 0:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+                    wprintf(L"\x2588\x2588"); //affichage des valeur
+                    break;
+                case 1:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+                    wprintf(L"\x00A0\x00A0"); //affichage des valeur
+                    break;
 
-    if (*nbJoueurs=='2') {
-        nbCartes = 12;
+                case 13:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
 
-        //Manque le code de triage, réutiliser pareil que pour le labyrinthe
+                    wprintf(L"\x0054\x0044"); //affichage des valeur
+                    break;
 
+                case 17:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
 
-        printf("Joueur 1, tes cartes tresors sont :");
-        for (int i = 0; i < nbCartes; ++i) {
-            printf("%d", tresor1[i]);
+                    wprintf(L"\x0054\x0048"); //affichage des valeur
+                    break;
+
+                case 21:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x004C"); //affichage des valeur
+                    break;
+
+                case 25:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0050"); //affichage des valeur
+                    break;
+
+                case 27:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0052"); //affichage des valeur
+                    break;
+
+                case 29:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0054"); //affichage des valeur
+                    break;
+
+                case 31:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0056"); //affichage des valeur
+                    break;
+
+                case 33:
+
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0058"); //affichage des valeur
+                    break;
+
+            }
+
         }
-        printf("Joueur 2, tes cartes tresors sont :");
-        for (int i = 0; i < nbCartes; ++i) {
-            printf("%d", tresor2[i]);
+        _setmode(_fileno(stdout), _O_U16TEXT);
+        wprintf(L"\n");
+        _setmode(_fileno(stdout), _O_TEXT);
+
+    }
+    void distributionCartes(char *nbJoueurs, int tresor[24], int tresor1[12], int tresor2[12], int tresor3[12],int tresor4[12]){
+        // Initialisation de la variable "nbCartes" à 12 et du générateur de nombres aléatoires
+        int nbCartes = 12;
+        srand(time(NULL));
+
+        // Si le nombre de joueurs est égal à 2
+        if (*nbJoueurs == '2') {
+            // Affichage des cartes trésors du joueur 1 et du joueur 2
+            printf("Joueur 1, tes cartes tresors sont :");
+            for (int i = 0; i < nbCartes; ++i) {
+                printf("%d", tresor1[i]);
+            }
+            printf("Joueur 2, tes cartes tresors sont :");
+            for (int i = 0; i < nbCartes; ++i) {
+                printf("%d", tresor2[i]);
+            }
         }
 
-
+        // Si le nombre de joueurs est égal à 3
         if (*nbJoueurs == '3') {
-            nbCartes = 7;// 24/3 ne tombe pas juste, on arrondit en dessous
+            // Initialisation de "nbCartes" à 7
+            nbCartes = 7;
+            // Manque le code de triage des cartes trésors dans les tableaux "tresor1", "tresor2" et "tresor3"
         }
+
+        // Si le nombre de joueurs est égal à 4
         if (*nbJoueurs == '4') {
+            // Initialisation de "nbCartes" à 6
             nbCartes = 6;
+            // Manque le code de triage des cartes trésors dans les tableaux "tresor1", "tresor2", "tresor3" et "tresor4"
         }
-
-
     }
 }

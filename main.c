@@ -39,7 +39,7 @@ int main() {   //programme principale
 
                 printf("Nombre de joueurs choisis : %c\n\n",nbJoueurs);
                 initialisationTableau(tab);
-                init_carte_en_plus(tab, &carterestante);
+                init_case_en_plus(tab, &carterestante);
                 convertab(tab);
                 coordonne(tabfinal, &x, &y, tab);
                 //afficheplateauprog(tab, tabfinal);
@@ -47,13 +47,14 @@ int main() {   //programme principale
                 afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
-                distributionCartes(&nbJoueurs, tresorTot, tresor1, tresor2, tresor3, tresor4);
+                //distributionCartes(&nbJoueurs, tresorTot, tresor1, tresor2, tresor3, tresor4);
 
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");
                 printf("\n");
-                printf("%d", carterestante);
+                //printf("%d", carterestante);
+                affiche_case_en_plus(&carterestante);
 
 
                 //getchar(); // attend que l'utilisateur appuie sur une touche
