@@ -3,10 +3,10 @@
 #include <stdlib.h> // bibliothèque pour la fonction system
 int main() {   //programme principale
     int tab[LARGEUR][LARGEUR];
-    int choix;
     int x,y;
-    int nbJoueurs;
+    char nbJoueurs;
     int tabfinal[21][21];
+    char choix;
     int partie = 0;
     int credit =0;
     int sauvegarde1tab[LARGEUR][LARGEUR];
@@ -17,20 +17,24 @@ int main() {   //programme principale
     printf("\n");
     afficherTitre();
 
-    printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\nEntrez n'importe quelle valeur pour quitter le jeu\n\n");
+
+    printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\n\n");
 
     while (partie==0){
         printf("Choix :");
-        scanf("%d",&choix);
-        printf("\n");
+        scanf("%s",&choix);
         switch (choix) {
-            case 1:
+            case '0':
+                printf("Deconnexion... A bientot !\n");
+                partie=1;
+            case '1':
 
-                while(nbJoueurs<2 || nbJoueurs>4){
+                while (nbJoueurs!='2' && nbJoueurs!='3' && nbJoueurs!='4'){
                     printf("Nombre de joueurs (entre 2 et 4) :");
-                    scanf("%d",&nbJoueurs);
+                    scanf("%s",&nbJoueurs);
                 }
-                printf("Nombre de joueurs choisis : %d\n\n",nbJoueurs);
+
+                printf("Nombre de joueurs choisis : %c\n\n",nbJoueurs);
                 initialisationTableau(tab);
                 convertab(tab);
                 coordonne(tabfinal, &x, &y, tab);
@@ -53,7 +57,7 @@ int main() {   //programme principale
 
                 printf("La console a ete nettoyee.\n");
                 break;
-            case 2:
+            case '2':
                 printf("Sauvegarde de la partie en cours...\n");
                 for (int i = 0; i < LARGEUR; ++i) {
                     for (int j = 0; j < LARGEUR; ++j) {
@@ -65,7 +69,7 @@ int main() {   //programme principale
 
 
                 break;
-            case 3:
+            case '3':
                 printf("Lancement de la partie sauvegardee...\n");
                 //tab[LARGEUR][LARGEUR]=sauvegarde1tab[LARGEUR][LARGEUR];
                 numjoueur=sauvegardetourjoueur;
@@ -73,7 +77,7 @@ int main() {   //programme principale
                 coordonne(tabfinal, &x, &y, sauvegarde1tab);
                 afficheplateaufinal(sauvegarde1tab, tabfinal);
                 break;
-            case 4:
+            case '4':
                 printf("Vous avez %d credit(s)\n\n", credit);
                 printf("Regles du jeu de societe Labyrinthe:\n\n");
                 printf("Le but du jeu est d'etre le premier a trouver la sortie du labyrinthe avec son pion.\n");
@@ -83,8 +87,9 @@ int main() {   //programme principale
                 printf("Le premier joueur a sortir du labyrinthe est declare vainqueur.\n");
                 break;
             default:
-                printf("Deconnexion... A bientot !\n");
-                partie=1;
+                partie=0;
+                choix=-1;
+
         }
 
 
