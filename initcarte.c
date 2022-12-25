@@ -665,36 +665,36 @@ void affiche_case_en_plus(int *carterestante) {
         _setmode(_fileno(stdout), _O_TEXT);
 
     }
-    void distributionCartes(char *nbJoueurs, int tresor[24], int tresor1[12], int tresor2[12], int tresor3[12],int tresor4[12]){
-        // Initialisation de la variable "nbCartes" à 12 et du générateur de nombres aléatoires
-        int nbCartes = 12;
-        srand(time(NULL));
+}
+void distributionCartes (char *nbJoueurs, int tresor[24], int tresor1[12], int tresor2[12], int tresor3[12],int tresor4[12]){
+    // Initialisation de la variable "nbCartes" à 12 et du générateur de nombres aléatoires
+    int nbCartes = 12;
+    srand(time(NULL));
 
-        // Si le nombre de joueurs est égal à 2
-        if (*nbJoueurs == '2') {
-            // Affichage des cartes trésors du joueur 1 et du joueur 2
-            printf("Joueur 1, tes cartes tresors sont :");
-            for (int i = 0; i < nbCartes; ++i) {
-                printf("%d", tresor1[i]);
-            }
-            printf("Joueur 2, tes cartes tresors sont :");
-            for (int i = 0; i < nbCartes; ++i) {
-                printf("%d", tresor2[i]);
-            }
+    // Si le nombre de joueurs est égal à 2
+    if (*nbJoueurs == '2') {
+        // Affichage des cartes trésors du joueur 1 et du joueur 2
+        printf("Joueur 1, tes cartes tresors sont :");
+        for (int i = 0; i < nbCartes; ++i) {
+            printf("%d", tresor1[i]);
         }
+        printf("Joueur 2, tes cartes tresors sont :");
+        for (int i = 0; i < nbCartes; ++i) {
+            printf("%d", tresor2[i]);
+        }
+    }
 
-        // Si le nombre de joueurs est égal à 3
-        if (*nbJoueurs == '3') {
-            // Initialisation de "nbCartes" à 7
-            nbCartes = 7;
-            // Manque le code de triage des cartes trésors dans les tableaux "tresor1", "tresor2" et "tresor3"
-        }
+    // Si le nombre de joueurs est égal à 3
+    if (*nbJoueurs == '3') {
+        // Initialisation de "nbCartes" à 7
+        nbCartes = 7;
+        // Manque le code de triage des cartes trésors dans les tableaux "tresor1", "tresor2" et "tresor3"
+    }
 
-        // Si le nombre de joueurs est égal à 4
-        if (*nbJoueurs == '4') {
-            // Initialisation de "nbCartes" à 6
-            nbCartes = 6;
-            // Manque le code de triage des cartes trésors dans les tableaux "tresor1", "tresor2", "tresor3" et "tresor4"
-        }
+    // Si le nombre de joueurs est égal à 4
+    if (*nbJoueurs == '4') {
+        // Initialisation de "nbCartes" à 6
+        nbCartes = 6;
+        // Manque le code de triage des cartes trésors dans les tableaux "tresor1", "tresor2", "tresor3" et "tresor4"
     }
 }

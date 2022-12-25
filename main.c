@@ -6,7 +6,7 @@ int main() {   //programme principale
     int x,y;
     char choix, nbJoueurs;
     int tabfinal[21][21];
-    int tresorTot[24],tresor1[24],tresor2[24],tresor3[24],tresor4[24];
+    int tresor[24],tresor1[24],tresor2[24],tresor3[24],tresor4[24];
     int partie=0;
     int sauvegarde1tab[LARGEUR][LARGEUR];
     int sauvegardetourjoueur;
@@ -47,7 +47,7 @@ int main() {   //programme principale
                 afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
-                //distributionCartes(&nbJoueurs, tresorTot, tresor1, tresor2, tresor3, tresor4);
+                distributionCartes(&nbJoueurs, tresor, tresor1, tresor2, tresor3, tresor4);
 
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
