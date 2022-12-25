@@ -27,7 +27,7 @@ int main() {   //programme principale
             case 1:
 
                 while(nbJoueurs<2 || nbJoueurs>4){
-                    printf("Nombre de joueurs(entre 2 et 4 :");
+                    printf("Nombre de joueurs (entre 2 et 4) :");
                     scanf("%d",&nbJoueurs);
                 }
                 printf("Nombre de joueurs choisis : %d\n\n",nbJoueurs);
