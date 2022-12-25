@@ -421,26 +421,26 @@ void distributionCartes (char* nbJoueurs, int tresor[24],int tresor1[12],int tre
     if (*nbJoueurs=='2') {
         nbCartes = 12;
 
-    //Manque le code de triage, réutiliser pareil que pour le labyrinthe
+        //Manque le code de triage, réutiliser pareil que pour le labyrinthe
 
 
-    printf("Joueur 1, tes cartes tresors sont :");
-    for (int i = 0; i < nbCartes; ++i) {
-        printf("%d",tresor1[i]);
+        printf("Joueur 1, tes cartes tresors sont :");
+        for (int i = 0; i < nbCartes; ++i) {
+            printf("%d", tresor1[i]);
+        }
+        printf("Joueur 2, tes cartes tresors sont :");
+        for (int i = 0; i < nbCartes; ++i) {
+            printf("%d", tresor2[i]);
+        }
+
+
+        if (*nbJoueurs == '3') {
+            nbCartes = 7;// 24/3 ne tombe pas juste, on arrondit en dessous
+        }
+        if (*nbJoueurs == '4') {
+            nbCartes = 6;
+        }
+
+
     }
-    printf("Joueur 2, tes cartes tresors sont :");
-    for (int i = 0; i < nbCartes; ++i) {
-        printf("%d",tresor2[i]);
-    }
-
-
-    if (*nbJoueurs=='3') {
-        nbCartes = 7;// 24/3 ne tombe pas juste, on arrondit en dessous
-    }
-    if (*nbJoueurs=='4') {
-        nbCartes = 6;
-    }
-
-
-
 }
