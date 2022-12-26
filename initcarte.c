@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <io.h>
+
+
 void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les valeur du tableau
     int tmp;
     int fixe=0;
@@ -666,9 +668,8 @@ void affiche_case_en_plus(int *carterestante) {
 
     }
 }
-void distributionCartes (char *nbJoueurs, int cartesJoueurs[*nbJoueurs][*nbCartesJoueurs]){
+void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[*nbJoueurs][*nbCartesJoueurs]){
     int nbCartes[CARTES];
-    int nbCartesJoueurs;
     size_t i;
     size_t joueur;
     char buffer[BUFFER_SIZE];
@@ -678,13 +679,13 @@ void distributionCartes (char *nbJoueurs, int cartesJoueurs[*nbJoueurs][*nbCarte
     fgets(buffer, BUFFER_SIZE, stdin);
 
 // Conversion de la saisie en entier et vérification de la validité
-    while (sscanf(buffer, "%d", &nbJoueurs) != 1 || nbJoueurs < 2 || nbJoueurs > 4) {
+    while (sscanf(buffer, "%d", nbJoueurs) != 1 || *nbJoueurs < 2 || *nbJoueurs > 4) {
         printf("Entrez le nombre de joueurs (entre 2 et 4) :");
         fgets(buffer, BUFFER_SIZE, stdin);
     }
 
 // Calcul du nombre de cartes par joueur
-    nbCartesJoueurs = CARTES / nbJoueurs;
+    *nbCartesJoueurs = CARTES / *nbJoueurs;
 
 // Initialisation du générateur de nombres aléatoires
     srand(time(NULL));
@@ -702,13 +703,11 @@ void distributionCartes (char *nbJoueurs, int cartesJoueurs[*nbJoueurs][*nbCarte
         nbCartes[j] = temp;
     }
 
-// Création des tableaux de cartes pour chaque joueur
-    int cartesJoueurs[nbJoueurs][nbCartesJoueurs];
 
 // Répartition des cartes entre les joueurs
     for (i = 0; i < CARTES; i++) {
-        joueur = i % nbJoueurs;
-        cartesJoueurs[joueur][i / nbJoueurs] = nbCartes[i];
+        joueur = i % *nbJoueurs;
+        cartesJoueurs[joueur][i / *nbJoueurs] = nbCartes[i];
     }
 
 // Affichage des cartes de chaque joueur

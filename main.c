@@ -3,8 +3,9 @@
 #include <stdlib.h> // bibliothèque pour la fonction system
 int main() {   //programme principale
     int tab[LARGEUR][LARGEUR];
-    int x,y;
-    char choix, nbJoueurs;
+    char buffer[BUFFER_SIZE];
+    int x,y,nbJoueurs;
+    char choix;
     int nbCartesJoueurs;
     int cartesJoueurs[nbJoueurs][nbCartesJoueurs];
     int tabfinal[21][21];
@@ -15,7 +16,6 @@ int main() {   //programme principale
     int numjoueur=1;
     int echap=0;
     int carterestante;
-    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
     printf("\n");
     afficherTitre();
@@ -33,13 +33,6 @@ int main() {   //programme principale
                 partie=1;
             case '1':
 
-                while (nbJoueurs!='2' && nbJoueurs!='3' && nbJoueurs!='4'){
-
-                    printf("Nombre de joueurs (entre 2 et 4) :");
-                    scanf("%s",&nbJoueurs);
-                }
-
-                printf("Nombre de joueurs choisis : %c\n\n",nbJoueurs);
                 initialisationTableau(tab);
                 init_case_en_plus(tab, &carterestante);
                 convertab(tab);
@@ -49,7 +42,7 @@ int main() {   //programme principale
                 afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
-                distributionCartes(&nbJoueurs, tresor, tresor1, tresor2, tresor3, tresor4);
+                distributionCartes(&nbJoueurs, &nbCartesJoueurs,cartesJoueurs);
 
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);

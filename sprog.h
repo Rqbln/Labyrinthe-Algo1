@@ -49,7 +49,7 @@ void afficheplateaubinaire(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void affiche_case_en_plus(int *carterestante);
 
-void distributionCartes (char *nbJoueurs, int cartesJoueurs[*nbJoueurs][*nbCartesJoueurs]);
+void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[*nbJoueurs][*nbCartesJoueurs]);
 void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs);
 
 void text_color(int color); //change la couleur du texte
