@@ -42,6 +42,7 @@ int main() {   //programme principale
                 afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
+                affiche_case_en_plus(&carterestante);
                 nombreJoueurs(&nbJoueurs,&nbCartesJoueurs);
                 distributionCartes(&nbJoueurs, &nbCartesJoueurs,cartesJoueurs);
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
@@ -49,7 +50,7 @@ int main() {   //programme principale
                 printf("\n");
                 printf("\n");
                 //printf("%d", carterestante);
-                affiche_case_en_plus(&carterestante);
+
 
 
                 //getchar(); // attend que l'utilisateur appuie sur une touche

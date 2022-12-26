@@ -39,7 +39,6 @@ void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les
     }
 }
 void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
-
     int tmp;
 
     tmp=rand() % 7;
@@ -441,6 +440,7 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
 
 void affiche_case_en_plus(int *carterestante) {
     //scanf("%d",&*carterestante);
+    printf("Tuile supplementaire :\n");
     int caseT1[3][3] = {0, 0, 0, 1, 8, 1, 0, 1, 0}; //https://i.imgur.com/aXB8t7o.png
     int caseT2[3][3] = {0, 1, 0, 1, 8, 0, 0, 1, 0};
     int caseT3[3][3] = {0, 1, 0, 1, 8, 1, 0, 0, 0};

@@ -64,12 +64,12 @@ void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs
     // Distribution des cartes mélangées aux joueurs
     for (i = 0; i < CARTES; i++) {
         joueur = i % *nbJoueurs;
-        cartesJoueurs[joueur][i / *nbJoueurs] = nbCartes[i];
+        cartesJoueurs[joueur][i / *nbJoueurs] = nbCartes[i]+10;
     }
 
     // Affichage des cartes de chaque joueur
     for (joueur = 0; joueur < *nbJoueurs; joueur++) {
-        printf("Joueur %lu : ", joueur + 1);
+        printf("Joueur %d : ", joueur + 1);
         for (i = 0; i < *nbCartesJoueurs; i++) {
             printf("%d ", cartesJoueurs[joueur][i]);
         }
