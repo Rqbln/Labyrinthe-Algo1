@@ -1,13 +1,12 @@
 #include "sprog.h"
 #include <stdio.h>
-#include <stdlib.h> // bibliothèque pour la fonction system
 int main() {   //programme principale
     int tab[LARGEUR][LARGEUR];
     char buffer[BUFFER_SIZE];
     int x,y,nbJoueurs;
     char choix;
     int nbCartesJoueurs;
-    int cartesJoueurs[LARGEUR][LARGEUR];
+    int cartesJoueurs[CARTES][CARTES];
     int tabfinal[21][21];
     int tresor[24],tresor1[24],tresor2[24],tresor3[24],tresor4[24];
     int partie=0;

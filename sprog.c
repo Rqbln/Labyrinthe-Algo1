@@ -38,7 +38,7 @@ void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs){
     *nbCartesJoueurs = CARTES / *nbJoueurs;
 }
 
-void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[LARGEUR][LARGEUR]){
+void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[CARTES][CARTES]){
     // Déclaration des variables locales
     int nbCartes[CARTES];
     int i;
