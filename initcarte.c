@@ -668,34 +668,42 @@ void affiche_case_en_plus(int *carterestante) {
 
     }
 }
-void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[*nbJoueurs][*nbCartesJoueurs]){
-    int nbCartes[CARTES];
-    size_t i;
-    size_t joueur;
-    char buffer[BUFFER_SIZE];
 
-// Saisie du nombre de joueurs
+void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs){
+    char buffer[BUFFER_SIZE];
+    // Saisie du nombre de joueurs
     printf("Entrez le nombre de joueurs (entre 2 et 4) :");
+    fflush(stdin);
     fgets(buffer, BUFFER_SIZE, stdin);
 
 // Conversion de la saisie en entier et vérification de la validité
     while (sscanf(buffer, "%d", nbJoueurs) != 1 || *nbJoueurs < 2 || *nbJoueurs > 4) {
         printf("Entrez le nombre de joueurs (entre 2 et 4) :");
+        fflush(stdin);
         fgets(buffer, BUFFER_SIZE, stdin);
     }
+    printf("%d joueurs seront dans cette partie.\n",*nbJoueurs);
 
-// Calcul du nombre de cartes par joueur
     *nbCartesJoueurs = CARTES / *nbJoueurs;
+}
 
-// Initialisation du générateur de nombres aléatoires
+void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[LARGEUR][LARGEUR]){
+    int nbCartes[CARTES];
+    int i;
+    int joueur;
+    char buffer[BUFFER_SIZE];
+
+
+
+
     srand(time(NULL));
 
-// Remplissage du tableau de cartes
+
     for (i = 0; i < CARTES; i++) {
         nbCartes[i] = i;
     }
 
-// Mélange du tableau de cartes
+
     for (i = CARTES - 1; i > 0; i--) {
         size_t j = rand() % (i + 1);
         int temp = nbCartes[i];
@@ -704,16 +712,16 @@ void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs
     }
 
 
-// Répartition des cartes entre les joueurs
+
     for (i = 0; i < CARTES; i++) {
         joueur = i % *nbJoueurs;
         cartesJoueurs[joueur][i / *nbJoueurs] = nbCartes[i];
     }
 
-// Affichage des cartes de chaque joueur
-    for (joueur = 0; joueur < nbJoueurs; joueur++) {
+
+    for (joueur = 0; joueur < *nbJoueurs; joueur++) {
         printf("Joueur %lu : ", joueur + 1);
-        for (i = 0; i < nbCartesJoueurs; i++) {
+        for (i = 0; i < *nbCartesJoueurs; i++) {
             printf("%d ", cartesJoueurs[joueur][i]);
         }
         printf("\n");

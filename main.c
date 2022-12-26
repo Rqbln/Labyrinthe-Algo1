@@ -7,7 +7,7 @@ int main() {   //programme principale
     int x,y,nbJoueurs;
     char choix;
     int nbCartesJoueurs;
-    int cartesJoueurs[nbJoueurs][nbCartesJoueurs];
+    int cartesJoueurs[LARGEUR][LARGEUR];
     int tabfinal[21][21];
     int tresor[24],tresor1[24],tresor2[24],tresor3[24],tresor4[24];
     int partie=0;
@@ -38,12 +38,12 @@ int main() {   //programme principale
                 convertab(tab);
                 coordonne(tabfinal, &x, &y, tab);
                 //afficheplateauprog(tab, tabfinal);
-                afficheplateaubinaire(tab, tabfinal);
-                //afficheplateaufinal(tab, tabfinal);
+                //afficheplateaubinaire(tab, tabfinal);
+                afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
+                nombreJoueurs(&nbJoueurs,&nbCartesJoueurs);
                 distributionCartes(&nbJoueurs, &nbCartesJoueurs,cartesJoueurs);
-
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");
@@ -55,8 +55,6 @@ int main() {   //programme principale
                 //getchar(); // attend que l'utilisateur appuie sur une touche
                 //fgetc(stdin);
 
-
-                break;
             case '2':
                 printf("Sauvegarde de la partie en cours...\n");
                 for (int i = 0; i < LARGEUR; ++i) {

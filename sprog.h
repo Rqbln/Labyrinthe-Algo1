@@ -1,6 +1,3 @@
-//
-// Created by bapti on 30/11/2022.
-//
 
 #ifndef LABYRINTE_SPROG_H
 #define LABYRINTE_SPROG_H
@@ -49,9 +46,9 @@ void afficheplateaubinaire(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void affiche_case_en_plus(int *carterestante);
 
-void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[*nbJoueurs][*nbCartesJoueurs]);
+void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs);
+void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[LARGEUR][LARGEUR]);
 void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs);
-void deplacementJoueur ();
 
 void text_color(int color); //change la couleur du texte
 void bg_color(int color); //change la couleur de fond
