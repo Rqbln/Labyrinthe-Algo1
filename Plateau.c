@@ -669,3 +669,13 @@ void affiche_case_en_plus(int *carterestante) {
 
     }
 }
+void deplacementJoueur()
+{
+    //positions initiales des joueurs (à ne declarer qu'une seule fois)
+    int pos1[7][7]={0,0};
+    int pos2[7][7]={0,7};
+    int pos3[7][7]={7,0};
+    int pos4[7][7]={7,7};
+    printf("Deplacement du personnage :\n 1.Vers le haut\n2.Vers la gauche\n3.Vers la droite\n4.Vers le bas\n0.Terminer votre tour");
+
+}

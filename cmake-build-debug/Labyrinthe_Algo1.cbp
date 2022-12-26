@@ -78,13 +78,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/eleou/Documents/GitHub/Labyrinthe-Algo1/deplacementJoueur.c">
+		<Unit filename="C:/Users/eleou/Documents/GitHub/Labyrinthe-Algo1/Plateau.c">
 			<Option target="Labyrinthe_Algo1"/>
 		</Unit>
 		<Unit filename="C:/Users/eleou/Documents/GitHub/Labyrinthe-Algo1/initPlateauColor.c">
-			<Option target="Labyrinthe_Algo1"/>
-		</Unit>
-		<Unit filename="C:/Users/eleou/Documents/GitHub/Labyrinthe-Algo1/initcarte.c">
 			<Option target="Labyrinthe_Algo1"/>
 		</Unit>
 		<Unit filename="C:/Users/eleou/Documents/GitHub/Labyrinthe-Algo1/main.c">

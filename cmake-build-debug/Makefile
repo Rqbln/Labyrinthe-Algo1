@@ -128,29 +128,29 @@ Labyrinthe_Algo1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/build
 .PHONY : Labyrinthe_Algo1/fast
 
-deplacementJoueur.obj: deplacementJoueur.c.obj
-.PHONY : deplacementJoueur.obj
+Plateau.obj: Plateau.c.obj
+.PHONY : Plateau.obj
 
 # target to build an object file
-deplacementJoueur.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacementJoueur.c.obj
-.PHONY : deplacementJoueur.c.obj
+Plateau.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/Plateau.c.obj
+.PHONY : Plateau.c.obj
 
-deplacementJoueur.i: deplacementJoueur.c.i
-.PHONY : deplacementJoueur.i
+Plateau.i: Plateau.c.i
+.PHONY : Plateau.i
 
 # target to preprocess a source file
-deplacementJoueur.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacementJoueur.c.i
-.PHONY : deplacementJoueur.c.i
+Plateau.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/Plateau.c.i
+.PHONY : Plateau.c.i
 
-deplacementJoueur.s: deplacementJoueur.c.s
-.PHONY : deplacementJoueur.s
+Plateau.s: Plateau.c.s
+.PHONY : Plateau.s
 
 # target to generate assembly for a file
-deplacementJoueur.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacementJoueur.c.s
-.PHONY : deplacementJoueur.c.s
+Plateau.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/Plateau.c.s
+.PHONY : Plateau.c.s
 
 initPlateauColor.obj: initPlateauColor.c.obj
 .PHONY : initPlateauColor.obj
@@ -175,30 +175,6 @@ initPlateauColor.s: initPlateauColor.c.s
 initPlateauColor.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateauColor.c.s
 .PHONY : initPlateauColor.c.s
-
-initcarte.obj: initcarte.c.obj
-.PHONY : initcarte.obj
-
-# target to build an object file
-initcarte.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initcarte.c.obj
-.PHONY : initcarte.c.obj
-
-initcarte.i: initcarte.c.i
-.PHONY : initcarte.i
-
-# target to preprocess a source file
-initcarte.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initcarte.c.i
-.PHONY : initcarte.c.i
-
-initcarte.s: initcarte.c.s
-.PHONY : initcarte.s
-
-# target to generate assembly for a file
-initcarte.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initcarte.c.s
-.PHONY : initcarte.c.s
 
 main.obj: main.c.obj
 .PHONY : main.obj
@@ -257,15 +233,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Labyrinthe_Algo1
-	@echo ... deplacementJoueur.obj
-	@echo ... deplacementJoueur.i
-	@echo ... deplacementJoueur.s
+	@echo ... Plateau.obj
+	@echo ... Plateau.i
+	@echo ... Plateau.s
 	@echo ... initPlateauColor.obj
 	@echo ... initPlateauColor.i
 	@echo ... initPlateauColor.s
-	@echo ... initcarte.obj
-	@echo ... initcarte.i
-	@echo ... initcarte.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
