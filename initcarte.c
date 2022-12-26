@@ -666,35 +666,57 @@ void affiche_case_en_plus(int *carterestante) {
 
     }
 }
-void distributionCartes (char *nbJoueurs, int tresor[24], int tresor1[12], int tresor2[12], int tresor3[12],int tresor4[12]){
-    // Initialisation de la variable "nbCartes" à 12 et du générateur de nombres aléatoires
-    int nbCartes = 12;
+void distributionCartes (char *nbJoueurs, int cartesJoueurs[*nbJoueurs][*nbCartesJoueurs]){
+    int nbCartes[CARTES];
+    int nbCartesJoueurs;
+    size_t i;
+    size_t joueur;
+    char buffer[BUFFER_SIZE];
+
+// Saisie du nombre de joueurs
+    printf("Entrez le nombre de joueurs (entre 2 et 4) :");
+    fgets(buffer, BUFFER_SIZE, stdin);
+
+// Conversion de la saisie en entier et vérification de la validité
+    while (sscanf(buffer, "%d", &nbJoueurs) != 1 || nbJoueurs < 2 || nbJoueurs > 4) {
+        printf("Entrez le nombre de joueurs (entre 2 et 4) :");
+        fgets(buffer, BUFFER_SIZE, stdin);
+    }
+
+// Calcul du nombre de cartes par joueur
+    nbCartesJoueurs = CARTES / nbJoueurs;
+
+// Initialisation du générateur de nombres aléatoires
     srand(time(NULL));
 
-    // Si le nombre de joueurs est égal à 2
-    if (*nbJoueurs == '2') {
-        // Affichage des cartes trésors du joueur 1 et du joueur 2
-        printf("Joueur 1, tes cartes tresors sont :");
-        for (int i = 0; i < nbCartes; ++i) {
-            printf("%d", tresor1[i]);
-        }
-        printf("Joueur 2, tes cartes tresors sont :");
-        for (int i = 0; i < nbCartes; ++i) {
-            printf("%d", tresor2[i]);
-        }
+// Remplissage du tableau de cartes
+    for (i = 0; i < CARTES; i++) {
+        nbCartes[i] = i;
     }
 
-    // Si le nombre de joueurs est égal à 3
-    if (*nbJoueurs == '3') {
-        // Initialisation de "nbCartes" à 7
-        nbCartes = 7;
-        // Manque le code de triage des cartes trésors dans les tableaux "tresor1", "tresor2" et "tresor3"
+// Mélange du tableau de cartes
+    for (i = CARTES - 1; i > 0; i--) {
+        size_t j = rand() % (i + 1);
+        int temp = nbCartes[i];
+        nbCartes[i] = nbCartes[j];
+        nbCartes[j] = temp;
     }
 
-    // Si le nombre de joueurs est égal à 4
-    if (*nbJoueurs == '4') {
-        // Initialisation de "nbCartes" à 6
-        nbCartes = 6;
-        // Manque le code de triage des cartes trésors dans les tableaux "tresor1", "tresor2", "tresor3" et "tresor4"
+// Création des tableaux de cartes pour chaque joueur
+    int cartesJoueurs[nbJoueurs][nbCartesJoueurs];
+
+// Répartition des cartes entre les joueurs
+    for (i = 0; i < CARTES; i++) {
+        joueur = i % nbJoueurs;
+        cartesJoueurs[joueur][i / nbJoueurs] = nbCartes[i];
+    }
+
+// Affichage des cartes de chaque joueur
+    for (joueur = 0; joueur < nbJoueurs; joueur++) {
+        printf("Joueur %lu : ", joueur + 1);
+        for (i = 0; i < nbCartesJoueurs; i++) {
+            printf("%d ", cartesJoueurs[joueur][i]);
+        }
+        printf("\n");
     }
 }

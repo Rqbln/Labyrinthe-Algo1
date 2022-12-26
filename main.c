@@ -5,6 +5,8 @@ int main() {   //programme principale
     int tab[LARGEUR][LARGEUR];
     int x,y;
     char choix, nbJoueurs;
+    int nbCartesJoueurs;
+    int cartesJoueurs[nbJoueurs][nbCartesJoueurs];
     int tabfinal[21][21];
     int tresor[24],tresor1[24],tresor2[24],tresor3[24],tresor4[24];
     int partie=0;

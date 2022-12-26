@@ -8,6 +8,8 @@
 #endif //LABYRINTE_SPROG_H
 
 #define LARGEUR 7
+#define CARTES 24
+#define BUFFER_SIZE 32
 
 //#ifndef INITPLATEAU_H_INCLUDED
 //#define AFFICHAGEC_H_INCLUDED
@@ -47,7 +49,7 @@ void afficheplateaubinaire(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void affiche_case_en_plus(int *carterestante);
 
-void distributionCartes (char* nbJoueurs, int tresor[24],int tresor1[12],int tresor2[12],int tresor3[12],int tresor4[12]);
+void distributionCartes (char *nbJoueurs, int cartesJoueurs[*nbJoueurs][*nbCartesJoueurs]);
 void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs);
 
 void text_color(int color); //change la couleur du texte
