@@ -39,22 +39,21 @@ void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs){
 }
 
 void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[LARGEUR][LARGEUR]){
+    // Déclaration des variables locales
     int nbCartes[CARTES];
     int i;
     int joueur;
     char buffer[BUFFER_SIZE];
 
-
-
-
+    // Initialisation de la fonction rand avec l'heure courante
     srand(time(NULL));
 
-
+    // Remplissage du tableau nbCartes avec les numéros de 0 à CARTES-1
     for (i = 0; i < CARTES; i++) {
         nbCartes[i] = i;
     }
 
-
+    // Mélange du tableau nbCartes avec l'algorithme de Fisher-Yates
     for (i = CARTES - 1; i > 0; i--) {
         size_t j = rand() % (i + 1);
         int temp = nbCartes[i];
@@ -62,14 +61,13 @@ void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs
         nbCartes[j] = temp;
     }
 
-
-
+    // Distribution des cartes mélangées aux joueurs
     for (i = 0; i < CARTES; i++) {
         joueur = i % *nbJoueurs;
         cartesJoueurs[joueur][i / *nbJoueurs] = nbCartes[i];
     }
 
-
+    // Affichage des cartes de chaque joueur
     for (joueur = 0; joueur < *nbJoueurs; joueur++) {
         printf("Joueur %lu : ", joueur + 1);
         for (i = 0; i < *nbCartesJoueurs; i++) {
@@ -78,31 +76,3 @@ void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs
         printf("\n");
     }
 }
-
-void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs){
-    while (*echap==0){
-        switch(*numjoueur){
-            case 1 :
-
-
-                break;
-            case 2 :
-
-                break;
-            case 3 :
-
-                break;
-            case 4 :
-
-                break;
-        }
-        if (*numjoueur==*nbJoueurs){
-            *numjoueur=1;
-        }
-        else{
-            *numjoueur+=1;
-        }
-    }
-
-}
-
