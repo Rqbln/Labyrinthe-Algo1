@@ -20,6 +20,64 @@ void afficherTitre (){
     _setmode(_fileno(stdout), _O_TEXT);
 }
 
+void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs){
+    char buffer[BUFFER_SIZE];
+    // Saisie du nombre de joueurs
+    printf("Entrez le nombre de joueurs (entre 2 et 4) :");
+    fflush(stdin);
+    fgets(buffer, BUFFER_SIZE, stdin);
+
+// Conversion de la saisie en entier et vérification de la validité
+    while (sscanf(buffer, "%d", nbJoueurs) != 1 || *nbJoueurs < 2 || *nbJoueurs > 4) {
+        printf("Entrez le nombre de joueurs (entre 2 et 4) :");
+        fflush(stdin);
+        fgets(buffer, BUFFER_SIZE, stdin);
+    }
+    printf("%d joueurs seront dans cette partie.\n",*nbJoueurs);
+
+    *nbCartesJoueurs = CARTES / *nbJoueurs;
+}
+
+void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[LARGEUR][LARGEUR]){
+    int nbCartes[CARTES];
+    int i;
+    int joueur;
+    char buffer[BUFFER_SIZE];
+
+
+
+
+    srand(time(NULL));
+
+
+    for (i = 0; i < CARTES; i++) {
+        nbCartes[i] = i;
+    }
+
+
+    for (i = CARTES - 1; i > 0; i--) {
+        size_t j = rand() % (i + 1);
+        int temp = nbCartes[i];
+        nbCartes[i] = nbCartes[j];
+        nbCartes[j] = temp;
+    }
+
+
+
+    for (i = 0; i < CARTES; i++) {
+        joueur = i % *nbJoueurs;
+        cartesJoueurs[joueur][i / *nbJoueurs] = nbCartes[i];
+    }
+
+
+    for (joueur = 0; joueur < *nbJoueurs; joueur++) {
+        printf("Joueur %lu : ", joueur + 1);
+        for (i = 0; i < *nbCartesJoueurs; i++) {
+            printf("%d ", cartesJoueurs[joueur][i]);
+        }
+        printf("\n");
+    }
+}
 
 void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs){
     while (*echap==0){
