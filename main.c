@@ -16,6 +16,12 @@ int main() {   //programme principale
     int echap=0;
     int carterestante;
 
+    //Positions initiale des joueurs
+    int posxy1[2]={0,0};
+    int posxy2[2]={0,7};
+    int posxy3[2]={7,0};
+    int posxy4[2]={7,7};
+
     printf("\n");
     afficherTitre();
 

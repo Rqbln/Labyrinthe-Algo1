@@ -669,13 +669,27 @@ void affiche_case_en_plus(int *carterestante) {
 
     }
 }
-void deplacementJoueur()
+void deplacementJoueur(int tab[LARGEUR][LARGEUR],int numjoueur,int *posxy[2])
 {
-    //positions initiales des joueurs (à ne declarer qu'une seule fois)
-    int pos1[7][7]={0,0};
-    int pos2[7][7]={0,7};
-    int pos3[7][7]={7,0};
-    int pos4[7][7]={7,7};
-    printf("Deplacement du personnage :\n 1.Vers le haut\n2.Vers la gauche\n3.Vers la droite\n4.Vers le bas\n0.Terminer votre tour");
+    int input,exit;
+    while (exit ==0) {
+        printf("Deplacement du personnage :\n 1.Vers le haut\n2.Vers la gauche\n3.Vers la droite\n4.Vers le bas\n0.Terminer votre tour");
+        scanf("%d", &input);
+        switch (input) {
+            case 1:
+                // "Monte" la position du joueur de 1 si la case supérieure le permet
+                if (posxy[0]>=0 || tab[*posxy[0]-1][*posxy[1]] == 1 || tab[*posxy[0]-1][*posxy[1]] == 2 || tab[*posxy[0]-1][*posxy[1]] == 6 || tab[*posxy[0]-1][*posxy[1]] ==50  || tab[*posxy[0]-1][*posxy[1]] ==  7|| tab[*posxy[0]-1][*posxy[1]] ==  10|| tab[*posxy[0]-1][*posxy[1]] ==  11|| tab[*posxy[0]-1][*posxy[1]] ==  51|| tab[*posxy[0]-1][*posxy[1]] ==  4|| tab[*posxy[0]-1][*posxy[1]] == 5 || tab[*posxy[0]-1][*posxy[1]] ==  8|| tab[*posxy[0]-1][*posxy[1]] == 53 || tab[*posxy[0]-1][*posxy[1]] == 0 || tab[*posxy[0]-1][*posxy[1]] == 61 || tab[*posxy[0]-1][*posxy[1]] == 71 || tab[*posxy[0]-1][*posxy[1]] == 3 || tab[*posxy[0]-1][*posxy[1]] ==  62|| tab[*posxy[0]-1][*posxy[1]] ==  72|| tab[*posxy[0]-1][*posxy[1]] ==  80)
+                {posxy[0]=-1;}
+                else;
+            case 2:
 
+            case 3:
+
+            case 4:
+
+            case 0:
+                exit = 1;
+                printf("Fin de tour du Joueur %d...",numjoueur);
+        }
+    }
 }
