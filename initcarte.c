@@ -440,6 +440,7 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
 }
 
 void affiche_case_en_plus(int *carterestante) {
+    //scanf("%d",&*carterestante);
     int caseT1[3][3] = {0, 0, 0, 1, 8, 1, 0, 1, 0}; //https://i.imgur.com/aXB8t7o.png
     int caseT2[3][3] = {0, 1, 0, 1, 8, 0, 0, 1, 0};
     int caseT3[3][3] = {0, 1, 0, 1, 8, 1, 0, 0, 0};
@@ -472,13 +473,13 @@ void affiche_case_en_plus(int *carterestante) {
             caseL1[1][1] = 27;
             break;
         case 61:
-            caseL2[1][1] = 29;
+            caseLT2[1][1] = 29;
             break;
         case 62:
-            caseL3[1][1] = 31;
+            caseLT3[1][1] = 31;
             break;
         case 63:
-            caseL4[1][1] = 33;
+            caseLT4[1][1] = 33;
             break;
     }
     switch (*carterestante / 10) {
