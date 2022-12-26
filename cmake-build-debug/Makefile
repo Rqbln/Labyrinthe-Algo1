@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1
+CMAKE_SOURCE_DIR = C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\CMakeFiles C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\CMakeFiles C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,6 +127,30 @@ Labyrinthe_Algo1: cmake_check_build_system
 Labyrinthe_Algo1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/build
 .PHONY : Labyrinthe_Algo1/fast
+
+deplacementJoueur.obj: deplacementJoueur.c.obj
+.PHONY : deplacementJoueur.obj
+
+# target to build an object file
+deplacementJoueur.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacementJoueur.c.obj
+.PHONY : deplacementJoueur.c.obj
+
+deplacementJoueur.i: deplacementJoueur.c.i
+.PHONY : deplacementJoueur.i
+
+# target to preprocess a source file
+deplacementJoueur.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacementJoueur.c.i
+.PHONY : deplacementJoueur.c.i
+
+deplacementJoueur.s: deplacementJoueur.c.s
+.PHONY : deplacementJoueur.s
+
+# target to generate assembly for a file
+deplacementJoueur.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacementJoueur.c.s
+.PHONY : deplacementJoueur.c.s
 
 initPlateauColor.obj: initPlateauColor.c.obj
 .PHONY : initPlateauColor.obj
@@ -233,6 +257,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Labyrinthe_Algo1
+	@echo ... deplacementJoueur.obj
+	@echo ... deplacementJoueur.i
+	@echo ... deplacementJoueur.s
 	@echo ... initPlateauColor.obj
 	@echo ... initPlateauColor.i
 	@echo ... initPlateauColor.s

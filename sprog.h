@@ -51,6 +51,7 @@ void affiche_case_en_plus(int *carterestante);
 
 void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[*nbJoueurs][*nbCartesJoueurs]);
 void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs);
+void deplacementJoueur ();
 
 void text_color(int color); //change la couleur du texte
 void bg_color(int color); //change la couleur de fond

@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(Labyrinthe_Algo1
         main.c
         sprog.c
-        sprog.h initPlateauColor.c initcarte.c)
+        sprog.h initPlateauColor.c initcarte.c deplacementJoueur.c)

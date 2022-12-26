@@ -38,8 +38,8 @@ int main() {   //programme principale
                 convertab(tab);
                 coordonne(tabfinal, &x, &y, tab);
                 //afficheplateauprog(tab, tabfinal);
-                //afficheplateaubinaire(tab, tabfinal);
-                afficheplateaufinal(tab, tabfinal);
+                afficheplateaubinaire(tab, tabfinal);
+                //afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
                 distributionCartes(&nbJoueurs, &nbCartesJoueurs,cartesJoueurs);
