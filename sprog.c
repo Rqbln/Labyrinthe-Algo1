@@ -27,6 +27,7 @@ void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs){
     fflush(stdin);
     fgets(buffer, BUFFER_SIZE, stdin);
 
+
 // Conversion de la saisie en entier et vérification de la validité
     while (sscanf(buffer, "%d", nbJoueurs) != 1 || *nbJoueurs < 2 || *nbJoueurs > 4) {
         printf("Entrez le nombre de joueurs (entre 2 et 4) :");
@@ -35,10 +36,28 @@ void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs){
     }
     printf("%d joueurs seront dans cette partie.\n",*nbJoueurs);
 
+
     *nbCartesJoueurs = CARTES / *nbJoueurs;
 }
 
-void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[CARTES][CARTES]){
+
+void CreationNomJoueurs(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM]){
+
+    // Demande le nom de chaque joueur
+    for (int i = 0; i < *nbJoueurs; i++) {
+        printf("Entrez le nom du joueur %d :", i+1);
+        scanf("%s", nomJoueurs[i]);
+    }
+
+    // Affiche les noms des joueurs
+    printf("Les noms des joueurs sont :\n");
+    for (int i = 0; i < *nbJoueurs; i++) {
+        printf("- %s\n", nomJoueurs[i]);
+    }
+
+}
+
+void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES]){
     // Déclaration des variables locales
     int nbCartes[CARTES];
     int i;
@@ -69,7 +88,7 @@ void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs
 
     // Affichage des cartes de chaque joueur
     for (joueur = 0; joueur < *nbJoueurs; joueur++) {
-        printf("Joueur %d : ", joueur + 1);
+        printf("%s : ", nomJoueurs[joueur]);
         for (i = 0; i < *nbCartesJoueurs; i++) {
             printf("%d ", cartesJoueurs[joueur][i]);
         }

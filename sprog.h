@@ -7,6 +7,7 @@
 #define LARGEUR 7
 #define CARTES 24
 #define BUFFER_SIZE 32
+#define LONGUEUR_NOM 50
 
 //#ifndef INITPLATEAU_H_INCLUDED
 //#define AFFICHAGEC_H_INCLUDED
@@ -47,7 +48,8 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]);
 void affiche_case_en_plus(int *carterestante);
 
 void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs);
-void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, int cartesJoueurs[CARTES][CARTES]);
+void CreationNomJoueurs(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM]);
+void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM], int cartesJoueurs[CARTES][CARTES]);
 void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs);
 void deplacementJoueur(int tab[LARGEUR][LARGEUR],int numjoueur,int *posxy[2]);
 

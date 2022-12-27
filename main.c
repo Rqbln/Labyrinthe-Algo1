@@ -4,6 +4,7 @@ int main() {   //programme principal
     int tab[LARGEUR][LARGEUR];
     char buffer[BUFFER_SIZE];
     int x,y,nbJoueurs;
+    char nomJoueurs[4][LONGUEUR_NOM];
     char choix;
     int nbCartesJoueurs;
     int cartesJoueurs[CARTES][CARTES];
@@ -35,6 +36,7 @@ int main() {   //programme principal
             case '0':
                 printf("Deconnexion... A bientot !\n");
                 partie=1;
+                break;
             case '1':
 
                 initialisationTableau(tab);
@@ -48,7 +50,8 @@ int main() {   //programme principal
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
                 affiche_case_en_plus(&carterestante);
                 nombreJoueurs(&nbJoueurs,&nbCartesJoueurs);
-                distributionCartes(&nbJoueurs, &nbCartesJoueurs,cartesJoueurs);
+                CreationNomJoueurs(&nbJoueurs,nomJoueurs);
+                distributionCartes(&nbJoueurs, &nbCartesJoueurs,nomJoueurs,cartesJoueurs);
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");
