@@ -16,6 +16,7 @@ int main() {   //programme principal
     int numjoueur=1;
     int echap=0;
     int carterestante;
+    int tour_joueur;
 
     //Positions initiale des joueurs
     int posxy1[2]={0,0};
@@ -67,7 +68,12 @@ int main() {   //programme principal
                 nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
                 CreationNomJoueurs(&nbJoueurs, nomJoueurs);
                 distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
-                afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
+                //afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
+                tour_joueur=0;
+                afficheCarteJoueur1(&tour_joueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
+                tour_joueur=1;
+                afficheCarteJoueur1(&tour_joueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
+
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");

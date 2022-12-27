@@ -103,3 +103,53 @@ void afficheCarteJoueur(int *nbJoueurs,int *nbCartesJoueurs, char nomJoueurs[4][
         _setmode(_fileno(stdout), _O_TEXT);
     }
 }
+void afficheCarteJoueur1(int *tour_joueur,int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES]){
+    int cartejoueur1;
+    int cartejoueur2;
+    int cartejoueur3;
+    int cartejoueur4;
+    int cartejoueur;
+    int caracteres;
+    switch (*tour_joueur) {
+        case 0:
+            cartejoueur=cartejoueur1;
+            break;
+        case 1:
+            cartejoueur=cartejoueur2;
+            break;
+        case 2:
+            cartejoueur=cartejoueur3;
+            break;
+        case 3:
+            cartejoueur=cartejoueur4;
+            break;
+    }
+    printf("%s : \n", nomJoueurs[*tour_joueur]);
+    _setmode(_fileno(stdout), _O_U16TEXT);
+    wprintf(L"\x250C\x2500\x2500\x2510");
+    wprintf(L"\n");
+    wprintf(L"\x2502");
+    _setmode(_fileno(stdout), _O_TEXT);
+    caracteres=cartesJoueurs[*tour_joueur][cartejoueur];
+    caractere(&caracteres);
+    _setmode(_fileno(stdout), _O_U16TEXT);
+    wprintf(L"\x2502");
+    wprintf(L"\n");
+    wprintf(L"\x2514\x2500\x2500\x2518");
+    wprintf(L"\n");
+    _setmode(_fileno(stdout), _O_TEXT);
+    switch (*tour_joueur) {
+        case 0:
+            cartejoueur1+=1;
+            break;
+        case 1:
+            cartejoueur2+=1;
+            break;
+        case 2:
+            cartejoueur3+=1;
+            break;
+        case 3:
+            cartejoueur4+=1;
+            break;
+    }
+}
