@@ -27,11 +27,15 @@ int main() {   //programme principal
 
     printf("\n");
     afficherTitre();
+    ligne();
+    color(10,0);
 
-    printf("Menu :\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\n\n");
+    printf("Menu :");
 
+    printf("\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\n");
+    ligne();
     while (partie==0){
-
+        color(10,0);
         printf("Choix :");
         fflush(stdin);
         fgets(choix,BUFFER_SIZE,stdin);
@@ -40,7 +44,6 @@ int main() {   //programme principal
             fflush(stdin);
             fgets(choix, BUFFER_SIZE, stdin);
         }
-        printf("Choix %d.\n",choix0);
 
 
             if (choix0==0) {
@@ -49,12 +52,13 @@ int main() {   //programme principal
             }
 
             if (choix0==1) {
+                color(15,0);
                 initialisationTableau(tab);
                 init_case_en_plus(tab, &carterestante);
                 convertab(tab);
                 coordonne(tabfinal, &x, &y, tab);
-                afficheplateauprog(tab, tabfinal);
-                afficheplateaubinaire(tab, tabfinal);
+                //afficheplateauprog(tab, tabfinal);
+                //afficheplateaubinaire(tab, tabfinal);
                 afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
@@ -75,6 +79,7 @@ int main() {   //programme principal
             }
 
             if (choix0==2) {
+                color(15,0);
                 printf("Sauvegarde de la partie en cours...\n");
                 for (int i = 0; i < LARGEUR; ++i) {
                     for (int j = 0; j < LARGEUR; ++j) {
@@ -89,7 +94,7 @@ int main() {   //programme principal
             }
 
             if (choix0==3) {
-
+                color(15,0);
                 printf("Lancement de la partie sauvegardee...\n");
                 //tab[LARGEUR][LARGEUR]=sauvegarde1tab[LARGEUR][LARGEUR];
                 numjoueur = sauvegardetourjoueur;
@@ -100,6 +105,7 @@ int main() {   //programme principal
             }
 
             if (choix0==4) {
+                color(15,0);
                 printf("Regles du jeu de societe Labyrinthe:\n\n");
                 printf("Le but du jeu est d'etre le premier a trouver la sortie du labyrinthe avec son pion.\n");
                 printf("Pour se deplacer, les joueurs tirent un de et avancent leur pion du nombre de cases correspondant.\n");
@@ -110,6 +116,7 @@ int main() {   //programme principal
             }
 
             else {
+                color(15,0);
                 partie=0;
                 choix0=-1;
             }

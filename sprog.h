@@ -34,6 +34,7 @@ typedef enum{
 
 
 void afficherTitre();
+void ligne();
 
 void initialisationTableau(int tab[LARGEUR][LARGEUR]);
 void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante);
