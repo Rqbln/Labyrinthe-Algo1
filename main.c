@@ -27,15 +27,16 @@ int main() {   //programme principal
 
     printf("\n");
     afficherTitre();
+    color(13,0);
     ligne();
-    color(10,0);
+    color(13,0);
 
     printf("Menu :");
-
     printf("\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\n");
+    color(13,0);
     ligne();
     while (partie==0){
-        color(10,0);
+        color(13,0);
         printf("Choix :");
         fflush(stdin);
         fgets(choix,BUFFER_SIZE,stdin);
