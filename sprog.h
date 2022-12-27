@@ -36,6 +36,7 @@ typedef enum{
 void afficherTitre();
 void ligne();
 void caractere(int *caracteres);
+void afficherRegles();
 
 void initialisationTableau(int tab[LARGEUR][LARGEUR]);
 void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante);

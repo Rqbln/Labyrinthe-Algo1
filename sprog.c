@@ -32,6 +32,15 @@ void ligne(){
     color(15,0);
     _setmode(_fileno(stdout), _O_TEXT);
 }
+void afficherRegles(){
+    color(15,0);
+    printf("Regles du jeu de societe Labyrinthe:\n\n");
+    printf("Le but du jeu est d'etre le premier a trouver la sortie du labyrinthe avec son pion.\n");
+    printf("Pour se deplacer, les joueurs tirent un de et avancent leur pion du nombre de cases correspondant.\n");
+    printf("Si un joueur tombe sur une case avec un objet, il peut le prendre et le garder jusqu'a ce qu'il en ait besoin ou decider de le donner a un autre joueur.\n");
+    printf("Les objets peuvent etre utilises pour ouvrir des portes ou des passages secrets, ou pour deplacer des obstacles dans le labyrinthe.\n");
+    printf("Le premier joueur a sortir du labyrinthe est declare vainqueur.\n");
+}
 void caractere(int *caracteres){
     switch (*caracteres) {
         case 0:
