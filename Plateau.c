@@ -46,11 +46,11 @@ void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
     *carterestante=tab[3][tmp];
     tab[3][tmp]=49;
     if (*carterestante>15 && *carterestante<22){
-        *carterestante=(50 + rand() % 4)*10+6;   //case en T avec tresor 50  X6
+        *carterestante=(50 + rand() % 4)*10+5;   //case en T avec tresor 50  X6
 
     }
     if (*carterestante>21 && *carterestante<28){
-        *carterestante=(60 + rand() % 4)*10+6;   //case en L avec tresor 60  X6
+        *carterestante=(60 + rand() % 4)*10+5;   //case en L avec tresor 60  X6
 
     }
     if (*carterestante>27 && *carterestante<38){
@@ -466,28 +466,28 @@ void affiche_case_en_plus(int *carterestante) {
     int casefinal[3][3];
     switch (*carterestante/10) {
         case 50:
-            caseT1[1][1] = 26+(*carterestante%50);
+            caseT1[1][1] = 22+(*carterestante%50);
             break;
         case 51:
-            caseT2[1][1] = 26+(*carterestante%51);
+            caseT2[1][1] = 22+(*carterestante%51);
             break;
         case 52:
-            caseT3[1][1] = 26+(*carterestante%52);
+            caseT3[1][1] = 22+(*carterestante%52);
             break;
         case 53:
-            caseT4[1][1] = 26+(*carterestante%53);
+            caseT4[1][1] = 22+(*carterestante%53);
             break;
         case 60:
-            caseLT1[1][1] = 31+(*carterestante%60);
+            caseLT1[1][1] = 28+(*carterestante%60);
             break;
         case 61:
-            caseLT2[1][1] = 31+(*carterestante%61);;
+            caseLT2[1][1] = 28+(*carterestante%61);;
             break;
         case 62:
-            caseLT3[1][1] = 31+(*carterestante%62);;
+            caseLT3[1][1] = 28+(*carterestante%62);;
             break;
         case 63:
-            caseLT4[1][1] = 31+(*carterestante%63);;
+            caseLT4[1][1] = 28+(*carterestante%63);;
             break;
 
     }
