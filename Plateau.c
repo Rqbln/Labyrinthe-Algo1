@@ -493,7 +493,7 @@ void affiche_case_en_plus(int *carterestante) {
     }
     switch (*carterestante / 100) {
         case 5:
-            switch ((*carterestante/10) % 10) {
+            switch ((*carterestante / 10) % 10) {
                 case 0:
                     for (int i = 0; i < 3; ++i) {
                         for (int j = 0; j < 3; ++j) {
@@ -526,7 +526,7 @@ void affiche_case_en_plus(int *carterestante) {
 
             break;
         case 6:
-            switch ((*carterestante/10) % 10) {
+            switch ((*carterestante / 10) % 10) {
                 case 0:
                     for (int i = 0; i < 3; ++i) {
                         for (int j = 0; j < 3; ++j) {
@@ -557,8 +557,10 @@ void affiche_case_en_plus(int *carterestante) {
                     break;
             }
             break;
+    }
+    switch (*carterestante/10) {
         case 7:
-            switch ((*carterestante/10) % 10) {
+            switch (*carterestante % 10) {
                 case 0:
                     for (int i = 0; i < 3; ++i) {
                         for (int j = 0; j < 3; ++j) {
@@ -590,7 +592,7 @@ void affiche_case_en_plus(int *carterestante) {
             }
             break;
         case 8:
-            switch ((*carterestante/10) % 10) {
+            switch (*carterestante % 10) {
                 case 0:
                     for (int i = 0; i < 3; ++i) {
                         for (int j = 0; j < 3; ++j) {
