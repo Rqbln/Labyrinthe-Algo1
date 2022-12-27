@@ -396,6 +396,7 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0057"); //affichage des valeurs   W
+                    break;
                 case 33:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
@@ -633,7 +634,7 @@ void affiche_case_en_plus(int *carterestante) {
 
                     wprintf(L"\x0054\x004F"); //affichage des valeurs
                     break;
-                case 33:
+                case 25:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0050"); //affichage des valeurs
@@ -672,6 +673,11 @@ void affiche_case_en_plus(int *carterestante) {
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0057"); //affichage des valeurs
+                    break;
+                case 33:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0058"); //affichage des valeurs   X
                     break;
 
             }
