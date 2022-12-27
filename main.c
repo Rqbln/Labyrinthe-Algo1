@@ -8,7 +8,6 @@ int main() {   //programme principal
     int nbCartesJoueurs;
     int cartesJoueurs[CARTES][CARTES];
     int tabfinal[21][21];
-    int tresor[24],tresor1[24],tresor2[24],tresor3[24],tresor4[24];
     int partie=0;
     int sauvegarde1tab[LARGEUR][LARGEUR];
     int sauvegardetourjoueur;
@@ -42,8 +41,8 @@ int main() {   //programme principal
                 init_case_en_plus(tab, &carterestante);
                 convertab(tab);
                 coordonne(tabfinal, &x, &y, tab);
-                //afficheplateauprog(tab, tabfinal);
-                //afficheplateaubinaire(tab, tabfinal);
+                afficheplateauprog(tab, tabfinal);
+                afficheplateaubinaire(tab, tabfinal);
                 afficheplateaufinal(tab, tabfinal);
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
@@ -53,13 +52,14 @@ int main() {   //programme principal
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");
-                printf("\n");
                 //printf("%d", carterestante);
 
 
 
                 //getchar(); // attend que l'utilisateur appuie sur une touche
                 //fgetc(stdin);
+                partie=0;
+                break;
 
             case '2':
                 printf("Sauvegarde de la partie en cours...\n");
@@ -70,6 +70,7 @@ int main() {   //programme principal
                 }
                 sauvegardetourjoueur=numjoueur;
                 printf("Sauvegarde terminee\n");
+                partie=0;
 
 
                 break;
@@ -80,6 +81,7 @@ int main() {   //programme principal
                 convertab(sauvegarde1tab);
                 coordonne(tabfinal, &x, &y, sauvegarde1tab);
                 afficheplateaufinal(sauvegarde1tab, tabfinal);
+                partie=0;
                 break;
             case '4':
                 printf("Regles du jeu de societe Labyrinthe:\n\n");
@@ -88,6 +90,7 @@ int main() {   //programme principal
                 printf("Si un joueur tombe sur une case avec un objet, il peut le prendre et le garder jusqu'a ce qu'il en ait besoin ou decider de le donner a un autre joueur.\n");
                 printf("Les objets peuvent etre utilises pour ouvrir des portes ou des passages secrets, ou pour deplacer des obstacles dans le labyrinthe.\n");
                 printf("Le premier joueur a sortir du labyrinthe est declare vainqueur.\n");
+                partie=0;
                 break;
             default:
                 partie=0;
