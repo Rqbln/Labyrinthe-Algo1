@@ -67,6 +67,7 @@ int main() {   //programme principal
                 nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
                 CreationNomJoueurs(&nbJoueurs, nomJoueurs);
                 distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
+                afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");
