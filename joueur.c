@@ -76,10 +76,27 @@ void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, char nomJoueurs[4
 void afficheCarteJoueur(int *nbJoueurs,int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES]){
     // Affichage des cartes de chaque joueur
     for (int joueur = 0; joueur < *nbJoueurs; joueur++) {
-        printf("%s : ", nomJoueurs[joueur]);
+        printf("%s : \n", nomJoueurs[joueur]);
+        for (int j = 0; j < *nbCartesJoueurs; ++j) {
+            _setmode(_fileno(stdout), _O_U16TEXT);
+            wprintf(L"\x250C\x2500\x2500\x2500\x2510");
+        }
+        wprintf(L"\n");
         for (int i = 0; i < *nbCartesJoueurs; i++) {
+            _setmode(_fileno(stdout), _O_U16TEXT);
+            wprintf(L"\x2502");
+            _setmode(_fileno(stdout), _O_TEXT);
             printf("%d ", cartesJoueurs[joueur][i]);
+            _setmode(_fileno(stdout), _O_U16TEXT);
+            wprintf(L"\x2502");
+            _setmode(_fileno(stdout), _O_TEXT);
         }
         printf("\n");
+        for (int j = 0; j < *nbCartesJoueurs; ++j) {
+            _setmode(_fileno(stdout), _O_U16TEXT);
+            wprintf(L"\x2514\x2500\x2500\x2500\x2518");
+        }
+        wprintf(L"\n");
+        _setmode(_fileno(stdout), _O_TEXT);
     }
 }
