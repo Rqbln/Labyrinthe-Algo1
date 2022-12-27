@@ -481,13 +481,13 @@ void affiche_case_en_plus(int *carterestante) {
             caseLT1[1][1] = 28+(*carterestante%60);
             break;
         case 61:
-            caseLT2[1][1] = 28+(*carterestante%61);;
+            caseLT2[1][1] = 28+(*carterestante%61);
             break;
         case 62:
-            caseLT3[1][1] = 28+(*carterestante%62);;
+            caseLT3[1][1] = 28+(*carterestante%62);
             break;
         case 63:
-            caseLT4[1][1] = 28+(*carterestante%63);;
+            caseLT4[1][1] = 28+(*carterestante%63);
             break;
 
     }
