@@ -23,6 +23,8 @@ int main() {   //programme principal
     int posxy3[2]={7,0};
     int posxy4[2]={7,7};
 
+
+
     printf("\n");
     afficherTitre();
 

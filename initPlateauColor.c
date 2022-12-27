@@ -10,7 +10,7 @@ static int __FOREGROUND = WHITE;
 
 // Change la couleur du texte de la console
 
-void Color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
+void color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
 {
     HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);

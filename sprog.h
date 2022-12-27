@@ -55,7 +55,7 @@ void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs);
 void deplacementJoueur(int tab[LARGEUR][LARGEUR],int numjoueur,int *posxy[2]);
 
 
-void Color(int couleurDuTexte,int couleurDeFond);
+void color(int couleurDuTexte,int couleurDeFond);
 void text_color(int color); //change la couleur du texte
 void bg_color(int color); //change la couleur de fond
 

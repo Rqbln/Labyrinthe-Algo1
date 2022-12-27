@@ -615,6 +615,7 @@ void affiche_case_en_plus(int *carterestante) {
             switch (casefinal[i][j]) {
                 case 0:
                     _setmode(_fileno(stdout), _O_U16TEXT);
+
                     wprintf(L"\x2588\x2588"); //affichage des valeurs
                     break;
                 case 1:
