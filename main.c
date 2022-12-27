@@ -5,7 +5,8 @@ int main() {   //programme principal
     char buffer[BUFFER_SIZE];
     int x,y,nbJoueurs;
     char nomJoueurs[4][LONGUEUR_NOM];
-    char choix;
+    char choix[BUFFER_SIZE];
+    int choix0;
     int nbCartesJoueurs;
     int cartesJoueurs[CARTES][CARTES];
     int tabfinal[21][21];
@@ -30,15 +31,22 @@ int main() {   //programme principal
     while (partie==0){
 
         printf("Choix :");
-        scanf("%s",&choix);
-        switch (choix) {
+        fflush(stdin);
+        fgets(choix,BUFFER_SIZE,stdin);
+        while (sscanf(choix, "%d", &choix0) != 1 || choix0 < 0 || choix0 > 4) {
+            printf("Choix :");
+            fflush(stdin);
+            fgets(choix, BUFFER_SIZE, stdin);
+        }
+        printf("Choix %d.\n",choix0);
 
-            case '0':
+
+            if (choix0==0) {
                 printf("Deconnexion... A bientot !\n");
-                partie=1;
-                break;
-            case '1':
+                return 0;
+            }
 
+            if (choix0==1) {
                 initialisationTableau(tab);
                 init_case_en_plus(tab, &carterestante);
                 convertab(tab);
@@ -49,9 +57,9 @@ int main() {   //programme principal
                 //affichageTableau(tab, tabfinal);
                 //tourjoueur(&numjoueur, &echap, &nbJoueurs);
                 affiche_case_en_plus(&carterestante);
-                nombreJoueurs(&nbJoueurs,&nbCartesJoueurs);
-                CreationNomJoueurs(&nbJoueurs,nomJoueurs);
-                distributionCartes(&nbJoueurs, &nbCartesJoueurs,nomJoueurs,cartesJoueurs);
+                nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
+                CreationNomJoueurs(&nbJoueurs, nomJoueurs);
+                distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
                 //afficherTerrain4(&tab[LARGEUR][LARGEUR]);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");
@@ -61,45 +69,48 @@ int main() {   //programme principal
 
                 //getchar(); // attend que l'utilisateur appuie sur une touche
                 //fgetc(stdin);
-                partie=0;
-                break;
+                partie = 0;
+            }
 
-            case '2':
+            if (choix0==2) {
                 printf("Sauvegarde de la partie en cours...\n");
                 for (int i = 0; i < LARGEUR; ++i) {
                     for (int j = 0; j < LARGEUR; ++j) {
-                        sauvegarde1tab[i][j]=tab[i][j];
+                        sauvegarde1tab[i][j] = tab[i][j];
                     }
                 }
-                sauvegardetourjoueur=numjoueur;
+                sauvegardetourjoueur = numjoueur;
                 printf("Sauvegarde terminee\n");
-                partie=0;
+                partie = 0;
 
 
-                break;
-            case '3':
+            }
+
+            if (choix0==3) {
+
                 printf("Lancement de la partie sauvegardee...\n");
                 //tab[LARGEUR][LARGEUR]=sauvegarde1tab[LARGEUR][LARGEUR];
-                numjoueur=sauvegardetourjoueur;
+                numjoueur = sauvegardetourjoueur;
                 convertab(sauvegarde1tab);
                 coordonne(tabfinal, &x, &y, sauvegarde1tab);
                 afficheplateaufinal(sauvegarde1tab, tabfinal);
-                partie=0;
-                break;
-            case '4':
+                partie = 0;
+            }
+
+            if (choix0==4) {
                 printf("Regles du jeu de societe Labyrinthe:\n\n");
                 printf("Le but du jeu est d'etre le premier a trouver la sortie du labyrinthe avec son pion.\n");
                 printf("Pour se deplacer, les joueurs tirent un de et avancent leur pion du nombre de cases correspondant.\n");
                 printf("Si un joueur tombe sur une case avec un objet, il peut le prendre et le garder jusqu'a ce qu'il en ait besoin ou decider de le donner a un autre joueur.\n");
                 printf("Les objets peuvent etre utilises pour ouvrir des portes ou des passages secrets, ou pour deplacer des obstacles dans le labyrinthe.\n");
                 printf("Le premier joueur a sortir du labyrinthe est declare vainqueur.\n");
-                partie=0;
-                break;
-            default:
-                partie=0;
-                choix=-1;
+                partie = 0;
+            }
 
-        }
+            else {
+                partie=0;
+                choix0=-1;
+            }
 
 
     }
