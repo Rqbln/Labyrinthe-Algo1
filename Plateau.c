@@ -117,11 +117,11 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
                     affect(tabfinal, &i, &j, caseLT2);
                     break;
                 case 1:
-                    caseT1[1][1] = 11;
+                    caseT1[1][1] = 10;
                     affect(tabfinal, &i, &j, caseT1);
                     break;
                 case 2:
-                    caseT1[1][1] = 12;
+                    caseT1[1][1] = 11;
                     affect(tabfinal, &i, &j, caseT1);
                     break;
                 case 3:
@@ -129,35 +129,35 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
                     affect(tabfinal, &i, &j, caseLT3);
                     break;
                 case 4:
-                    caseT4[1][1] = 14;
+                    caseT4[1][1] = 12;
                     affect(tabfinal, &i, &j, caseT4);
                     break;
                 case 5:
-                    caseT4[1][1] = 15;
+                    caseT4[1][1] = 13;
                     affect(tabfinal, &i, &j, caseT4);
                     break;
                 case 6:
-                    caseT1[1][1] = 16;
+                    caseT1[1][1] = 14;
                     affect(tabfinal, &i, &j, caseT1);
                     break;
                 case 7:
-                    caseT2[1][1] = 17;
+                    caseT2[1][1] = 15;
                     affect(tabfinal, &i, &j, caseT2);
                     break;
                 case 8:
-                    caseT4[1][1] = 18;
+                    caseT4[1][1] = 16;
                     affect(tabfinal, &i, &j, caseT4);
                     break;
                 case 9:
-                    caseT3[1][1] = 19;
+                    caseT3[1][1] = 17;
                     affect(tabfinal, &i, &j, caseT3);
                     break;
                 case 10:
-                    caseT2[1][1] = 20;
+                    caseT2[1][1] = 18;
                     affect(tabfinal, &i, &j, caseT2);
                     break;
                 case 11:
-                    caseT2[1][1] = 21;
+                    caseT2[1][1] = 19;
                     affect(tabfinal, &i, &j, caseT2);
                     break;
                 case 12:
@@ -165,11 +165,11 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
                     affect(tabfinal, &i, &j, caseLT1);
                     break;
                 case 13:
-                    caseT3[1][1] = 23;
+                    caseT3[1][1] = 20;
                     affect(tabfinal, &i, &j, caseT3);
                     break;
                 case 14:
-                    caseT3[1][1] = 24;
+                    caseT3[1][1] = 21;
                     affect(tabfinal, &i, &j, caseT3);
                     break;
                 case 15:
@@ -197,35 +197,35 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
             }
             switch (value/10) {
                 case 50:
-                    caseT1[1][1] = 26+(value%50);
+                    caseT1[1][1] = 22+(value%50);
                     affect(tabfinal, &i, &j, caseT1);
                     break;
                 case 51:
-                    caseT2[1][1] = 26+(value%51);
+                    caseT2[1][1] = 22+(value%51);
                     affect(tabfinal, &i, &j, caseT2);
                     break;
                 case 52:
-                    caseT3[1][1] = 26+(value%52);
+                    caseT3[1][1] = 22+(value%52);
                     affect(tabfinal, &i, &j, caseT3);
                     break;
                 case 53:
-                    caseT4[1][1] = 26+(value%53);
+                    caseT4[1][1] = 22+(value%53);
                     affect(tabfinal, &i, &j, caseT4);
                     break;
                 case 60:
-                    caseLT1[1][1] = 31+(value%60);
+                    caseLT1[1][1] = 28+(value%60);
                     affect(tabfinal, &i, &j, caseLT1);
                     break;
                 case 61:
-                    caseLT2[1][1] = 31+(value%61);;
+                    caseLT2[1][1] = 28+(value%61);;
                     affect(tabfinal, &i, &j, caseLT2);
                     break;
                 case 62:
-                    caseLT3[1][1] = 31+(value%62);;
+                    caseLT3[1][1] = 28+(value%62);;
                     affect(tabfinal, &i, &j, caseLT3);
                     break;
                 case 63:
-                    caseLT4[1][1] = 31+(value%63);;
+                    caseLT4[1][1] = 28+(value%63);;
                     affect(tabfinal, &i, &j, caseLT4);
                     break;
 
@@ -282,141 +282,145 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
                     _setmode(_fileno(stdout), _O_U16TEXT);
                     wprintf(L"\x00A0\x00A0"); //affichage des valeurs
                     break;
-                case 30:
+                case 10:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0041"); //affichage des valeurs
+                    wprintf(L"\x0054\x0041"); //affichage des valeurs   A
                     break;
                 case 11:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0042"); //affichage des valeurs
+                    wprintf(L"\x0054\x0042"); //affichage des valeurs   B
                     break;
                 case 12:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0043"); //affichage des valeurs
+                    wprintf(L"\x0054\x0043"); //affichage des valeurs   C
                     break;
-                case 31:
+                case 13:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0044"); //affichage des valeurs
+                    wprintf(L"\x0054\x0044"); //affichage des valeurs   D
                     break;
                 case 14:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0045"); //affichage des valeurs
+                    wprintf(L"\x0054\x0045"); //affichage des valeurs   E
                     break;
                 case 15:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0046"); //affichage des valeurs
+                    wprintf(L"\x0054\x0046"); //affichage des valeurs   F
                     break;
                 case 16:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0047"); //affichage des valeurs
+                    wprintf(L"\x0054\x0047"); //affichage des valeurs   G
                     break;
                 case 17:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0048"); //affichage des valeurs
+                    wprintf(L"\x0054\x0048"); //affichage des valeurs   H
                     break;
                 case 18:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0049"); //affichage des valeurs
+                    wprintf(L"\x0054\x0049"); //affichage des valeurs   I
                     break;
                 case 19:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x004A"); //affichage des valeurs
+                    wprintf(L"\x0054\x004A"); //affichage des valeurs   J
                     break;
                 case 20:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x004B"); //affichage des valeurs
+                    wprintf(L"\x0054\x004B"); //affichage des valeurs   K
                     break;
                 case 21:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x004C"); //affichage des valeurs
+                    wprintf(L"\x0054\x004C"); //affichage des valeurs   L
                     break;
-                case 32:
+                case 22:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x004D"); //affichage des valeurs
+                    wprintf(L"\x0054\x004D"); //affichage des valeurs   M
                     break;
                 case 23:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x004E"); //affichage des valeurs
+                    wprintf(L"\x0054\x004E"); //affichage des valeurs   N
                     break;
                 case 24:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x004F"); //affichage des valeurs
+                    wprintf(L"\x0054\x004F"); //affichage des valeurs   O
                     break;
-                case 33:
+                case 25:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0050"); //affichage des valeurs
+                    wprintf(L"\x0054\x0050"); //affichage des valeurs   P
                     break;
                 case 26:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0051"); //affichage des valeurs
+                    wprintf(L"\x0054\x0051"); //affichage des valeurs   Q
                     break;
                 case 27:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0052"); //affichage des valeurs
+                    wprintf(L"\x0054\x0052"); //affichage des valeurs   R
                     break;
                 case 28:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0053"); //affichage des valeurs
+                    wprintf(L"\x0054\x0053"); //affichage des valeurs   S
                     break;
                 case 29:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0054"); //affichage des valeurs
+                    wprintf(L"\x0054\x0054"); //affichage des valeurs   T
                     break;
-                case 34:
+                case 30:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0055"); //affichage des valeurs
+                    wprintf(L"\x0054\x0055"); //affichage des valeurs   U
                     break;
-                case 35:
+                case 31:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0056"); //affichage des valeurs
+                    wprintf(L"\x0054\x0056"); //affichage des valeurs   V
                     break;
-                case 36:
+                case 32:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0057"); //affichage des valeurs
+                    wprintf(L"\x0054\x0057"); //affichage des valeurs   W
+                case 33:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0058"); //affichage des valeurs   X
                     break;
                 case 40:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x2592\x2592"); //affichage des valeurs
+                    wprintf(L"\x2592\x2592"); //affichage des valeurs   COIN HG
                     break;
                 case 41:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x2592\x2592"); //affichage des valeurs
+                    wprintf(L"\x2592\x2592"); //affichage des valeurs   COIN HD
                     break;
                 case 42:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x2592\x2592"); //affichage des valeurs
+                    wprintf(L"\x2592\x2592"); //affichage des valeurs   COIN BG
                     break;
                 case 43:
 
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x2592\x2592"); //affichage des valeurs
+                    wprintf(L"\x2592\x2592"); //affichage des valeurs   COIN BD
                     break;
 
             }
@@ -614,7 +618,26 @@ void affiche_case_en_plus(int *carterestante) {
                     _setmode(_fileno(stdout), _O_U16TEXT);
                     wprintf(L"\x00A0\x00A0"); //affichage des valeurs
                     break;
+                case 22:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
 
+                    wprintf(L"\x0054\x004D"); //affichage des valeurs
+                    break;
+                case 23:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x004E"); //affichage des valeurs
+                    break;
+                case 24:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x004F"); //affichage des valeurs
+                    break;
+                case 33:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0050"); //affichage des valeurs
+                    break;
                 case 26:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
@@ -638,38 +661,19 @@ void affiche_case_en_plus(int *carterestante) {
                 case 30:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0041"); //affichage des valeurs
+                    wprintf(L"\x0054\x0055"); //affichage des valeurs
                     break;
                 case 31:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0044"); //affichage des valeurs
+                    wprintf(L"\x0054\x0056"); //affichage des valeurs
                     break;
                 case 32:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x004D"); //affichage des valeurs
-                    break;
-                case 33:
-                    _setmode(_fileno(stdout), _O_U16TEXT);
-
-                    wprintf(L"\x0054\x0050"); //affichage des valeurs
-                    break;
-                case 34:
-                    _setmode(_fileno(stdout), _O_U16TEXT);
-
-                    wprintf(L"\x0054\x0055"); //affichage des valeurs
-                    break;
-                case 35:
-                    _setmode(_fileno(stdout), _O_U16TEXT);
-
-                    wprintf(L"\x0054\x0056"); //affichage des valeurs
-                    break;
-                case 36:
-                    _setmode(_fileno(stdout), _O_U16TEXT);
-
                     wprintf(L"\x0054\x0057"); //affichage des valeurs
                     break;
+
             }
 
         }
