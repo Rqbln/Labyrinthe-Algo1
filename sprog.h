@@ -49,10 +49,13 @@ void affiche_case_en_plus(int *carterestante);
 
 void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs);
 void CreationNomJoueurs(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM]);
+void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM]);
 void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM], int cartesJoueurs[CARTES][CARTES]);
 void tourjoueur(int *numjoueur, int *echap, int *nbJoueurs);
 void deplacementJoueur(int tab[LARGEUR][LARGEUR],int numjoueur,int *posxy[2]);
 
+
+void Color(int couleurDuTexte,int couleurDeFond);
 void text_color(int color); //change la couleur du texte
 void bg_color(int color); //change la couleur de fond
 
