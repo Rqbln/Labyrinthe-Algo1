@@ -23,7 +23,7 @@ void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les
                 int verif=1;
                 while(verif==1) {
                     verif=0;
-                    tmp = ((LARGEUR/2)+1)*((LARGEUR/2)+1) + rand() % 35;   //creation d une variable aleatoire
+                    tmp = ((LARGEUR/2)+1)*((LARGEUR/2)+1) + rand() % 34;   //creation d une variable aleatoire
                     for (int l = 0; l < 34; l++) {
 
                         if (verifieur[l] == tmp) {
@@ -46,11 +46,11 @@ void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
     *carterestante=tab[3][tmp];
     tab[3][tmp]=49;
     if (*carterestante>15 && *carterestante<22){
-        *carterestante=50 + rand() % 4;   //case en T avec tresor 50  X6
+        *carterestante=(50 + rand() % 4)*10+6;   //case en T avec tresor 50  X6
 
     }
     if (*carterestante>21 && *carterestante<28){
-        *carterestante=60 + rand() % 4;   //case en L avec tresor 60  X6
+        *carterestante=(60 + rand() % 4)*10+6;   //case en L avec tresor 60  X6
 
     }
     if (*carterestante>27 && *carterestante<38){
@@ -63,14 +63,17 @@ void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
     }
 }
 void convertab(int tab[LARGEUR][LARGEUR]){
+    int cinquante=0;
+    int soixante=0;
     for (int i = 0; i < (LARGEUR); i++) {
         for (int j = 0; j < (LARGEUR); j++) {
-            if (tab[i][j]>15 && tab[i][j]<23){
-                tab[i][j]=50 + rand() % 4;   //case en T avec tresor 50
-
+            if (tab[i][j]>15 && tab[i][j]<22){
+                tab[i][j]=(50 + rand() % 4)*10+cinquante;   //case en T avec tresor 50
+                cinquante+=1;
             }
-            if (tab[i][j]>22 && tab[i][j]<28){
-                tab[i][j]=60 + rand() % 4;   //case en L avec tresor 60
+            if (tab[i][j]>21 && tab[i][j]<28){
+                tab[i][j]=(60 + rand() % 4)*10+soixante;   //case en L avec tresor 60
+                soixante+=1;
 
             }
             if (tab[i][j]>27 && tab[i][j]<38){
@@ -108,140 +111,125 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
             *x = i;
             *y = j ;
             int value = tab[i][j];
-            if (value == 1 || value == 2 || value == 6 || value == 50){
-                switch (value) {
-                    case 1:
-                        caseT1[1][1]=10;
-                        break;
-                    case 2:
-                        caseT1[1][1]=11;
-                        break;
-                    case 6:
-                        caseT1[1][1]=12;
-                        break;
-                    case 50:
-                        caseT1[1][1]=13;
-                        break;
-                }
-                affect(tabfinal, &i, &j, caseT1);
+            switch (value) {
+                case 0:
+                    caseLT2[1][1] = 40;   //coin
+                    affect(tabfinal, &i, &j, caseLT2);
+                    break;
+                case 1:
+                    caseT1[1][1] = 11;
+                    affect(tabfinal, &i, &j, caseT1);
+                    break;
+                case 2:
+                    caseT1[1][1] = 12;
+                    affect(tabfinal, &i, &j, caseT1);
+                    break;
+                case 3:
+                    caseLT3[1][1] = 41;   //coin
+                    affect(tabfinal, &i, &j, caseLT3);
+                    break;
+                case 4:
+                    caseT4[1][1] = 14;
+                    affect(tabfinal, &i, &j, caseT4);
+                    break;
+                case 5:
+                    caseT4[1][1] = 15;
+                    affect(tabfinal, &i, &j, caseT4);
+                    break;
+                case 6:
+                    caseT1[1][1] = 16;
+                    affect(tabfinal, &i, &j, caseT1);
+                    break;
+                case 7:
+                    caseT2[1][1] = 17;
+                    affect(tabfinal, &i, &j, caseT2);
+                    break;
+                case 8:
+                    caseT4[1][1] = 18;
+                    affect(tabfinal, &i, &j, caseT4);
+                    break;
+                case 9:
+                    caseT3[1][1] = 19;
+                    affect(tabfinal, &i, &j, caseT3);
+                    break;
+                case 10:
+                    caseT2[1][1] = 20;
+                    affect(tabfinal, &i, &j, caseT2);
+                    break;
+                case 11:
+                    caseT2[1][1] = 21;
+                    affect(tabfinal, &i, &j, caseT2);
+                    break;
+                case 12:
+                    caseLT1[1][1] = 42;   //coin
+                    affect(tabfinal, &i, &j, caseLT1);
+                    break;
+                case 13:
+                    caseT3[1][1] = 23;
+                    affect(tabfinal, &i, &j, caseT3);
+                    break;
+                case 14:
+                    caseT3[1][1] = 24;
+                    affect(tabfinal, &i, &j, caseT3);
+                    break;
+                case 15:
+                    caseLT4[1][1] = 43;   //coin
+                    affect(tabfinal, &i, &j, caseLT4);
+                    break;
+                case 70:
+                    affect(tabfinal, &i, &j, caseL1);
+                    break;
+                case 71:
+                    affect(tabfinal, &i, &j, caseL2);
+                    break;
+                case 72:
+                    affect(tabfinal, &i, &j, caseL3);
+                    break;
+                case 73:
+                    affect(tabfinal, &i, &j, caseL4);
+                    break;
+                case 80:
+                    affect(tabfinal, &i, &j, caseI1);
+                    break;
+                case 81:
+                    affect(tabfinal, &i, &j, caseI2);
+                    break;
             }
-            if (value == 7 || value == 10 || value == 11 || value == 51){
-                switch (value) {
-                    case 7:
-                        caseT2[1][1]=14;
-                        break;
-                    case 10:
-                        caseT2[1][1]=15;
-                        break;
-                    case 11:
-                        caseT2[1][1]=16;
-                        break;
-                    case 51:
-                        caseT2[1][1]=17;
-                        break;
-                }
-                affect(tabfinal, &i ,&j, caseT2);
-            }
-            if (value == 9 || value == 13 || value == 14 || value == 52){
-                switch (value) {
-                    case 9:
-                        caseT3[1][1]=18;
-                        break;
-                    case 13:
-                        caseT3[1][1]=19;
-                        break;
-                    case 14:
-                        caseT3[1][1]=20;
-                        break;
-                    case 52:
-                        caseT3[1][1]=21;
-                        break;
-                }
-                affect(tabfinal, &i, &j, caseT3);
-            }
-            if (value == 4 || value == 5 || value == 8 || value == 53){
-                switch (value) {
-                    case 4:
-                        caseT4[1][1]=22;
-                        break;
-                    case 5:
-                        caseT4[1][1]=23;
-                        break;
-                    case 8:
-                        caseT4[1][1]=24;
-                        break;
-                    case 53:
-                        caseT4[1][1]=25;
-                        break;
-                }
-                affect(tabfinal, &i, &j, caseT4);
-            }//tabfinal prend les cases T
+            switch (value/10) {
+                case 50:
+                    caseT1[1][1] = 26+(value%50);
+                    affect(tabfinal, &i, &j, caseT1);
+                    break;
+                case 51:
+                    caseT2[1][1] = 26+(value%51);
+                    affect(tabfinal, &i, &j, caseT2);
+                    break;
+                case 52:
+                    caseT3[1][1] = 26+(value%52);
+                    affect(tabfinal, &i, &j, caseT3);
+                    break;
+                case 53:
+                    caseT4[1][1] = 26+(value%53);
+                    affect(tabfinal, &i, &j, caseT4);
+                    break;
+                case 60:
+                    caseLT1[1][1] = 31+(value%60);
+                    affect(tabfinal, &i, &j, caseLT1);
+                    break;
+                case 61:
+                    caseLT2[1][1] = 31+(value%61);;
+                    affect(tabfinal, &i, &j, caseLT2);
+                    break;
+                case 62:
+                    caseLT3[1][1] = 31+(value%62);;
+                    affect(tabfinal, &i, &j, caseLT3);
+                    break;
+                case 63:
+                    caseLT4[1][1] = 31+(value%63);;
+                    affect(tabfinal, &i, &j, caseLT4);
+                    break;
 
-            if (value == 70){
-                affect(tabfinal, &i, &j, caseL1);
             }
-            if (value == 71){
-                affect(tabfinal, &i, &j, caseL2);
-            }
-            if (value == 72){
-                affect(tabfinal, &i, &j, caseL3);
-            }
-            if (value == 73){
-                affect(tabfinal, &i, &j, caseL4);
-            }//tabfinal prend les cases L
-
-            if (value == 12 || value == 60){
-                switch (value) {
-                    case 12:
-                        caseLT1[1][1]=42;
-                        break;
-                    case 60:
-                        caseLT1[1][1]=26;
-                        break;
-                }
-                affect(tabfinal, &i, &j, caseLT1);
-            }
-            if (value == 0 || value == 61){
-                switch (value) {
-                    case 0:
-                        caseLT2[1][1]=40;
-                        break;
-                    case 61:
-                        caseLT2[1][1]=27;
-                        break;
-                }
-                affect(tabfinal, &i, &j, caseLT2);
-            }
-            if (value == 3 || value == 62){
-                switch (value) {
-                    case 3:
-                        caseLT3[1][1]=41;
-                        break;
-                    case 62:
-                        caseLT3[1][1]=28;
-                        break;
-                }
-                affect(tabfinal, &i, &j, caseLT3);
-            }
-            if (value == 15 || value == 63){
-                switch (value) {
-                    case 15:
-                        caseLT4[1][1]=43;
-                        break;
-                    case 63:
-                        caseLT4[1][1]=29;
-                        break;
-                }
-                affect(tabfinal, &i, &j, caseLT4);
-            }//tabfinal prend les cases L Tresor
-
-            if (value == 80){
-                affect(tabfinal, &i, &j, caseI1);
-            }
-            if (value == 81){
-                affect(tabfinal, &i, &j, caseI2);
-            }//tabfinal prend les cases I
-
         }
     }
 }
@@ -294,7 +282,7 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
                     _setmode(_fileno(stdout), _O_U16TEXT);
                     wprintf(L"\x00A0\x00A0"); //affichage des valeurs
                     break;
-                case 10:
+                case 30:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0041"); //affichage des valeurs
@@ -309,7 +297,7 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
 
                     wprintf(L"\x0054\x0043"); //affichage des valeurs
                     break;
-                case 13:
+                case 31:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0044"); //affichage des valeurs
@@ -354,7 +342,7 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
 
                     wprintf(L"\x0054\x004C"); //affichage des valeurs
                     break;
-                case 22:
+                case 32:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x004D"); //affichage des valeurs
@@ -369,7 +357,7 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
 
                     wprintf(L"\x0054\x004F"); //affichage des valeurs
                     break;
-                case 25:
+                case 33:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0050"); //affichage des valeurs
@@ -393,6 +381,21 @@ void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {     
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0054"); //affichage des valeurs
+                    break;
+                case 34:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0055"); //affichage des valeurs
+                    break;
+                case 35:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0056"); //affichage des valeurs
+                    break;
+                case 36:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0057"); //affichage des valeurs
                     break;
                 case 40:
                     _setmode(_fileno(stdout), _O_U16TEXT);
@@ -456,35 +459,36 @@ void affiche_case_en_plus(int *carterestante) {
     int caseI1[3][3] = {0, 1, 0, 0, 1, 0, 0, 1, 0};
     int caseI2[3][3] = {0, 0, 0, 1, 1, 1, 0, 0, 0};
     int casefinal[3][3];
-    switch (*carterestante) {
+    switch (*carterestante/10) {
         case 50:
-            caseT1[1][1] = 13;
+            caseT1[1][1] = 26+(*carterestante%50);
             break;
         case 51:
-            caseT2[1][1] = 17;
+            caseT2[1][1] = 26+(*carterestante%51);
             break;
         case 52:
-            caseT3[1][1] = 21;
+            caseT3[1][1] = 26+(*carterestante%52);
             break;
         case 53:
-            caseT4[1][1] = 25;
+            caseT4[1][1] = 26+(*carterestante%53);
             break;
         case 60:
-            caseL1[1][1] = 27;
+            caseLT1[1][1] = 31+(*carterestante%60);
             break;
         case 61:
-            caseLT2[1][1] = 29;
+            caseLT2[1][1] = 31+(*carterestante%61);;
             break;
         case 62:
-            caseLT3[1][1] = 31;
+            caseLT3[1][1] = 31+(*carterestante%62);;
             break;
         case 63:
-            caseLT4[1][1] = 33;
+            caseLT4[1][1] = 31+(*carterestante%63);;
             break;
+
     }
-    switch (*carterestante / 10) {
+    switch (*carterestante / 100) {
         case 5:
-            switch (*carterestante % 10) {
+            switch ((*carterestante/10) % 10) {
                 case 0:
                     for (int i = 0; i < 3; ++i) {
                         for (int j = 0; j < 3; ++j) {
@@ -517,7 +521,7 @@ void affiche_case_en_plus(int *carterestante) {
 
             break;
         case 6:
-            switch (*carterestante % 10) {
+            switch ((*carterestante/10) % 10) {
                 case 0:
                     for (int i = 0; i < 3; ++i) {
                         for (int j = 0; j < 3; ++j) {
@@ -549,7 +553,7 @@ void affiche_case_en_plus(int *carterestante) {
             }
             break;
         case 7:
-            switch (*carterestante % 10) {
+            switch ((*carterestante/10) % 10) {
                 case 0:
                     for (int i = 0; i < 3; ++i) {
                         for (int j = 0; j < 3; ++j) {
@@ -581,7 +585,7 @@ void affiche_case_en_plus(int *carterestante) {
             }
             break;
         case 8:
-            switch (*carterestante % 10) {
+            switch ((*carterestante/10) % 10) {
                 case 0:
                     for (int i = 0; i < 3; ++i) {
                         for (int j = 0; j < 3; ++j) {
@@ -611,55 +615,61 @@ void affiche_case_en_plus(int *carterestante) {
                     wprintf(L"\x00A0\x00A0"); //affichage des valeurs
                     break;
 
-                case 13:
+                case 26:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0044"); //affichage des valeurs
+                    wprintf(L"\x0054\x0051"); //affichage des valeurs
                     break;
-
-                case 17:
-                    _setmode(_fileno(stdout), _O_U16TEXT);
-
-                    wprintf(L"\x0054\x0048"); //affichage des valeurs
-                    break;
-
-                case 21:
-                    _setmode(_fileno(stdout), _O_U16TEXT);
-
-                    wprintf(L"\x0054\x004C"); //affichage des valeurs
-                    break;
-
-                case 25:
-                    _setmode(_fileno(stdout), _O_U16TEXT);
-
-                    wprintf(L"\x0054\x0050"); //affichage des valeurs
-                    break;
-
                 case 27:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0052"); //affichage des valeurs
                     break;
+                case 28:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
 
+                    wprintf(L"\x0054\x0053"); //affichage des valeurs
+                    break;
                 case 29:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0054"); //affichage des valeurs
                     break;
+                case 30:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
 
+                    wprintf(L"\x0054\x0041"); //affichage des valeurs
+                    break;
                 case 31:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0044"); //affichage des valeurs
+                    break;
+                case 32:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x004D"); //affichage des valeurs
+                    break;
+                case 33:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0050"); //affichage des valeurs
+                    break;
+                case 34:
+                    _setmode(_fileno(stdout), _O_U16TEXT);
+
+                    wprintf(L"\x0054\x0055"); //affichage des valeurs
+                    break;
+                case 35:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
                     wprintf(L"\x0054\x0056"); //affichage des valeurs
                     break;
-
-                case 33:
-
+                case 36:
                     _setmode(_fileno(stdout), _O_U16TEXT);
 
-                    wprintf(L"\x0054\x0058"); //affichage des valeurs
+                    wprintf(L"\x0054\x0057"); //affichage des valeurs
                     break;
-
             }
 
         }
