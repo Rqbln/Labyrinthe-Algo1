@@ -217,15 +217,15 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
                     affect(tabfinal, &i, &j, caseLT1);
                     break;
                 case 61:
-                    caseLT2[1][1] = 28+(value%61);;
+                    caseLT2[1][1] = 28+(value%61);
                     affect(tabfinal, &i, &j, caseLT2);
                     break;
                 case 62:
-                    caseLT3[1][1] = 28+(value%62);;
+                    caseLT3[1][1] = 28+(value%62);
                     affect(tabfinal, &i, &j, caseLT3);
                     break;
                 case 63:
-                    caseLT4[1][1] = 28+(value%63);;
+                    caseLT4[1][1] = 28+(value%63);
                     affect(tabfinal, &i, &j, caseLT4);
                     break;
 
