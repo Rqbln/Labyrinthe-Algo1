@@ -1,6 +1,6 @@
 #include "sprog.h"
 #include <stdio.h>
-int main() {   //programme principale
+int main() {   //programme principal
     int tab[LARGEUR][LARGEUR];
     char buffer[BUFFER_SIZE];
     int x,y,nbJoueurs;
