@@ -19,7 +19,6 @@ int main() {   //programme principal
     int echap=0;
     int carterestante;
     int test_tresor = 0;
-    int pionsJoueurs[4];
 
     int cartejoueur1=0;
     int cartejoueur2=0;
@@ -61,22 +60,21 @@ int main() {   //programme principal
         }
         if (choix0==1) {
             color(15,0);
-            //do{
-            //    test_tresor=0;
-                initialisationTableau(tab);
-                init_case_en_plus(tab, &carterestante, &test_tresor);
-                convertab(tab, &test_tresor);
-            //    printf("%d",test_tresor);
-            //}while(test_tresor == 24);
 
+            initialisationTableau(tab);                        //initialisation
+            init_case_en_plus(tab, &carterestante, &test_tresor);
+            convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab);
+
+            //affichageTableau(tab, tabfinal);                 //affichage
             //afficheplateauprog(tab, tabfinal);
             //afficheplateaubinaire(tab, tabfinal);
             afficheplateaufinal(tab, tabfinal);
-            deplacementJoueur1(tabfinal, tab);
-            //affichageTableau(tab, tabfinal);
-            //tourjoueur(&numjoueur, &echap, &nbJoueurs);
             affiche_case_en_plus(&carterestante);
+
+            deplacementJoueur1(tabfinal, tab);                 //deplacement joueur
+            //tourjoueur(&numjoueur, &echap, &nbJoueurs);
+
             nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
             CreationNomJoueurs(&nbJoueurs, nomJoueurs);
             srand(time(NULL));

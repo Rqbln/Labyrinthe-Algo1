@@ -30,7 +30,8 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR]){
     {
         // Affichage du tableau et du pion
         afficheplateaufinal(tab, tabfinal);
-
+        printf("\n");
+        printf("\n");
         // Lecture de l'entrée utilisateur
         int c = getch();
         if (c == 0 || c == 0xE0) // Flèche du clavier
@@ -39,7 +40,7 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR]){
             if (c == 72) // Flèche haut
             {
                 // Déplacement du pion vers le haut si possible
-                if (pion_row > 0 + 3&& tabfinal[pion_row-1][pion_col] == 1 && tabfinal[pion_row-2][pion_col] == 1)
+                if (pion_row > 0 + 3 && tabfinal[pion_row-1][pion_col] == 1 && tabfinal[pion_row-2][pion_col] == 1)
                 {
                     tabfinal[pion_row][pion_col] = 1;
                     pion_row-=3;
