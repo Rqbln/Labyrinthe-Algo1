@@ -9,7 +9,7 @@
 void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les valeur du tableau
     int tmp;
     int fixe=0;
-    int verifieur[34];
+    int verifieur[33];
     int p=0;
     srand(time(NULL));            //creation de du module aleatoire en fonction du temps
     for (int i = 0; i<(LARGEUR);i++){              //lignes
@@ -23,8 +23,8 @@ void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les
                 int verif=1;
                 while(verif==1) {
                     verif=0;
-                    tmp = ((LARGEUR/2)+1)*((LARGEUR/2)+1) + rand() % 34;   //creation d une variable aleatoire
-                    for (int l = 0; l < 34; l++) {
+                    tmp = ((LARGEUR/2)+1)*((LARGEUR/2)+1) + rand() % 33;   //creation d une variable aleatoire
+                    for (int l = 0; l < 33; l++) {
 
                         if (verifieur[l] == tmp) {
                             verif = 1;

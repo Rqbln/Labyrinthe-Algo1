@@ -59,13 +59,13 @@ int main() {   //programme principal
         }
         if (choix0==1) {
             color(15,0);
-            do{
-                test_tresor=0;
+            //do{
+            //    test_tresor=0;
                 initialisationTableau(tab);
                 init_case_en_plus(tab, &carterestante, &test_tresor);
                 convertab(tab, &test_tresor);
-                printf("%d",test_tresor);
-            }while(test_tresor == 24);
+            //    printf("%d",test_tresor);
+            //}while(test_tresor == 24);
 
             coordonne(tabfinal, &x, &y, tab);
             afficheplateauprog(tab, tabfinal);
