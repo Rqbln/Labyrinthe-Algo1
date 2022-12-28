@@ -18,6 +18,7 @@ int main() {   //programme principal
     int echap=0;
     int carterestante;
     int test_tresor = 0;
+    int pionsJoueurs[4];
 
     int cartejoueur1=0;
     int cartejoueur2=0;
@@ -68,9 +69,10 @@ int main() {   //programme principal
             //}while(test_tresor == 24);
 
             coordonne(tabfinal, &x, &y, tab);
-            afficheplateauprog(tab, tabfinal);
-            afficheplateaubinaire(tab, tabfinal);
+            //afficheplateauprog(tab, tabfinal);
+            //afficheplateaubinaire(tab, tabfinal);
             afficheplateaufinal(tab, tabfinal);
+            deplacementJoueur1(tabfinal, tab);
             //affichageTableau(tab, tabfinal);
             //tourjoueur(&numjoueur, &echap, &nbJoueurs);
             affiche_case_en_plus(&carterestante);
@@ -78,6 +80,7 @@ int main() {   //programme principal
             CreationNomJoueurs(&nbJoueurs, nomJoueurs);
             srand(time(NULL));
             tour_joueur = rand()%nbJoueurs;
+            distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs);
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
             afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
             afficheCarteJoueur1(&tour_joueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,&cartejoueur1,&cartejoueur2,&cartejoueur3,&cartejoueur4);

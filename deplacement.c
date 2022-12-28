@@ -2,37 +2,84 @@
 // Created by bapti on 27/12/2022.
 //
 #include "sprog.h"
-#include <stdio.h>
+
 #include <time.h>
-#include <stdlib.h>
 #include <fcntl.h>
 #include <io.h>
-void deplacementJoueur(int tab[LARGEUR][LARGEUR],int numjoueur,int *posxy[2])
-// il faudrait rajouter le posxy des 4 joueurs dans l'affichage du tableau
-{
-    int input,exit;
-    while (exit ==0) {
-        printf("Deplacement du personnage (Joueur %d) :\n 1.Vers le haut\n2.Vers la gauche\n3.Vers la droite\n4.Vers le bas\n0.Terminer votre tour",numjoueur);
-        scanf("%d", &input);
-        switch (input) {
-            //Ajouter les cases trésors aussi !!
-            case 1:
-                // "Monte" la position du joueur de 1 si la case supérieure le permet
-                if (*posxy[0]>0 && (tab[*posxy[0]-1][*posxy[1]] == 1 || tab[*posxy[0]-1][*posxy[1]] == 2 || tab[*posxy[0]-1][*posxy[1]] == 6 || tab[*posxy[0]-1][*posxy[1]] ==50  || tab[*posxy[0]-1][*posxy[1]] ==  7|| tab[*posxy[0]-1][*posxy[1]] ==  10|| tab[*posxy[0]-1][*posxy[1]] ==  11|| tab[*posxy[0]-1][*posxy[1]] ==  51|| tab[*posxy[0]-1][*posxy[1]] ==  4|| tab[*posxy[0]-1][*posxy[1]] == 5 || tab[*posxy[0]-1][*posxy[1]] ==  8|| tab[*posxy[0]-1][*posxy[1]] == 53 || tab[*posxy[0]-1][*posxy[1]] == 0 || tab[*posxy[0]-1][*posxy[1]] == 61 || tab[*posxy[0]-1][*posxy[1]] == 71 || tab[*posxy[0]-1][*posxy[1]] == 3 || tab[*posxy[0]-1][*posxy[1]] ==  62|| tab[*posxy[0]-1][*posxy[1]] ==  72|| tab[*posxy[0]-1][*posxy[1]] ==  80))
-                {*posxy[0]=-1;}
-                else;
-            case 2:
-                if (*posxy[1]>0 && (tab[*posxy[0]][*posxy[1]-1]==12||tab[*posxy[0]][*posxy[1]-1]==60||tab[*posxy[0]][*posxy[1]-1]==70||tab[*posxy[0]][*posxy[1]-1]==0||tab[*posxy[0]][*posxy[1]-1]==61||tab[*posxy[0]][*posxy[1]-1]==71||tab[*posxy[0]][*posxy[1]-1]==1||tab[*posxy[0]][*posxy[1]-1]==2||tab[*posxy[0]][*posxy[1]-1]==6||tab[*posxy[0]][*posxy[1]-1]==50||tab[*posxy[0]][*posxy[1]-1]==9||tab[*posxy[0]][*posxy[1]-1]==13||tab[*posxy[0]][*posxy[1]-1]==14||tab[*posxy[0]][*posxy[1]-1]==52||tab[*posxy[0]][*posxy[1]-1]==4||tab[*posxy[0]][*posxy[1]-1]==5||tab[*posxy[0]][*posxy[1]-1]==8||tab[*posxy[0]][*posxy[1]-1]==53||tab[*posxy[0]][*posxy[1]-1]==81))
-                {*posxy[1]=-1;}
-            case 3:
-                if (*posxy[1]<7 && (tab[*posxy[0]][*posxy[1]+1] == 3||tab[*posxy[0]][*posxy[1]+1] == 62||tab[*posxy[0]][*posxy[1]+1] == 72||tab[*posxy[0]][*posxy[1]+1] == 15||tab[*posxy[0]][*posxy[1]+1] == 63||tab[*posxy[0]][*posxy[1]+1] == 73||tab[*posxy[0]][*posxy[1]+1] == 1||tab[*posxy[0]][*posxy[1]+1] == 2||tab[*posxy[0]][*posxy[1]+1] == 6||tab[*posxy[0]][*posxy[1]+1] == 50||tab[*posxy[0]][*posxy[1]+1] == 7||tab[*posxy[0]][*posxy[1]+1] == 10||tab[*posxy[0]][*posxy[1]+1] == 11||tab[*posxy[0]][*posxy[1]+1] == 51||tab[*posxy[0]][*posxy[1]+1] == 9||tab[*posxy[0]][*posxy[1]+1] == 13||tab[*posxy[0]][*posxy[1]+1] == 14||tab[*posxy[0]][*posxy[1]+1] == 52||tab[*posxy[0]][*posxy[1]+1] == 81))
-                {*posxy[1]=+1;}
-            case 4:
-                if (*posxy[0]<7 && (tab[*posxy[0]+1][*posxy[1]]==12||tab[*posxy[0]+1][*posxy[1]]==60||tab[*posxy[0]+1][*posxy[1]]==70||tab[*posxy[0]+1][*posxy[1]]==15||tab[*posxy[0]+1][*posxy[1]]==63||tab[*posxy[0]+1][*posxy[1]]==73||tab[*posxy[0]+1][*posxy[1]]==7||tab[*posxy[0]+1][*posxy[1]]==10||tab[*posxy[0]+1][*posxy[1]]==11||tab[*posxy[0]+1][*posxy[1]]==51||tab[*posxy[0]+1][*posxy[1]]==9||tab[*posxy[0]+1][*posxy[1]]==13||tab[*posxy[0]+1][*posxy[1]]==14||tab[*posxy[0]+1][*posxy[1]]==52||tab[*posxy[0]+1][*posxy[1]]==4||tab[*posxy[0]+1][*posxy[1]]==5||tab[*posxy[0]+1][*posxy[1]]==8||tab[*posxy[0]+1][*posxy[1]]==53||tab[*posxy[0]+1][*posxy[1]]==80))
-                {*posxy[0]=+1;}
-            case 0:
-                exit = 1;
-                printf("Fin de tour du Joueur %d...",numjoueur);
+// Ce programme crée un tableau de caractères représentant un plateau de jeu
+// et déplace un pion sur ce plateau en fonction des entrées de l'utilisateur.
+// Les flèches du clavier permettent de déplacer le pion et la touche 'q' permet de quitter le programme.
+
+#include <stdio.h> // Pour utiliser la fonction printf
+#include <stdlib.h> // Pour utiliser la fonction getch
+#include <conio.h> // Pour utiliser la fonction getch
+
+
+
+void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR]){
+    // Déclaration du tableau et du pion
+    // Le tableau est initialisé à '-' pour chaque case
+    // Le pion est placé en position (0, 0) au début du programme
+
+    int pion_row = 1, pion_col = 1;
+    tabfinal[pion_row][pion_col] = 3;
+
+    // Boucle principale de déplacement du pion
+    // Le programme tourne en boucle jusqu'à ce que l'utilisateur appuie sur la touche 'q'
+    while (1)
+    {
+        // Affichage du tableau et du pion
+        afficheplateaufinal(tab, tabfinal);
+
+        // Lecture de l'entrée utilisateur
+        int c = getch();
+        if (c == 0 || c == 0xE0) // Flèche du clavier
+        {
+            c = getch();
+            if (c == 72) // Flèche haut
+            {
+                // Déplacement du pion vers le haut si possible
+                if (pion_row > 0 + 3&& tabfinal[pion_row-1][pion_col] == 1 && tabfinal[pion_row-2][pion_col] == 1)
+                {
+                    tabfinal[pion_row][pion_col] = 1;
+                    pion_row-=3;
+                    tabfinal[pion_row][pion_col] = 3;
+                }
+            }
+            else if (c == 80) // Flèche bas
+            {
+                // Déplacement du pion vers le bas si possible
+                if (pion_row < 21 - 3 && tabfinal[pion_row+1][pion_col] == 1 && tabfinal[pion_row+2][pion_col] == 1)
+                {
+                    tabfinal[pion_row][pion_col] = 1;
+                    pion_row+=3;
+                    tabfinal[pion_row][pion_col] = 3;
+                }
+            }
+            else if (c == 75) // Flèche gauche
+            {
+// Déplacement du pion vers la gauche si possible
+                if (pion_col > 0 + 3 && tabfinal[pion_row][pion_col-1] == 1 && tabfinal[pion_row][pion_col-2] == 1)
+                {
+                    tabfinal[pion_row][pion_col] = 1;
+                    pion_col-=3;
+                    tabfinal[pion_row][pion_col] = 3;
+                }
+            }
+            else if (c == 77) // Flèche droite
+            {
+// Déplacement du pion vers la droite si possible
+                if (pion_col < 21 - 3 && tabfinal[pion_row][pion_col+1] == 1 && tabfinal[pion_row][pion_col+2] == 1)
+                {
+                    tabfinal[pion_row][pion_col] = 1;
+                    pion_col+=3;
+                    tabfinal[pion_row][pion_col] = 3;
+                }
+            }
+        }
+        else if (c == 'q') // Touche 'q' pour quitter
+        {
+            break;
         }
     }
 }

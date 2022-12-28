@@ -53,6 +53,10 @@ void caractere(int *caracteres){
             _setmode(_fileno(stdout), _O_U16TEXT);
             wprintf(L"\x00A0\x00A0"); //affichage des valeurs
             break;
+        case 3:
+            _setmode(_fileno(stdout), _O_U16TEXT);
+            wprintf(L"\x00AE\x00A0"); //affichage des valeurs
+            break;
         case 10:
             _setmode(_fileno(stdout), _O_U16TEXT);
             color(6,0);
