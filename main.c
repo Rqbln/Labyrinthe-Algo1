@@ -5,6 +5,7 @@ int main() {   //programme principal
     int tab[LARGEUR][LARGEUR];
     char buffer[BUFFER_SIZE];
     int x,y,nbJoueurs;
+    int pionsJoueurs[4];
     char nomJoueurs[4][LONGUEUR_NOM];
     char choix[BUFFER_SIZE];
     int choix0;
@@ -78,6 +79,7 @@ int main() {   //programme principal
             CreationNomJoueurs(&nbJoueurs, nomJoueurs);
             srand(time(NULL));
             tour_joueur = rand()%nbJoueurs;
+            distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs);
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
             afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
             afficheCarteJoueur1(&tour_joueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,&cartejoueur1,&cartejoueur2,&cartejoueur3,&cartejoueur4);
