@@ -152,6 +152,30 @@ Plateau.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/Plateau.c.s
 .PHONY : Plateau.c.s
 
+deplacement.obj: deplacement.c.obj
+.PHONY : deplacement.obj
+
+# target to build an object file
+deplacement.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacement.c.obj
+.PHONY : deplacement.c.obj
+
+deplacement.i: deplacement.c.i
+.PHONY : deplacement.i
+
+# target to preprocess a source file
+deplacement.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacement.c.i
+.PHONY : deplacement.c.i
+
+deplacement.s: deplacement.c.s
+.PHONY : deplacement.s
+
+# target to generate assembly for a file
+deplacement.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacement.c.s
+.PHONY : deplacement.c.s
+
 initPlateauColor.obj: initPlateauColor.c.obj
 .PHONY : initPlateauColor.obj
 
@@ -175,6 +199,30 @@ initPlateauColor.s: initPlateauColor.c.s
 initPlateauColor.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateauColor.c.s
 .PHONY : initPlateauColor.c.s
+
+joueur.obj: joueur.c.obj
+.PHONY : joueur.obj
+
+# target to build an object file
+joueur.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/joueur.c.obj
+.PHONY : joueur.c.obj
+
+joueur.i: joueur.c.i
+.PHONY : joueur.i
+
+# target to preprocess a source file
+joueur.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/joueur.c.i
+.PHONY : joueur.c.i
+
+joueur.s: joueur.c.s
+.PHONY : joueur.s
+
+# target to generate assembly for a file
+joueur.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/joueur.c.s
+.PHONY : joueur.c.s
 
 main.obj: main.c.obj
 .PHONY : main.obj
@@ -236,9 +284,15 @@ help:
 	@echo ... Plateau.obj
 	@echo ... Plateau.i
 	@echo ... Plateau.s
+	@echo ... deplacement.obj
+	@echo ... deplacement.i
+	@echo ... deplacement.s
 	@echo ... initPlateauColor.obj
 	@echo ... initPlateauColor.i
 	@echo ... initPlateauColor.s
+	@echo ... joueur.obj
+	@echo ... joueur.i
+	@echo ... joueur.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
