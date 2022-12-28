@@ -39,8 +39,8 @@ void caractere(int *caracteres);
 void afficherRegles();
 
 void initialisationTableau(int tab[LARGEUR][LARGEUR]);
-void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante);
-void convertab(int tab[LARGEUR][LARGEUR]);
+void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante, int *test_tresor);
+void convertab(int tab[LARGEUR][LARGEUR], int *test_tresor);
 void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]);
 void affect(int tabfinal[21][21], int *x, int *y, int cases[3][3]);
 
