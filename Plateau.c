@@ -38,7 +38,7 @@ void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les
         }
     }
 }
-void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
+void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante, int *test_tresor){
     int tmp;
 
     tmp=rand() % 7;
@@ -47,11 +47,11 @@ void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
     tab[3][tmp]=49;
     if (*carterestante>15 && *carterestante<22){
         *carterestante=(50 + rand() % 4)*10+5;   //case en T avec tresor 50  X6
-
+        *test_tresor+=1;
     }
     if (*carterestante>21 && *carterestante<28){
         *carterestante=(60 + rand() % 4)*10+5;   //case en L avec tresor 60  X6
-
+        *test_tresor+=1;
     }
     if (*carterestante>27 && *carterestante<38){
         *carterestante=70 + rand() % 4;   //case en L classique 70 X10
@@ -62,7 +62,7 @@ void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante){
 
     }
 }
-void convertab(int tab[LARGEUR][LARGEUR]){
+void convertab(int tab[LARGEUR][LARGEUR], int *test_tresor){
     int cinquante=0;
     int soixante=0;
     for (int i = 0; i < (LARGEUR); i++) {
@@ -70,11 +70,12 @@ void convertab(int tab[LARGEUR][LARGEUR]){
             if (tab[i][j]>15 && tab[i][j]<22){
                 tab[i][j]=(50 + rand() % 4)*10+cinquante;   //case en T avec tresor 50
                 cinquante+=1;
+                *test_tresor+=1;
             }
             if (tab[i][j]>21 && tab[i][j]<28){
                 tab[i][j]=(60 + rand() % 4)*10+soixante;   //case en L avec tresor 60
                 soixante+=1;
-
+                *test_tresor+=1;
             }
             if (tab[i][j]>27 && tab[i][j]<38){
                 tab[i][j]=70 + rand() % 4;   //case en L classique 70

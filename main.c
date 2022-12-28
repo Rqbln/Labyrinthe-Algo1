@@ -17,6 +17,7 @@ int main() {   //programme principal
     int numjoueur=1;
     int echap=0;
     int carterestante;
+    int test_tresor = 0;
 
     int cartejoueur1=0;
     int cartejoueur2=0;
@@ -58,9 +59,14 @@ int main() {   //programme principal
         }
         if (choix0==1) {
             color(15,0);
-            initialisationTableau(tab);
-            init_case_en_plus(tab, &carterestante);
-            convertab(tab);
+            do{
+                test_tresor=0;
+                initialisationTableau(tab);
+                init_case_en_plus(tab, &carterestante, &test_tresor);
+                convertab(tab, &test_tresor);
+                printf("%d",test_tresor);
+            }while(test_tresor == 24);
+
             coordonne(tabfinal, &x, &y, tab);
             afficheplateauprog(tab, tabfinal);
             afficheplateaubinaire(tab, tabfinal);
@@ -100,7 +106,7 @@ int main() {   //programme principal
             printf("Lancement de la partie sauvegardee...\n");
             //tab[LARGEUR][LARGEUR]=sauvegarde1tab[LARGEUR][LARGEUR];
             numjoueur = sauvegardetourjoueur;
-            convertab(sauvegarde1tab);
+            convertab(sauvegarde1tab, &test_tresor);
             coordonne(tabfinal, &x, &y, sauvegarde1tab);
             afficheplateaufinal(sauvegarde1tab, tabfinal);
             partie = 0;
