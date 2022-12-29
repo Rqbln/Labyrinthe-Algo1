@@ -79,7 +79,7 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
     char input[BUFFER_SIZE];
     for (int i = 0; i < *nbJoueurs; ++i) {
         pionsJoueurs[i]=0;
-        while (pionsJoueurs[i]<1 ||pionsJoueurs[i]>4){
+        while (pionsJoueurs[i]<*nbJoueurs ||pionsJoueurs[i]>*nbJoueurs){
             printf("%s, choisissez votre pion :",nomJoueurs[i]);
             fflush(stdin);
             fgets(input,BUFFER_SIZE,stdin);
