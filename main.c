@@ -35,7 +35,6 @@ int main() {   //programme principal
     color(15,0);
     printf("\n");
     afficherTitre();
-    color(13,0);
     ligne();
     color(13,0);
 

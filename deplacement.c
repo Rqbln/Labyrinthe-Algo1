@@ -20,7 +20,6 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR]){
     // Déclaration du tableau et du pion
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
-
     int pion_row = 1, pion_col = 1;
     tabfinal[pion_row][pion_col] = 3;
 
@@ -28,6 +27,9 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR]){
     // Le programme tourne en boucle jusqu'à ce que l'utilisateur appuie sur la touche 'q'
     while (1)
     {
+        system("cls");
+        afficherTitre();
+        ligne();
         // Affichage du tableau et du pion
         afficheplateaufinal(tab, tabfinal);
         printf("\n");
