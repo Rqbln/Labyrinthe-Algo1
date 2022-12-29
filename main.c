@@ -71,7 +71,6 @@ int main() {   //programme principal
             afficheplateaufinal(tab, tabfinal);
             affiche_case_en_plus(&carterestante);
 
-            deplacementJoueur1(tabfinal, tab);                 //deplacement joueur
             //tourjoueur(&numjoueur, &echap, &nbJoueurs);
 
             nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
@@ -82,6 +81,7 @@ int main() {   //programme principal
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
             afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
             afficheCarteJoueur1(&tour_joueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,&cartejoueur1,&cartejoueur2,&cartejoueur3,&cartejoueur4);
+            deplacementJoueur1(tabfinal, tab);                 //deplacement joueur
 
             //finJeu(&ligne, &colonne, &tab[7][7], &n);
             printf("\n");
