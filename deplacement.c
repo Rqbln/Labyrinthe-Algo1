@@ -16,7 +16,7 @@
 
 
 
-void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR]){
+void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur){
     // Déclaration du tableau et du pion
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
@@ -24,7 +24,7 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR]){
     tabfinal[pion_row][pion_col] = 3;
     char demarrage;
     afficheplateaufinal(tab, tabfinal);
-    printf("Appuyez sur 'Entree' pour deplacer votre pion\n");
+    printf("%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
     do {
         demarrage=getchar();
     }while (demarrage!='\n');

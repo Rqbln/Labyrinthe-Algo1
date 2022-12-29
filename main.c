@@ -24,7 +24,7 @@ int main() {   //programme principal
     int cartejoueur2=0;
     int cartejoueur3=0;
     int cartejoueur4=0;
-    int tour_joueur;
+    int tourJoueur, nbTours=0;
 
     //Positions initiale des joueurs
     int posxy1[2]={0,0};
@@ -59,7 +59,7 @@ int main() {   //programme principal
         }
         if (choix0==1) {
             color(15,0);
-
+            nbTours+=1;
             initialisationTableau(tab);                        //initialisation
             init_case_en_plus(tab, &carterestante, &test_tresor);
             convertab(tab, &test_tresor);
@@ -76,12 +76,13 @@ int main() {   //programme principal
             nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
             CreationNomJoueurs(&nbJoueurs, nomJoueurs);
             srand(time(NULL));
-            tour_joueur = rand()%nbJoueurs;
             distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs);
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
-            afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
-            afficheCarteJoueur1(&tour_joueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,&cartejoueur1,&cartejoueur2,&cartejoueur3,&cartejoueur4);
-            deplacementJoueur1(tabfinal, tab);                 //deplacement joueur
+
+            debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
+            //afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
+            afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,&cartejoueur1,&cartejoueur2,&cartejoueur3,&cartejoueur4);
+            deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur);                 //deplacement joueur
 
             //finJeu(&ligne, &colonne, &tab[7][7], &n);
             printf("\n");
