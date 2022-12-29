@@ -16,12 +16,32 @@
 
 
 
-void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur){
+void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1]){
     // Déclaration du tableau et du pion
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
-    int pion_row = 1, pion_col = 1;
-    tabfinal[pion_row][pion_col] = 3;
+    int pion_row, pion_col;
+    switch (pionsJoueurs[*tourJoueur]) {
+        case 1:
+            pion_row = pion_row1;
+            pion_col = pion_col1;
+            break;
+        case 2:
+            pion_row = pion_row2;
+            pion_col = pion_col2;
+            break;
+        case 3:
+            pion_row = pion_row3;
+            pion_col = pion_col3;
+            break;
+        case 4:
+            pion_row = pion_row4;
+            pion_col = pion_col4;
+            break;
+
+    }
+    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
+    tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
     char demarrage;
     afficheplateaufinal(tab, tabfinal);
     printf("%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
@@ -50,19 +70,21 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char no
 // Déplacement du pion vers le haut si possible
                 if (pion_row > 0 + 3 && tabfinal[pion_row-1][pion_col] == 1 && tabfinal[pion_row-2][pion_col] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = 1;
+                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
                     pion_row-=3;
-                    tabfinal[pion_row][pion_col] = 3;
+                    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
+                    tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
             }
-            else if (c == 's') // touche 's'
+            else if (c == 's') // touches 's'
             {
 // Déplacement du pion vers le bas si possible
                 if (pion_row < 21 - 3 && tabfinal[pion_row+1][pion_col] == 1 && tabfinal[pion_row+2][pion_col] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = 1;
+                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
                     pion_row+=3;
-                    tabfinal[pion_row][pion_col] = 3;
+                    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
+                    tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
             }
             else if (c == 'q') // touche 'q'
@@ -70,9 +92,10 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char no
 // Déplacement du pion vers la gauche si possible
                 if (pion_col > 0 + 3 && tabfinal[pion_row][pion_col-1] == 1 && tabfinal[pion_row][pion_col-2] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = 1;
+                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
                     pion_col-=3;
-                    tabfinal[pion_row][pion_col] = 3;
+                    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
+                    tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
             }
             else if (c == 'd') // touche 'd'
@@ -80,9 +103,10 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char no
 // Déplacement du pion vers la droite si possible
                 if (pion_col < 21 - 3 && tabfinal[pion_row][pion_col+1] == 1 && tabfinal[pion_row][pion_col+2] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = 1;
+                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
                     pion_col+=3;
-                    tabfinal[pion_row][pion_col] = 3;
+                    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
+                    tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
             }
             else { // Touche entrée

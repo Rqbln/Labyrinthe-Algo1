@@ -57,9 +57,29 @@ void caractere(int *caracteres){
             _setmode(_fileno(stdout), _O_U16TEXT);
             wprintf(L"\x00A0\x00A0"); //affichage des valeurs
             break;
+        case 2:
+            _setmode(_fileno(stdout), _O_U16TEXT);      //pion1
+            color(1,0);
+            wprintf(L"\x0020\x2660"); //affichage des valeurs
+            color(15,0);
+            break;
         case 3:
-            _setmode(_fileno(stdout), _O_U16TEXT);
-            wprintf(L"\x00AE\x00A0"); //affichage des valeurs
+            _setmode(_fileno(stdout), _O_U16TEXT);      //pion2
+            color(2,0);
+            wprintf(L"\x0020\x2663"); //affichage des valeurs
+            color(15,0);
+            break;
+        case 4:
+            _setmode(_fileno(stdout), _O_U16TEXT);      //pion3
+            color(4,0);
+            wprintf(L"\x0020\x2665"); //affichage des valeurs
+            color(15,0);
+            break;
+        case 5:
+            _setmode(_fileno(stdout), _O_U16TEXT);      //pion4
+            color(5,0);
+            wprintf(L"\x0020\x2666"); //affichage des valeurs
+            color(15,0);
             break;
         case 10:
             _setmode(_fileno(stdout), _O_U16TEXT);

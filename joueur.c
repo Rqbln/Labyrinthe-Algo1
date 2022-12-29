@@ -47,7 +47,7 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
         _setmode(_fileno(stdout), _O_U16TEXT);
         color(1,0);
         wprintf(L"\x0031\x002e\x0020\x2660\n");
-        color(5,0);
+        color(2,0);
         wprintf(L"\x0032\x002e\x0020\x2663\n");
         color(15,0);
 
@@ -56,7 +56,7 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
         _setmode(_fileno(stdout), _O_U16TEXT);
         color(1,0);
         wprintf(L"\x0031\x002e\x0020\x2660\n");
-        color(5,0);
+        color(2,0);
         wprintf(L"\x0032\x002e\x0020\x2663\n");
         color(4,0);
         wprintf(L"\x0033\x002e\x0020\x2665\n");
@@ -67,11 +67,11 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
         _setmode(_fileno(stdout), _O_U16TEXT);
         color(1,0);
         wprintf(L"\x0031\x002e\x0020\x2660\n");
-        color(5,0);
+        color(2,0);
         wprintf(L"\x0032\x002e\x0020\x2663\n");
         color(4,0);
         wprintf(L"\x0033\x002e\x0020\x2665\n");
-        color(2,0);
+        color(5,0);
         wprintf(L"\x0034\x002e\x0020\x2666\n");
         color(15,0);
     }

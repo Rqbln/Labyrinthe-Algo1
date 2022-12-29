@@ -19,6 +19,7 @@ int main() {   //programme principal
     int echap=0;
     int carterestante;
     int test_tresor = 0;
+    int memoricase[4][1];
 
     int cartejoueurtab[4]={0,0,0,0};
     int cartejoueur1=0;
@@ -83,7 +84,7 @@ int main() {   //programme principal
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
             //afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
             afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
-            deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur);                 //deplacement joueur
+            deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase);                 //deplacement joueur
 
             //finJeu(&ligne, &colonne, &tab[7][7], &n);
             printf("\n");

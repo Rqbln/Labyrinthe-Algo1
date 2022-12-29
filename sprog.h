@@ -8,6 +8,14 @@
 #define CARTES 24
 #define BUFFER_SIZE 32
 #define LONGUEUR_NOM 50
+#define pion_row1 1
+#define pion_row2 1
+#define pion_row3 19
+#define pion_row4 19
+#define pion_col1 1
+#define pion_col2 19
+#define pion_col3 1
+#define pion_col4 19
 
 //#ifndef INITPLATEAU_H_INCLUDED
 //#define AFFICHAGEC_H_INCLUDED
@@ -59,7 +67,7 @@ void afficheCarteJoueur(int *nbJoueurs,int *nbCartesJoueurs, char nomJoueurs[4][
 void afficheCarteJoueur1(int *tourJoueur,int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES],int cartejoueurtab[4]);
 void debutPartie (int *nbJoueurs, int *tourJoueur, char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int* nbTours);
 void deplacementJoueur(int tab[LARGEUR][LARGEUR],int numjoueur,int *posxy[2]);
-void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4],int *tourJoueur);
+void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4],int *tourJoueur, int memoricase[4][1]);
 
 void color(int couleurDuTexte,int couleurDeFond);
 void text_color(int color); //change la couleur du texte
