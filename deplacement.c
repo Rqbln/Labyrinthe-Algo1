@@ -121,3 +121,47 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char no
         }
     }
 }
+void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int *ligne_ou_colonne, int *numero_ligne_colonne) {
+    int i, temp;
+    int verif=0;
+    int verif2=0;
+    while (verif==0){
+        printf("Voulez-vous faire glisser une ligne (0) ou une colonne (1) ? ");
+        scanf("%d", &*ligne_ou_colonne);
+        switch (*ligne_ou_colonne) {
+
+            case 0:
+                verif=1;
+                while(verif2==0){
+                    printf("Quelle ligne voulez-vous faire glisser ? ");
+                    scanf("%d", &*numero_ligne_colonne);
+                    if(*numero_ligne_colonne==1 || *numero_ligne_colonne==3 || *numero_ligne_colonne==5 ){
+                        temp = tab[*numero_ligne_colonne][0];
+                        for (i = 0; i < LARGEUR - 1; i++) {
+                            tab[*numero_ligne_colonne][i] = tab[*numero_ligne_colonne][i + 1];
+                        }
+                        tab[*numero_ligne_colonne][LARGEUR - 1] = temp;
+                        verif2=1;
+                    }
+                }
+
+                break;
+            case 1:
+                verif=1;
+                while(verif2==0){
+                    printf("Quelle colonne voulez-vous faire glisser ? ");
+                    scanf("%d", &*numero_ligne_colonne);
+                    if(*numero_ligne_colonne==1 || *numero_ligne_colonne==3 || *numero_ligne_colonne==5 ){
+                        temp = tab[0][*numero_ligne_colonne];
+                        for (i = 0; i < LARGEUR - 1; i++) {
+                            tab[i][*numero_ligne_colonne] = tab[i + 1][*numero_ligne_colonne];
+                        }
+                        tab[LARGEUR - 1][*numero_ligne_colonne] = temp;
+                        verif2=1;
+                    }
+                }
+
+                break;
+        }
+    }
+}

@@ -27,6 +27,7 @@ int main() {   //programme principal
     int cartejoueur3=0;
     int cartejoueur4=0;
     int tourJoueur, nbTours=0;
+    int ligne_ou_colonne, numero_ligne_colonne;
 
     //Positions initiale des joueurs
     int posxy1[2]={0,0};
@@ -84,6 +85,9 @@ int main() {   //programme principal
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
             //afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
             afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
+            deplacement_de_tuile(tab, &ligne_ou_colonne, &numero_ligne_colonne);
+            convertab(tab, &test_tresor);
+            coordonne(tabfinal, &x, &y, tab);
             deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase);                 //deplacement joueur
 
             //finJeu(&ligne, &colonne, &tab[7][7], &n);
