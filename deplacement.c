@@ -40,8 +40,14 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char no
             break;
 
     }
-    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
-    tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
+    memoricase[0][0]=tabfinal[pion_row1][pion_col1];
+    tabfinal[pion_row1][pion_col1] = pionsJoueurs[0]+1;
+    memoricase[1][0]=tabfinal[pion_row2][pion_col2];
+    tabfinal[pion_row2][pion_col2] = pionsJoueurs[1]+1;
+    memoricase[2][0]=tabfinal[pion_row3][pion_col3];
+    tabfinal[pion_row3][pion_col3] = pionsJoueurs[2]+1;
+    memoricase[3][0]=tabfinal[pion_row4][pion_col4];
+    tabfinal[pion_row4][pion_col4] = pionsJoueurs[3]+1;
     char demarrage;
     afficheplateaufinal(tab, tabfinal);
     printf("%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
