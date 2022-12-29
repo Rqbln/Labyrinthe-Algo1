@@ -9,12 +9,12 @@
 #define BUFFER_SIZE 32
 #define LONGUEUR_NOM 50
 #define pion_row1 1
-#define pion_row2 1
-#define pion_row3 19
+#define pion_row3 1
+#define pion_row2 19
 #define pion_row4 19
 #define pion_col1 1
-#define pion_col2 19
-#define pion_col3 1
+#define pion_col3 19
+#define pion_col2 1
 #define pion_col4 19
 
 //#ifndef INITPLATEAU_H_INCLUDED
