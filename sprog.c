@@ -36,11 +36,14 @@ void ligne(){
 void afficherRegles(){
     color(15,0);
     printf("Regles du jeu de societe Labyrinthe:\n\n");
-    printf("Le but du jeu est d'etre le premier a trouver la sortie du labyrinthe avec son pion.\n");
-    printf("Pour se deplacer, les joueurs tirent un de et avancent leur pion du nombre de cases correspondant.\n");
-    printf("Si un joueur tombe sur une case avec un objet, il peut le prendre et le garder jusqu'a ce qu'il en ait besoin ou decider de le donner a un autre joueur.\n");
-    printf("Les objets peuvent etre utilises pour ouvrir des portes ou des passages secrets, ou pour deplacer des obstacles dans le labyrinthe.\n");
-    printf("Le premier joueur a sortir du labyrinthe est declare vainqueur.\n");
+    printf("Labyrinthe est une chasse aux tresors dans un labyrinthe en mouvement constant.\n");
+    printf("Le but de chaque joueur est de reussir a recuperer des tresors en deplacant les murs du labyrinthe,\ncomme un dedale de couloirs qu'on decale a sa guise.\n");
+    printf("Le plus malin a deplacer les couloirs sera le gagnant !\n");
+}
+void afficherCredits(){
+    color(15,0);
+    printf("\n\nPremier projet realise en Algorithmique et d'Informatique a l'ECE.\n");
+    printf("Auteurs : Robin Queriaux, Baptiste Chesnot, Laouig Eleouet, Lucas Girault\n");
 }
 void caractere(int *caracteres){
     switch (*caracteres) {

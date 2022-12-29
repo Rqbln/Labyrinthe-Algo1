@@ -114,6 +114,7 @@ int main() {   //programme principal
         }
         if (choix0==4) {
             afficherRegles();
+            afficherCredits();
             partie = 0;
         }
         else {
