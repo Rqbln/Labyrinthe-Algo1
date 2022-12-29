@@ -20,6 +20,7 @@ int main() {   //programme principal
     int carterestante;
     int test_tresor = 0;
 
+    int cartejoueurtab[4]={0,0,0,0};
     int cartejoueur1=0;
     int cartejoueur2=0;
     int cartejoueur3=0;
@@ -81,7 +82,7 @@ int main() {   //programme principal
 
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
             //afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
-            afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,&cartejoueur1,&cartejoueur2,&cartejoueur3,&cartejoueur4);
+            afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
             deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur);                 //deplacement joueur
 
             //finJeu(&ligne, &colonne, &tab[7][7], &n);

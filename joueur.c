@@ -160,21 +160,21 @@ void afficheCarteJoueur(int *nbJoueurs,int *nbCartesJoueurs, char nomJoueurs[4][
         _setmode(_fileno(stdout), _O_TEXT);
     }
 }
-void afficheCarteJoueur1(int *tourJoueur,int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES], int *cartejoueur1,int *cartejoueur2,int *cartejoueur3,int *cartejoueur4){
+void afficheCarteJoueur1(int *tourJoueur,int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES], int cartejoueurtab[4]){
     int cartejoueur;
     int caracteres;
     switch (*tourJoueur) {
         case 0:
-            cartejoueur=*cartejoueur1;
+            cartejoueur=cartejoueurtab[0];
             break;
         case 1:
-            cartejoueur=*cartejoueur2;
+            cartejoueur=cartejoueurtab[1];
             break;
         case 2:
-            cartejoueur=*cartejoueur3;
+            cartejoueur=cartejoueurtab[2];
             break;
         case 3:
-            cartejoueur=*cartejoueur4;
+            cartejoueur=cartejoueurtab[3];
             break;
     }
     printf("%s, Voici tes cartes tresor a trouver : \n", nomJoueurs[*tourJoueur]);
@@ -193,16 +193,16 @@ void afficheCarteJoueur1(int *tourJoueur,int *nbCartesJoueurs, char nomJoueurs[4
     _setmode(_fileno(stdout), _O_TEXT);
     switch (*tourJoueur) {
         case 0:
-            *cartejoueur1+=1;
+            cartejoueurtab[0]+=1;
             break;
         case 1:
-            *cartejoueur2+=1;
+            cartejoueurtab[1]+=1;
             break;
         case 2:
-            *cartejoueur3+=1;
+            cartejoueurtab[2]+=1;
             break;
         case 3:
-            *cartejoueur4+=1;
+            cartejoueurtab[3]+=1;
             break;
     }
 }
