@@ -121,10 +121,12 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char no
         }
     }
 }
-void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int *ligne_ou_colonne, int *numero_ligne_colonne) {
+void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[21][21],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne) {
     int i, temp;
     int verif=0;
     int verif2=0;
+    afficheplateaufinal(tab, tabfinal);
+    affiche_case_en_plus(&*carterestante);
     while (verif==0){
         printf("Voulez-vous faire glisser une ligne (0) ou une colonne (1) ? ");
         scanf("%d", &*ligne_ou_colonne);
