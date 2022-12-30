@@ -125,6 +125,8 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[21][21],int *c
     int i, temp;
     int verif=0;
     int verif2=0;
+    int verif3=0;
+    int direction;
     afficheplateaufinal(tab, tabfinal);
     affiche_case_en_plus(&*carterestante);
     while (verif==0){
@@ -138,31 +140,76 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[21][21],int *c
                     printf("Quelle ligne voulez-vous faire glisser ? ");
                     scanf("%d", &*numero_ligne_colonne);
                     if(*numero_ligne_colonne==1 || *numero_ligne_colonne==3 || *numero_ligne_colonne==5 ){
-                        temp = tab[*numero_ligne_colonne][0];
-                        for (i = 0; i < LARGEUR - 1; i++) {
-                            tab[*numero_ligne_colonne][i] = tab[*numero_ligne_colonne][i + 1];
+                        while(verif3==0){
+                            printf("A DROITE 0 OU A GAUCHE 1 ? ");
+                            scanf("%d", &direction);
+                            switch (direction) {
+                                
+                                case 0:
+                                    temp = tab[*numero_ligne_colonne][0];
+                                    for (i = 0; i < LARGEUR - 1; i++) {
+                                        tab[*numero_ligne_colonne][i] = tab[*numero_ligne_colonne][i + 1];
+                                    }
+                                    tab[*numero_ligne_colonne][LARGEUR - 1] = *carterestante;
+                                    *carterestante=temp;
+                                    verif3=1;
+                                    break;
+                                    
+                                case 1:
+                                    temp = tab[*numero_ligne_colonne][LARGEUR - 1]; // variable *carterestanteoraire pour stocker la dernière valeur de la colonne
+                                        // déplacer chaque élément vers la droite
+                                    for (i = LARGEUR - 1; i > 0; i--) {
+                                        tab[*numero_ligne_colonne][i] = tab[*numero_ligne_colonne][i - 1];
+                                    }
+
+                                    tab[*numero_ligne_colonne][0] = *carterestante; // assigner la valeur temporaire à la première case
+                                    *carterestante=temp;
+                                    verif3=1;
+                                    break;
+                            }
                         }
-                        tab[*numero_ligne_colonne][LARGEUR - 1] = temp;
                         verif2=1;
                     }
                 }
 
                 break;
+                
             case 1:
                 verif=1;
-                while(verif2==0){
-                    printf("Quelle colonne voulez-vous faire glisser ? ");
+                while(verif2==0) {
+                    printf("Quelle ligne voulez-vous faire glisser ? ");
                     scanf("%d", &*numero_ligne_colonne);
-                    if(*numero_ligne_colonne==1 || *numero_ligne_colonne==3 || *numero_ligne_colonne==5 ){
-                        temp = tab[0][*numero_ligne_colonne];
-                        for (i = 0; i < LARGEUR - 1; i++) {
-                            tab[i][*numero_ligne_colonne] = tab[i + 1][*numero_ligne_colonne];
+                    if (*numero_ligne_colonne == 1 || *numero_ligne_colonne == 3 || *numero_ligne_colonne == 5) {
+                        while (verif3 == 0) {
+                            printf("A bas 0 OU A haut 1 ? ");
+                            scanf("%d", &direction);
+                            switch (direction) {
+                                
+                                case 0:
+                                    temp = tab[0][*numero_ligne_colonne];
+                                    for (i = 0; i < LARGEUR - 1; i++) {
+                                        tab[i][*numero_ligne_colonne] = tab[i + 1][*numero_ligne_colonne];
+                                    }
+                                    tab[LARGEUR - 1][*numero_ligne_colonne] = *carterestante;
+                                    *carterestante = temp;
+                                    verif3 = 1;
+                                    break;
+                                    
+                                case 1:
+                                    temp = tab[LARGEUR -1][*numero_ligne_colonne]; // variable *carterestanteoraire pour stocker la dernière valeur de la colonne
+                                    // déplacer chaque élément vers la droite
+                                    for (int i = LARGEUR - 1; i > 0; i--) {
+                                        tab[i][*numero_ligne_colonne] = tab[i - 1][*numero_ligne_colonne];
+                                    }
+                                    tab[0][*numero_ligne_colonne] = *carterestante; // assigner la valeur temporaire à la première case
+                                    *carterestante = temp;
+                                    verif3 = 1;
+                                    break;
+                            }
                         }
-                        tab[LARGEUR - 1][*numero_ligne_colonne] = temp;
                         verif2=1;
                     }
                 }
-
                 break;
         }
         system("cls");

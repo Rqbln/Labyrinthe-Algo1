@@ -100,7 +100,7 @@ int main() {   //programme principal
             convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab);
             deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase);                 //deplacement joueur
-
+            affiche_case_en_plus(&carterestante);
             //finJeu(&ligne, &colonne, &tab[7][7], &n);
             printf("\n");
             //printf("%d", carterestante);
