@@ -84,8 +84,9 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
     system("cls");
     afficherTitre();
     ligne();
+    printf("Choix des pions :\n");
     for (int i = 0; i < *nbJoueurs; ++i) {
-        printf("%s a choisi le pion %d\n",nomJoueurs[i],pionsJoueurs[i]);
+        printf("- %s a choisi le pion %d\n",nomJoueurs[i],pionsJoueurs[i]);
     }
     printf("\n");
 }
