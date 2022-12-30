@@ -61,6 +61,9 @@ int main() {   //programme principal
             return 0;
         }
         if (choix0==1) {
+            system("cls");
+            afficherTitre();
+            ligne();
             color(15,0);
             nbTours+=1;
             initialisationTableau(tab);                        //initialisation
@@ -71,13 +74,21 @@ int main() {   //programme principal
             //affichageTableau(tab, tabfinal);                 //affichage
             //afficheplateauprog(tab, tabfinal);
             //afficheplateaubinaire(tab, tabfinal);
-            afficheplateaufinal(tab, tabfinal);
-            affiche_case_en_plus(&carterestante);
+
 
             //tourjoueur(&numjoueur, &echap, &nbJoueurs);
 
             nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
+            printf("%d joueurs seront dans cette partie.\n",nbJoueurs);
             CreationNomJoueurs(&nbJoueurs, nomJoueurs);
+
+            system("cls");
+            afficherTitre();
+            ligne();
+            printf("Les noms des joueurs sont :\n"); // Affiche les noms des joueurs
+            for (int i = 0; i < nbJoueurs; i++) {
+                printf("- %s\n", nomJoueurs[i]);
+            }
             srand(time(NULL));
             distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs);
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);

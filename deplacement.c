@@ -165,5 +165,8 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[21][21],int *c
 
                 break;
         }
+        system("cls");
+        afficherTitre();
+        ligne();
     }
 }
