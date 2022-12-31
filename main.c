@@ -73,7 +73,7 @@ int main() {   //programme principal
 
             //affichageTableau(tab, tabfinal);                 //affichage
             //afficheplateauprog(tab, tabfinal);
-            afficheplateaubinaire(tab, tabfinal);
+            //afficheplateaubinaire(tab, tabfinal);
 
 
             //tourjoueur(&numjoueur, &echap, &nbJoueurs);
@@ -96,6 +96,7 @@ int main() {   //programme principal
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
             //afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
             afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
+            selection_ligne_colonne(tab,tabfinal);
             deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne);
             convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab);
