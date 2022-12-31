@@ -89,7 +89,7 @@ void convertab(int tab[LARGEUR][LARGEUR], int *test_tresor){
         }
     }
 }
-void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
+void coordonne(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *x, int *y, int tab[LARGEUR][LARGEUR]){
     //on definit toutes les cases differente
     int caseT1[3][3] = {0,0,0, 1,8,1, 0,1,0}; //https://i.imgur.com/aXB8t7o.png
     int caseT2[3][3] = {0,1,0, 1,8,0, 0,1,0};
@@ -234,7 +234,7 @@ void coordonne(int tabfinal[21][21], int *x, int *y, int tab[LARGEUR][LARGEUR]){
         }
     }
 }
-void affect(int tabfinal[21][21], int *x, int *y, int cases[3][3]){  //tabfinal est le tableau qui rassemblera toutes les donnees
+void affect(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *x, int *y, int cases[3][3]){  //tabfinal est le tableau qui rassemblera toutes les donnees
     tabfinal[*x*3][*y*3]=cases[0][0];
     tabfinal[*x*3][*y*3+1]=cases[0][1];
     tabfinal[*x*3][*y*3+2]=cases[0][2];
@@ -245,7 +245,7 @@ void affect(int tabfinal[21][21], int *x, int *y, int cases[3][3]){  //tabfinal 
     tabfinal[*x*3+2][*y*3+1]=cases[2][1];
     tabfinal[*x*3+2][*y*3+2]=cases[2][2];
 }
-void afficheplateauprog(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {                   //sous programme pour les afficher le tableau
+void afficheplateauprog(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE]) {                   //sous programme pour les afficher le tableau
     //int tab[10][10];
     for (int i = 0; i < (LARGEUR); i++) {
         for (int j = 0; j < (LARGEUR); j++) {
@@ -258,7 +258,7 @@ void afficheplateauprog(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {      
     printf("\n");
 
 }
-void afficheplateaubinaire(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {                   //sous programme pour les afficher le tableau
+void afficheplateaubinaire(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE]) {                   //sous programme pour les afficher le tableau
 
     for (int i = 0; i < (21); i++) {
         for (int j = 0; j < (21); j++) {
@@ -270,7 +270,7 @@ void afficheplateaubinaire(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {   
     printf("\n");
 
 }
-void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {                   //sous programme pour les afficher le tableau
+void afficheplateaufinal(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE]) {                   //sous programme pour les afficher le tableau
     int caracteres;
     for (int i = 0; i < (21); i++) {
         for (int j = 0; j < (21); j++) {

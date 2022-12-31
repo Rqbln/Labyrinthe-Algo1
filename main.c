@@ -11,7 +11,7 @@ int main() {   //programme principal
     int choix0;
     int nbCartesJoueurs;
     int cartesJoueurs[CARTES][CARTES];
-    int tabfinal[21][21];
+    int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE];
     int partie=0;
     int sauvegarde1tab[LARGEUR][LARGEUR];
     int sauvegardetourjoueur;

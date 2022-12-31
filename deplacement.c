@@ -16,7 +16,7 @@
 
 
 
-void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1]){
+void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1]){
     // Déclaration du tableau et du pion
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
@@ -121,7 +121,7 @@ void deplacementJoueur1(int tabfinal[21][21], int tab[LARGEUR][LARGEUR], char no
         }
     }
 }
-void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[21][21],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne) {
+void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne) {
     int i, temp;
     int verif=0;
     int verif2=0;

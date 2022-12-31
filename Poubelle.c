@@ -29,7 +29,7 @@ void bg_color(int color) {
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(h, __FOREGROUND + (__BACKGROUND << 4));
 }
-void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[21][21]) {                   //sous programme pour les afficher le tableau
+void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE]) {                   //sous programme pour les afficher le tableau
     //int tab[10][10];
     for (int i = 0; i < (LARGEUR); i++) {
         for (int j = 0; j < (LARGEUR); j++) {
