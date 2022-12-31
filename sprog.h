@@ -5,18 +5,18 @@
 #endif //LABYRINTE_SPROG_H
 
 #define LARGEUR 7
-#define LARGEUR_FINALE 21
+#define LARGEUR_FINALE 23
 #define CARTES 24
 #define BUFFER_SIZE 32
 #define LONGUEUR_NOM 50
-#define pion_row1 1
-#define pion_row3 1
-#define pion_row2 19
-#define pion_row4 19
-#define pion_col1 1
-#define pion_col3 19
-#define pion_col2 1
-#define pion_col4 19
+#define pion_row1 2
+#define pion_row3 2
+#define pion_row2 20
+#define pion_row4 20
+#define pion_col1 2
+#define pion_col3 20
+#define pion_col2 2
+#define pion_col4 20
 
 //#ifndef INITPLATEAU_H_INCLUDED
 //#define AFFICHAGEC_H_INCLUDED

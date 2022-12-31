@@ -81,6 +81,12 @@ void caractere(int *caracteres){
             wprintf(L"\x0020\x2666"); //affichage des valeurs
             color(15,0);
             break;
+        case 9:
+            _setmode(_fileno(stdout), _O_U16TEXT);
+            color(13,13);
+            wprintf(L"\x2588\x2588"); //affichage des valeurs
+            color(15,0);
+            break;
         case 10:
             _setmode(_fileno(stdout), _O_U16TEXT);
             color(6,0);

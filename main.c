@@ -73,7 +73,7 @@ int main() {   //programme principal
 
             //affichageTableau(tab, tabfinal);                 //affichage
             //afficheplateauprog(tab, tabfinal);
-            //afficheplateaubinaire(tab, tabfinal);
+            afficheplateaubinaire(tab, tabfinal);
 
 
             //tourjoueur(&numjoueur, &echap, &nbJoueurs);
