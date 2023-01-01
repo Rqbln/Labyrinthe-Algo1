@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <io.h>
+#include <conio.h> // Pour utiliser la fonction getch
 // Déclare les variables globales pour la couleur de fond et de texte
 static int __BACKGROUND = BLACK;
 static int __FOREGROUND = WHITE;
@@ -74,6 +75,84 @@ void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LA
     }
 
     _setmode(_fileno(stdout), _O_TEXT);
+}
+void selection_ligne_colonne1(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE]){
+    // Déclaration du tableau et du pion
+    int pion_row = 0, pion_col = 0;
+    int verif=1;
+    // Initialisation du tableau et du pion
+    tabfinal[pion_row][pion_col] = 8;
+
+    // Boucle principale de déplacement du pion
+    while (verif==1) {
+        // Affichage du tableau et du pion
+        afficheplateaufinal(tab, tabfinal);
+        printf("\n");
+
+
+        // Lecture de l'entrée utilisateur
+        int c = getch();
+        system("cls");
+        if (c == 0 || c == 0xE0 || c==13) {// Flèche du clavier
+            c = getch();
+            if (c == 72) // Flèche haut
+            {
+                if (pion_row > 0 && (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
+                    tabfinal[pion_row][pion_col] = 9;
+                    pion_row--;
+                    // Vérifier si le personnage arrive sur un coin et sauter par-dessus si cest le cas
+                    if ((pion_row == 0 || pion_row == LARGEUR_FINALE - 1) &&
+                        (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
+                        pion_row = (pion_row == 0) ? LARGEUR_FINALE - 1 : 0;
+                        pion_col = (pion_col == 0) ? LARGEUR_FINALE - 1 : 0;
+                    }
+                    tabfinal[pion_row][pion_col] = 8;
+                }
+            } else if (c == 80) // Flèche bas
+            {
+                if (pion_row < LARGEUR_FINALE - 1 && (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
+                    tabfinal[pion_row][pion_col] = 9;
+                    pion_row++;
+// Vérifier si le personnage arrive sur un coin et sauter par-dessus si c'est le cas
+                    if ((pion_row == 0 || pion_row == LARGEUR_FINALE - 1) &&
+                        (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
+                        pion_row = (pion_row == 0) ? LARGEUR_FINALE - 1 : 0;
+                        pion_col = (pion_col == 0) ? LARGEUR_FINALE - 1 : 0;
+                    }
+                    tabfinal[pion_row][pion_col] = 8;
+                }
+            } else if (c == 75) // Flèche gauche
+            {
+                if (pion_col > 0 && (pion_row == 0 || pion_row == LARGEUR_FINALE - 1)) {
+                    tabfinal[pion_row][pion_col] = 9;
+                    pion_col--;
+// Vérifier si le personnage arrive sur un coin et sauter par-dessus si c'est le cas
+                    if ((pion_row == 0 || pion_row == LARGEUR_FINALE - 1) &&
+                        (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
+                        pion_row = (pion_row == 0) ? LARGEUR_FINALE - 1 : 0;
+                        pion_col = (pion_col == 0) ? LARGEUR_FINALE - 1 : 0;
+                    }
+                    tabfinal[pion_row][pion_col] = 8;
+                }
+            }
+            else if (c == 77) // Flèche droite
+            {
+                if (pion_col < LARGEUR_FINALE - 1 && (pion_row == 0 || pion_row == LARGEUR_FINALE - 1)) {
+                    tabfinal[pion_row][pion_col] = 9;
+                    pion_col++;
+// Vérifier si le personnage arrive sur un coin et sauter par-dessus si c'est le cas
+                    if ((pion_row == 0 || pion_row == LARGEUR_FINALE - 1) && (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
+                        pion_row = (pion_row == 0) ? LARGEUR_FINALE - 1 : 0;
+                        pion_col = (pion_col == 0) ? LARGEUR_FINALE - 1 : 0;
+                    }
+                    tabfinal[pion_row][pion_col] = 8;
+                }
+            }
+            if (c==13){
+                verif=0;
+            }
+        }
+    }
 }
 void deplacementJoueur(int tab[LARGEUR][LARGEUR],int numjoueur,int *posxy[2])
 // il faudrait rajouter le posxy des 4 joueurs dans l'affichage du tableau

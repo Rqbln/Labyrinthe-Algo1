@@ -122,152 +122,6 @@ void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LA
         }
     }
 }
-void deplace_fleche(){
-
-}
-void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction) {
-    int i, temp;
-    afficheplateaufinal(tab, tabfinal);
-    affiche_case_en_plus(&*carterestante);
-    switch (*ligne_ou_colonne) {
-        case 0:
-            if (*numero_ligne_colonne == 1 || *numero_ligne_colonne == 3 || *numero_ligne_colonne == 5) {
-                switch (*direction) {
-                    case 22:
-                        temp = tab[*numero_ligne_colonne][0];
-                        for (i = 0; i < LARGEUR - 1; i++) {
-                            tab[*numero_ligne_colonne][i] = tab[*numero_ligne_colonne][i + 1];
-                        }
-                        tab[*numero_ligne_colonne][LARGEUR - 1] = *carterestante;
-                        *carterestante = temp;
-                        break;
-
-                    case 0:
-                        temp = tab[*numero_ligne_colonne][LARGEUR -
-                                                          1]; // variable *carterestanteoraire pour stocker la dernière valeur de la colonne
-                        // déplacer chaque élément vers la droite
-                        for (i = LARGEUR - 1; i > 0; i--) {
-                            tab[*numero_ligne_colonne][i] = tab[*numero_ligne_colonne][i - 1];
-                        }
-
-                        tab[*numero_ligne_colonne][0] = *carterestante; // assigner la valeur temporaire à la première case
-                        *carterestante = temp;
-                        break;
-                }
-            }
-
-            break;
-
-        case 1:
-            if (*numero_ligne_colonne == 1 || *numero_ligne_colonne == 3 || *numero_ligne_colonne == 5) {
-                switch (*direction) {
-
-                    case 22:
-                        temp = tab[0][*numero_ligne_colonne];
-                        for (i = 0; i < LARGEUR - 1; i++) {
-                            tab[i][*numero_ligne_colonne] = tab[i + 1][*numero_ligne_colonne];
-                        }
-                        tab[LARGEUR - 1][*numero_ligne_colonne] = *carterestante;
-                        *carterestante = temp;
-                        break;
-
-                    case 0:
-                        temp = tab[LARGEUR -1][*numero_ligne_colonne]; // variable *carterestanteoraire pour stocker la dernière valeur de la colonne
-                        // déplacer chaque élément vers la droite
-                        for (int i = LARGEUR - 1; i > 0; i--) {
-                            tab[i][*numero_ligne_colonne] = tab[i - 1][*numero_ligne_colonne];
-                        }
-                        tab[0][*numero_ligne_colonne] = *carterestante; // assigner la valeur temporaire à la première case
-                        *carterestante = temp;
-                        break;
-                }
-            }
-
-            break;
-    }
-    system("cls");
-    afficherTitre();
-    ligne();
-}
-
-void selection_ligne_colonne1(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE]){
-    // Déclaration du tableau et du pion
-    int pion_row = 0, pion_col = 0;
-    int verif=1;
-    // Initialisation du tableau et du pion
-    tabfinal[pion_row][pion_col] = 8;
-
-    // Boucle principale de déplacement du pion
-    while (verif==1) {
-        // Affichage du tableau et du pion
-        afficheplateaufinal(tab, tabfinal);
-            printf("\n");
-
-
-        // Lecture de l'entrée utilisateur
-        int c = getch();
-        system("cls");
-        if (c == 0 || c == 0xE0 || c==13) {// Flèche du clavier
-            c = getch();
-            if (c == 72) // Flèche haut
-            {
-                if (pion_row > 0 && (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
-                    tabfinal[pion_row][pion_col] = 9;
-                    pion_row--;
-                    // Vérifier si le personnage arrive sur un coin et sauter par-dessus si cest le cas
-                    if ((pion_row == 0 || pion_row == LARGEUR_FINALE - 1) &&
-                        (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
-                        pion_row = (pion_row == 0) ? LARGEUR_FINALE - 1 : 0;
-                        pion_col = (pion_col == 0) ? LARGEUR_FINALE - 1 : 0;
-                    }
-                    tabfinal[pion_row][pion_col] = 8;
-                }
-            } else if (c == 80) // Flèche bas
-            {
-                if (pion_row < LARGEUR_FINALE - 1 && (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
-                    tabfinal[pion_row][pion_col] = 9;
-                    pion_row++;
-// Vérifier si le personnage arrive sur un coin et sauter par-dessus si c'est le cas
-                    if ((pion_row == 0 || pion_row == LARGEUR_FINALE - 1) &&
-                        (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
-                        pion_row = (pion_row == 0) ? LARGEUR_FINALE - 1 : 0;
-                        pion_col = (pion_col == 0) ? LARGEUR_FINALE - 1 : 0;
-                    }
-                    tabfinal[pion_row][pion_col] = 8;
-                }
-            } else if (c == 75) // Flèche gauche
-            {
-                if (pion_col > 0 && (pion_row == 0 || pion_row == LARGEUR_FINALE - 1)) {
-                    tabfinal[pion_row][pion_col] = 9;
-                    pion_col--;
-// Vérifier si le personnage arrive sur un coin et sauter par-dessus si c'est le cas
-                    if ((pion_row == 0 || pion_row == LARGEUR_FINALE - 1) &&
-                        (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
-                        pion_row = (pion_row == 0) ? LARGEUR_FINALE - 1 : 0;
-                        pion_col = (pion_col == 0) ? LARGEUR_FINALE - 1 : 0;
-                    }
-                    tabfinal[pion_row][pion_col] = 8;
-                }
-            }
-            else if (c == 77) // Flèche droite
-            {
-                if (pion_col < LARGEUR_FINALE - 1 && (pion_row == 0 || pion_row == LARGEUR_FINALE - 1)) {
-                    tabfinal[pion_row][pion_col] = 9;
-                    pion_col++;
-// Vérifier si le personnage arrive sur un coin et sauter par-dessus si c'est le cas
-                    if ((pion_row == 0 || pion_row == LARGEUR_FINALE - 1) && (pion_col == 0 || pion_col == LARGEUR_FINALE - 1)) {
-                        pion_row = (pion_row == 0) ? LARGEUR_FINALE - 1 : 0;
-                        pion_col = (pion_col == 0) ? LARGEUR_FINALE - 1 : 0;
-                    }
-                    tabfinal[pion_row][pion_col] = 8;
-                }
-            }
-            if (c==13){
-                verif=0;
-            }
-        }
-    }
-}
 void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int *carterestante){
     int i,j;
     int verif=1;
@@ -413,4 +267,68 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
             }
         }
     }
+}
+void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction) {
+    int i, temp;
+    afficheplateaufinal(tab, tabfinal);
+    affiche_case_en_plus(&*carterestante);
+    switch (*ligne_ou_colonne) {
+        case 0:
+            if (*numero_ligne_colonne == 1 || *numero_ligne_colonne == 3 || *numero_ligne_colonne == 5) {
+                switch (*direction) {
+                    case 22:
+                        temp = tab[*numero_ligne_colonne][0];
+                        for (i = 0; i < LARGEUR - 1; i++) {
+                            tab[*numero_ligne_colonne][i] = tab[*numero_ligne_colonne][i + 1];
+                        }
+                        tab[*numero_ligne_colonne][LARGEUR - 1] = *carterestante;
+                        *carterestante = temp;
+                        break;
+
+                    case 0:
+                        temp = tab[*numero_ligne_colonne][LARGEUR -
+                                                          1]; // variable *carterestanteoraire pour stocker la dernière valeur de la colonne
+                        // déplacer chaque élément vers la droite
+                        for (i = LARGEUR - 1; i > 0; i--) {
+                            tab[*numero_ligne_colonne][i] = tab[*numero_ligne_colonne][i - 1];
+                        }
+
+                        tab[*numero_ligne_colonne][0] = *carterestante; // assigner la valeur temporaire à la première case
+                        *carterestante = temp;
+                        break;
+                }
+            }
+
+            break;
+
+        case 1:
+            if (*numero_ligne_colonne == 1 || *numero_ligne_colonne == 3 || *numero_ligne_colonne == 5) {
+                switch (*direction) {
+
+                    case 22:
+                        temp = tab[0][*numero_ligne_colonne];
+                        for (i = 0; i < LARGEUR - 1; i++) {
+                            tab[i][*numero_ligne_colonne] = tab[i + 1][*numero_ligne_colonne];
+                        }
+                        tab[LARGEUR - 1][*numero_ligne_colonne] = *carterestante;
+                        *carterestante = temp;
+                        break;
+
+                    case 0:
+                        temp = tab[LARGEUR -1][*numero_ligne_colonne]; // variable *carterestanteoraire pour stocker la dernière valeur de la colonne
+                        // déplacer chaque élément vers la droite
+                        for (int i = LARGEUR - 1; i > 0; i--) {
+                            tab[i][*numero_ligne_colonne] = tab[i - 1][*numero_ligne_colonne];
+                        }
+                        tab[0][*numero_ligne_colonne] = *carterestante; // assigner la valeur temporaire à la première case
+                        *carterestante = temp;
+                        break;
+                }
+            }
+
+            break;
+    }
+    system("cls");
+    afficherTitre();
+    ligne();
 }
