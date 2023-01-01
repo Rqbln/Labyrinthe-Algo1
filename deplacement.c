@@ -16,7 +16,7 @@
 
 
 
-void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1]){
+void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1], int *carterestante){
     // Déclaration du tableau et du pion
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
@@ -64,6 +64,7 @@ void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LA
         ligne();
         // Affichage du tableau et du pion
         afficheplateaufinal(tab, tabfinal);
+        affiche_case_en_plus(&*carterestante);
         printf("\n");
         printf("Deplacez vous avec les touches 'z', 'q', 's', 'd' du clavier.\nAppuyez sur 'Entree' Pour arreter de deplacer le pion.");
         printf("\n");

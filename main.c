@@ -100,8 +100,8 @@ int main() {   //programme principal
             deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
             convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab);
-            deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase);                 //deplacement joueur
-            affiche_case_en_plus(&carterestante);
+            deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
+            //affiche_case_en_plus(&carterestante);
             //finJeu(&ligne, &colonne, &tab[7][7], &n);
             printf("\n");
             //printf("%d", carterestante);
