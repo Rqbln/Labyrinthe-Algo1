@@ -11,7 +11,7 @@ int main() {   //programme principal
     int choix0;
     int nbCartesJoueurs;
     int cartesJoueurs[CARTES][CARTES];
-    int tabfinal[21][21];
+    int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE];
     int partie=0;
     int sauvegarde1tab[LARGEUR][LARGEUR];
     int sauvegardetourjoueur;
@@ -19,12 +19,15 @@ int main() {   //programme principal
     int echap=0;
     int carterestante;
     int test_tresor = 0;
+    int memoricase[4][1];
 
+    int cartejoueurtab[4]={0,0,0,0};
     int cartejoueur1=0;
     int cartejoueur2=0;
     int cartejoueur3=0;
     int cartejoueur4=0;
-    int tour_joueur;
+    int tourJoueur, nbTours=0;
+    int ligne_ou_colonne, numero_ligne_colonne, direction;
 
     //Positions initiale des joueurs
     int posxy1[2]={0,0};
@@ -35,7 +38,6 @@ int main() {   //programme principal
     color(15,0);
     printf("\n");
     afficherTitre();
-    color(13,0);
     ligne();
     color(13,0);
 
@@ -59,31 +61,47 @@ int main() {   //programme principal
             return 0;
         }
         if (choix0==1) {
+            system("cls");
+            afficherTitre();
+            ligne();
             color(15,0);
-            //do{
-            //    test_tresor=0;
-                initialisationTableau(tab);
-                init_case_en_plus(tab, &carterestante, &test_tresor);
-                convertab(tab, &test_tresor);
-            //    printf("%d",test_tresor);
-            //}while(test_tresor == 24);
-
+            nbTours+=1;
+            initialisationTableau(tab);                        //initialisation
+            init_case_en_plus(tab, &carterestante, &test_tresor);
+            convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab);
-            afficheplateauprog(tab, tabfinal);
-            afficheplateaubinaire(tab, tabfinal);
-            afficheplateaufinal(tab, tabfinal);
-            //affichageTableau(tab, tabfinal);
+
+            //affichageTableau(tab, tabfinal);                 //affichage
+            //afficheplateauprog(tab, tabfinal);
+            //afficheplateaubinaire(tab, tabfinal);
+
+
             //tourjoueur(&numjoueur, &echap, &nbJoueurs);
-            affiche_case_en_plus(&carterestante);
+
             nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
+            printf("%d joueurs seront dans cette partie.\n",nbJoueurs);
             CreationNomJoueurs(&nbJoueurs, nomJoueurs);
+
+            system("cls");
+            afficherTitre();
+            ligne();
+            printf("Les noms des joueurs sont :\n"); // Affiche les noms des joueurs
+            for (int i = 0; i < nbJoueurs; i++) {
+                printf("- %s\n", nomJoueurs[i]);
+            }
             srand(time(NULL));
-            tour_joueur = rand()%nbJoueurs;
             distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs);
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
-            afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
-            afficheCarteJoueur1(&tour_joueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,&cartejoueur1,&cartejoueur2,&cartejoueur3,&cartejoueur4);
 
+            debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
+            //afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
+            afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
+            selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
+            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
+            convertab(tab, &test_tresor);
+            coordonne(tabfinal, &x, &y, tab);
+            deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
+            //affiche_case_en_plus(&carterestante);
             //finJeu(&ligne, &colonne, &tab[7][7], &n);
             printf("\n");
             //printf("%d", carterestante);
@@ -115,6 +133,7 @@ int main() {   //programme principal
         }
         if (choix0==4) {
             afficherRegles();
+            afficherCredits();
             partie = 0;
         }
         else {

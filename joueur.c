@@ -20,7 +20,7 @@ void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs){
         fflush(stdin);
         fgets(buffer, BUFFER_SIZE, stdin);
     }
-    printf("%d joueurs seront dans cette partie.\n",*nbJoueurs);
+
 
 
     *nbCartesJoueurs = CARTES / *nbJoueurs;
@@ -32,22 +32,16 @@ void CreationNomJoueurs(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM]){
         printf("Entrez le nom du joueur %d :", i+1);
         scanf("%s", nomJoueurs[i]);
     }
-
-    // Affiche les noms des joueurs
-    printf("Les noms des joueurs sont :\n");
-    for (int i = 0; i < *nbJoueurs; i++) {
-        printf("- %s\n", nomJoueurs[i]);
-    }
-
 }
 void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pionsJoueurs[4]){
+    int pions[4] = {0, 0, 0, 0};
     printf("Les pions disponibles sont :\n");
     if (*nbJoueurs == 2){
 
         _setmode(_fileno(stdout), _O_U16TEXT);
         color(1,0);
         wprintf(L"\x0031\x002e\x0020\x2660\n");
-        color(5,0);
+        color(2,0);
         wprintf(L"\x0032\x002e\x0020\x2663\n");
         color(15,0);
 
@@ -56,7 +50,7 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
         _setmode(_fileno(stdout), _O_U16TEXT);
         color(1,0);
         wprintf(L"\x0031\x002e\x0020\x2660\n");
-        color(5,0);
+        color(2,0);
         wprintf(L"\x0032\x002e\x0020\x2663\n");
         color(4,0);
         wprintf(L"\x0033\x002e\x0020\x2665\n");
@@ -67,11 +61,11 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
         _setmode(_fileno(stdout), _O_U16TEXT);
         color(1,0);
         wprintf(L"\x0031\x002e\x0020\x2660\n");
-        color(5,0);
+        color(2,0);
         wprintf(L"\x0032\x002e\x0020\x2663\n");
         color(4,0);
         wprintf(L"\x0033\x002e\x0020\x2665\n");
-        color(2,0);
+        color(5,0);
         wprintf(L"\x0034\x002e\x0020\x2666\n");
         color(15,0);
     }
@@ -79,17 +73,37 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
     char input[BUFFER_SIZE];
     for (int i = 0; i < *nbJoueurs; ++i) {
         pionsJoueurs[i]=0;
-        while (pionsJoueurs[i]<1 ||pionsJoueurs[i]>4){
+        while (pionsJoueurs[i]<1 || pionsJoueurs[i]>*nbJoueurs || pions[0]==pionsJoueurs[i] || pions[1]==pionsJoueurs[i] || pions[2]==pionsJoueurs[i] ||pions[3]==pionsJoueurs[i]){
             printf("%s, choisissez votre pion :",nomJoueurs[i]);
             fflush(stdin);
             fgets(input,BUFFER_SIZE,stdin);
             pionsJoueurs[i]= atoi(input);
         }
+        pions[i]= atoi(input);
     }
+    system("cls");
+    afficherTitre();
+    ligne();
+    printf("Choix des pions :\n");
     for (int i = 0; i < *nbJoueurs; ++i) {
-        printf("%s a choisi le pion %d\n",nomJoueurs[i],pionsJoueurs[i]);
+        printf("- %s a choisi le pion %d\n",nomJoueurs[i],pionsJoueurs[i]);
     }
     printf("\n");
+}
+
+void debutPartie (int *nbJoueurs, int *tourJoueur, char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int* nbTours){
+    srand(time(NULL));
+    *tourJoueur=rand()%*nbJoueurs;
+    char demarrage;
+    printf("La partie peut commencer.\n%s, appuyez sur 'Entree' pour lancer la partie !\n",nomJoueurs[*tourJoueur]);
+    do {
+        demarrage=getchar();
+    }while (demarrage!='\n');
+    system("cls");
+    afficherTitre();
+    ligne();
+    printf("Tour %d :\n",*nbTours);
+    printf("C'est a %s de commencer !\n",nomJoueurs[*tourJoueur]);
 }
 
 void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES]){
@@ -151,30 +165,30 @@ void afficheCarteJoueur(int *nbJoueurs,int *nbCartesJoueurs, char nomJoueurs[4][
         _setmode(_fileno(stdout), _O_TEXT);
     }
 }
-void afficheCarteJoueur1(int *tour_joueur,int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES], int *cartejoueur1,int *cartejoueur2,int *cartejoueur3,int *cartejoueur4){
+void afficheCarteJoueur1(int *tourJoueur,int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES], int cartejoueurtab[4]){
     int cartejoueur;
     int caracteres;
-    switch (*tour_joueur) {
+    switch (*tourJoueur) {
         case 0:
-            cartejoueur=*cartejoueur1;
+            cartejoueur=cartejoueurtab[0];
             break;
         case 1:
-            cartejoueur=*cartejoueur2;
+            cartejoueur=cartejoueurtab[1];
             break;
         case 2:
-            cartejoueur=*cartejoueur3;
+            cartejoueur=cartejoueurtab[2];
             break;
         case 3:
-            cartejoueur=*cartejoueur4;
+            cartejoueur=cartejoueurtab[3];
             break;
     }
-    printf("%s : \n", nomJoueurs[*tour_joueur]);
+    printf("%s, Voici tes cartes tresor a trouver : \n", nomJoueurs[*tourJoueur]);
     _setmode(_fileno(stdout), _O_U16TEXT);
     wprintf(L"\x250C\x2500\x2500\x2510");
     wprintf(L"\n");
     wprintf(L"\x2502");
     _setmode(_fileno(stdout), _O_TEXT);
-    caracteres=cartesJoueurs[*tour_joueur][cartejoueur];
+    caracteres=cartesJoueurs[*tourJoueur][cartejoueur];
     caractere(&caracteres);
     _setmode(_fileno(stdout), _O_U16TEXT);
     wprintf(L"\x2502");
@@ -182,18 +196,18 @@ void afficheCarteJoueur1(int *tour_joueur,int *nbCartesJoueurs, char nomJoueurs[
     wprintf(L"\x2514\x2500\x2500\x2518");
     wprintf(L"\n");
     _setmode(_fileno(stdout), _O_TEXT);
-    switch (*tour_joueur) {
+    switch (*tourJoueur) {
         case 0:
-            *cartejoueur1+=1;
+            cartejoueurtab[0]+=1;
             break;
         case 1:
-            *cartejoueur2+=1;
+            cartejoueurtab[1]+=1;
             break;
         case 2:
-            *cartejoueur3+=1;
+            cartejoueurtab[2]+=1;
             break;
         case 3:
-            *cartejoueur4+=1;
+            cartejoueurtab[3]+=1;
             break;
     }
 }
