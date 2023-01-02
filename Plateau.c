@@ -1,10 +1,4 @@
 #include "sprog.h"
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <io.h>
-
 
 void initialisationTableau(int tab[LARGEUR][LARGEUR]) {//sous programme pour les valeur du tableau
     int tmp;

@@ -21,6 +21,13 @@
 //#ifndef INITPLATEAU_H_INCLUDED
 //#define AFFICHAGEC_H_INCLUDED
 #include <windows.h>
+#include <stdio.h>
+#include <time.h>
+#include <conio.h> // Pour utiliser la fonction getch
+#include <stdlib.h>
+#include <fcntl.h>
+#include <io.h>
+
 typedef enum{
     BLACK,
     BLUE,
@@ -47,6 +54,7 @@ void ligne();
 void caractere(int *caracteres);
 void afficherRegles();
 void afficherCredits();
+void oui_non(int *menu);
 
 void initialisationTableau(int tab[LARGEUR][LARGEUR]);
 void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante, int *test_tresor);

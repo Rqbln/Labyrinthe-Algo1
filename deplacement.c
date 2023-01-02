@@ -1,20 +1,8 @@
-//
-// Created by bapti on 27/12/2022.
-//
 #include "sprog.h"
 
-#include <time.h>
-#include <fcntl.h>
-#include <io.h>
 // Ce programme crée un tableau de caractères représentant un plateau de jeu
 // et déplace un pion sur ce plateau en fonction des entrées de l'utilisateur.
 // Les flèches du clavier permettent de déplacer le pion et la touche 'q' permet de quitter le programme.
-
-#include <stdio.h> // Pour utiliser la fonction printf
-#include <stdlib.h> // Pour utiliser la fonction getch
-#include <conio.h> // Pour utiliser la fonction getch
-
-
 
 void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1], int *carterestante){
     // Déclaration du tableau et du pion

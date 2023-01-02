@@ -1,10 +1,5 @@
 #include "sprog.h"
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <io.h>
-#include <conio.h> // Pour utiliser la fonction getch
+
 // Déclare les variables globales pour la couleur de fond et de texte
 static int __BACKGROUND = BLACK;
 static int __FOREGROUND = WHITE;
