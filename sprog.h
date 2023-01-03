@@ -21,6 +21,13 @@
 //#ifndef INITPLATEAU_H_INCLUDED
 //#define AFFICHAGEC_H_INCLUDED
 #include <windows.h>
+#include <time.h>
+#include <fcntl.h>
+#include <io.h>
+#include <stdio.h> // Pour utiliser la fonction printf
+#include <stdlib.h> // Pour utiliser la fonction getch
+#include <conio.h> // Pour utiliser la fonction getch
+
 typedef enum{
     BLACK,
     BLUE,

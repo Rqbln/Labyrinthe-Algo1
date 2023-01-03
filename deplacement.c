@@ -10,9 +10,7 @@
 // et déplace un pion sur ce plateau en fonction des entrées de l'utilisateur.
 // Les flèches du clavier permettent de déplacer le pion et la touche 'q' permet de quitter le programme.
 
-#include <stdio.h> // Pour utiliser la fonction printf
-#include <stdlib.h> // Pour utiliser la fonction getch
-#include <conio.h> // Pour utiliser la fonction getch
+
 
 
 

@@ -2,12 +2,7 @@
 // Created by bapti on 30/11/2022.
 //
 #include "sprog.h"
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <fcntl.h>
-#include <io.h>
+
 
 void afficherTitre (){
     _setmode(_fileno(stdout), _O_U16TEXT);

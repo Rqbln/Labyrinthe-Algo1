@@ -1,7 +1,6 @@
 // main.c
 #include "sprog.h"
-#include <stdio.h>
-#include <time.h>
+
 int main() {   //programme principal
     int tab[LARGEUR][LARGEUR];
     char buffer[BUFFER_SIZE];
