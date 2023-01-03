@@ -1,4 +1,12 @@
+// joueur.c
+// Created by bapti on 27/12/2022.
+//
 #include "sprog.h"
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <io.h>
 
 void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs){
     char buffer[BUFFER_SIZE];

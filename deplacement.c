@@ -1,8 +1,20 @@
+// deplacement.c
+// Created by bapti on 27/12/2022.
+//
 #include "sprog.h"
 
+#include <time.h>
+#include <fcntl.h>
+#include <io.h>
 // Ce programme crée un tableau de caractères représentant un plateau de jeu
 // et déplace un pion sur ce plateau en fonction des entrées de l'utilisateur.
 // Les flèches du clavier permettent de déplacer le pion et la touche 'q' permet de quitter le programme.
+
+#include <stdio.h> // Pour utiliser la fonction printf
+#include <stdlib.h> // Pour utiliser la fonction getch
+#include <conio.h> // Pour utiliser la fonction getch
+
+
 
 void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1], int *carterestante){
     // Déclaration du tableau et du pion
@@ -38,7 +50,7 @@ void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LA
     tabfinal[pion_row4][pion_col4] = pionsJoueurs[3]+1;
     char demarrage;
     afficheplateaufinal(tab, tabfinal);
-    printf("Le tableau a ete modifie.\n%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
+    printf("%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
     do {
         demarrage=getchar();
     }while (demarrage!='\n');
@@ -114,20 +126,16 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
     int i,j;
     int verif=1;
     int select=0;
-
     while (verif==1) {
         // Affichage du tableau et du pion
-        system("cls");
-        afficherTitre();
-        ligne();
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
-        printf("\nAppuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer le curseur.\nPuis Appuyez deux fois sur Entree pour confirmer votre selection.");
+        printf("\n");
+
 
         // Lecture de l'entrée utilisateur
         int c = getch();
-
-
+        system("cls");
         if (c == 0 || c == 0xE0 || c == 13) {// Flèche du clavier
             switch (select) {
                 case 1:
@@ -257,7 +265,6 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
                     verif=0;
                 }
             }
-            system("cls");
         }
     }
 }

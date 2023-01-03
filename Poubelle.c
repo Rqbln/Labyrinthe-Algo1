@@ -1,6 +1,11 @@
-/*#include "sprog.h"
-
-
+// Poubelle.c
+#include "sprog.h"
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <io.h>
+#include <conio.h> // Pour utiliser la fonction getch
 // Déclare les variables globales pour la couleur de fond et de texte
 static int __BACKGROUND = BLACK;
 static int __FOREGROUND = WHITE;
@@ -37,14 +42,12 @@ void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LA
     }
     printf("\n");
     printf("\n");
-    for (int i = 0; i < (LARGEUR); i++) {
+    /* for (int i = 0; i < (LARGEUR); i++) {
          for (int j = 0; j < (LARGEUR); j++) {
              printf("%c ", tableau[i][j]); //affichage des valeur
          }
          printf("\n");
      }*/
-
-/*
     for (int i = 0; i < (21); i++) {
         for (int j = 0; j < (21); j++) {
             printf("%d ", tabfinal[i][j]); //affichage des valeur
@@ -74,7 +77,6 @@ void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LA
 
     _setmode(_fileno(stdout), _O_TEXT);
 }
-
 void selection_ligne_colonne1(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE]){
     // Déclaration du tableau et du pion
     int pion_row = 0, pion_col = 0;
@@ -182,7 +184,7 @@ void deplacementJoueur(int tab[LARGEUR][LARGEUR],int numjoueur,int *posxy[2])
         }
     }
 }
-*/
+
 // Affiche le terrain de jeu sur la console
 /*void afficherTerrain4(int tab[LARGEUR][LARGEUR]) {
     // Déclare les tableaux pour chaque forme

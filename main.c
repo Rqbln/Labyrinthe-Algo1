@@ -1,4 +1,7 @@
+// main.c
 #include "sprog.h"
+#include <stdio.h>
+#include <time.h>
 int main() {   //programme principal
     int tab[LARGEUR][LARGEUR];
     char buffer[BUFFER_SIZE];
@@ -14,18 +17,20 @@ int main() {   //programme principal
     int sauvegarde1tab[LARGEUR][LARGEUR];
     int sauvegardetourjoueur;
     int numjoueur=1;
+    int echap=0;
     int carterestante;
     int test_tresor = 0;
     int memoricase[4][1];
-    int echap;
-    int menu=0;
 
     int cartejoueurtab[4]={0,0,0,0};
+    int cartejoueur1=0;
+    int cartejoueur2=0;
+    int cartejoueur3=0;
+    int cartejoueur4=0;
     int tourJoueur, nbTours=0;
     int ligne_ou_colonne, numero_ligne_colonne, direction;
 
     //Positions initiale des joueurs
-    //on peux sup robin? pk j ai deja def dans le .h
     int posxy1[2]={0,0};
     int posxy2[2]={0,7};
     int posxy3[2]={7,0};
@@ -91,26 +96,19 @@ int main() {   //programme principal
 
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
             //afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
-
-
-            while (menu==0){ // Boucle infinie
-                afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
-                selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
-                deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
-                convertab(tab, &test_tresor);
-                coordonne(tabfinal, &x, &y, tab);
-                deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
-                //affiche_case_en_plus(&carterestante);
-                //finJeu(&ligne, &colonne, &tab[7][7], &n);
-                printf("\n");
-                //printf("%d", carterestante);
-                //getchar(); // attend que l'utilisateur appuie sur une touche
-                //fgetc(stdin);
-                oui_non(&menu);
-                printf("Appuyez sur Echap pour quitter la boucle\n");
-            }
-
-
+            afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
+            selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
+            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
+            convertab(tab, &test_tresor);
+            coordonne(tabfinal, &x, &y, tab);
+            deplacementJoueur1(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
+            //affiche_case_en_plus(&carterestante);
+            //finJeu(&ligne, &colonne, &tab[7][7], &n);
+            printf("\n");
+            //printf("%d", carterestante);
+            //getchar(); // attend que l'utilisateur appuie sur une touche
+            //fgetc(stdin);
+            partie = 0;
         }
         if (choix0==2) {
             color(15,0);
