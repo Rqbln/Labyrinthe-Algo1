@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1 -B C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1 -B C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/eleou/Documents/GitHub/Labyrinthe-Algo1/cmake-build-debug
+-- Build files have been written to: C:/Users/bapti/OneDrive/Documents/GitHub/Labyrinthe-Algo1/cmake-build-debug

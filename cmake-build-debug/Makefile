@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1
+CMAKE_SOURCE_DIR = C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\CMakeFiles C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\CMakeFiles C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eleou\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\bapti\OneDrive\Documents\GitHub\Labyrinthe-Algo1\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -152,6 +152,30 @@ Plateau.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/Plateau.c.s
 .PHONY : Plateau.c.s
 
+Poubelle.obj: Poubelle.c.obj
+.PHONY : Poubelle.obj
+
+# target to build an object file
+Poubelle.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/Poubelle.c.obj
+.PHONY : Poubelle.c.obj
+
+Poubelle.i: Poubelle.c.i
+.PHONY : Poubelle.i
+
+# target to preprocess a source file
+Poubelle.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/Poubelle.c.i
+.PHONY : Poubelle.c.i
+
+Poubelle.s: Poubelle.c.s
+.PHONY : Poubelle.s
+
+# target to generate assembly for a file
+Poubelle.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/Poubelle.c.s
+.PHONY : Poubelle.c.s
+
 deplacement.obj: deplacement.c.obj
 .PHONY : deplacement.obj
 
@@ -175,30 +199,6 @@ deplacement.s: deplacement.c.s
 deplacement.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/deplacement.c.s
 .PHONY : deplacement.c.s
-
-initPlateauColor.obj: initPlateauColor.c.obj
-.PHONY : initPlateauColor.obj
-
-# target to build an object file
-initPlateauColor.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateauColor.c.obj
-.PHONY : initPlateauColor.c.obj
-
-initPlateauColor.i: initPlateauColor.c.i
-.PHONY : initPlateauColor.i
-
-# target to preprocess a source file
-initPlateauColor.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateauColor.c.i
-.PHONY : initPlateauColor.c.i
-
-initPlateauColor.s: initPlateauColor.c.s
-.PHONY : initPlateauColor.s
-
-# target to generate assembly for a file
-initPlateauColor.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Labyrinthe_Algo1.dir\build.make CMakeFiles/Labyrinthe_Algo1.dir/initPlateauColor.c.s
-.PHONY : initPlateauColor.c.s
 
 joueur.obj: joueur.c.obj
 .PHONY : joueur.obj
@@ -284,12 +284,12 @@ help:
 	@echo ... Plateau.obj
 	@echo ... Plateau.i
 	@echo ... Plateau.s
+	@echo ... Poubelle.obj
+	@echo ... Poubelle.i
+	@echo ... Poubelle.s
 	@echo ... deplacement.obj
 	@echo ... deplacement.i
 	@echo ... deplacement.s
-	@echo ... initPlateauColor.obj
-	@echo ... initPlateauColor.i
-	@echo ... initPlateauColor.s
 	@echo ... joueur.obj
 	@echo ... joueur.i
 	@echo ... joueur.s
