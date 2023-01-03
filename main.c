@@ -100,6 +100,17 @@ int main() {   //programme principal
             convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab);
             deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
+            printf("jaime la ...");
+            selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
+            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
+            convertab(tab, &test_tresor);
+            coordonne(tabfinal, &x, &y, tab);
+            deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
+            printf("jaime la ...");
+            selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
+            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
+            convertab(tab, &test_tresor);
+            coordonne(tabfinal, &x, &y, tab);
             //affiche_case_en_plus(&carterestante);
             //finJeu(&ligne, &colonne, &tab[7][7], &n);
             printf("\n");

@@ -19,6 +19,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
     int pion_row, pion_col;
+    int stop=0;
     switch (pionsJoueurs[*tourJoueur]) {
         case 1:
             pion_row = pion_row1;
@@ -36,7 +37,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
             pion_row = pion_row4;
             pion_col = pion_col4;
             break;
-
+//innnitialisation des cases de depart
     }
     memoricase[0][0]=tabfinal[pion_row1][pion_col1];
     tabfinal[pion_row1][pion_col1] = pionsJoueurs[0]+1;
@@ -46,17 +47,18 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
     tabfinal[pion_row3][pion_col3] = pionsJoueurs[2]+1;
     memoricase[3][0]=tabfinal[pion_row4][pion_col4];
     tabfinal[pion_row4][pion_col4] = pionsJoueurs[3]+1;
+    //permet d enregistrer le motif des cases de depart
     char demarrage;
     afficheplateaufinal(tab, tabfinal);
     printf("Le tableau a ete modifie.\n%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
     do {
         demarrage=getchar();
-    }while (demarrage!='\n');
+    }
+    while (demarrage!='\n');
 
     // Boucle principale de déplacement du pion
     // Le programme tourne en boucle jusqu'à ce que l'utilisateur appuie sur la touche 'q'
-    while (1)
-    {
+    while (stop==0){
         system("cls");
         afficherTitre();
         ligne();
@@ -115,7 +117,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
                 }
             }
             else { // Touche entrée
-                break;
+                stop=1;
             }
         }
     }

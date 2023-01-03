@@ -14,7 +14,7 @@
 #define pion_row2 20
 #define pion_row4 20
 #define pion_col1 2
-#define pion_col3 20
+#define pion_col3 11 //20 c est juste pour le test
 #define pion_col2 2
 #define pion_col4 20
 
