@@ -28,27 +28,6 @@
 #include <stdlib.h> // Pour utiliser la fonction getch
 #include <conio.h> // Pour utiliser la fonction getch
 
-typedef enum{
-    BLACK,
-    BLUE,
-    GREEN,
-    CYAN,
-    RED,
-    ORANGE,
-    MAGENTA,
-    BROWN,
-    LIGHTGRAY,
-    DARKGRAY,
-    LIGHTBLUE,
-    LIGHTGREEN,
-    LIGHTCYAN,
-    LIGHTRED,
-    LIGHTMAGENTA,
-    YELLOW,
-    WHITE,
-} COLORS;
-
-
 void afficherTitre();
 void ligne();
 void caractere(int *caracteres);
@@ -82,6 +61,3 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
 void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int *carterestante);
 
 void color(int couleurDuTexte,int couleurDeFond);
-void text_color(int color); //change la couleur du texte
-void bg_color(int color); //change la couleur de fond
-
