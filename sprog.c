@@ -37,6 +37,13 @@ void afficherCredits(){
     printf("\n\nPremier projet realise en Algorithmique et d'Informatique a l'ECE.\n");
     printf("Auteurs : Robin Queriaux, Baptiste Chesnot, Laouig Eleouet, Lucas Girault\n");
 }
+
+void color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
+{
+    HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
+}
+
 void oui_non(int *menu){
     int entre=0;
     int oui=0;

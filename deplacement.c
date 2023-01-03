@@ -114,15 +114,16 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
     int i,j;
     int verif=1;
     int select=0;
+
     while (verif==1) {
         // Affichage du tableau et du pion
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
-        printf("\n");
-
+        printf("\nAppuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer le curseur.");
 
         // Lecture de l'entrée utilisateur
         int c = getch();
+
         system("cls");
         if (c == 0 || c == 0xE0 || c == 13) {// Flèche du clavier
             switch (select) {

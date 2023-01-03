@@ -91,10 +91,9 @@ int main() {   //programme principal
 
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
             //afficheCarteJoueur(&nbJoueurs,&nbCartesJoueurs, nomJoueurs,cartesJoueurs);
-            printf("Appuyez sur Echap pour quitter la boucle\n");
+
 
             while (menu==0){ // Boucle infinie
-                oui_non(&menu);
                 afficheCarteJoueur1(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
                 selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
                 deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
@@ -107,6 +106,8 @@ int main() {   //programme principal
                 //printf("%d", carterestante);
                 //getchar(); // attend que l'utilisateur appuie sur une touche
                 //fgetc(stdin);
+                oui_non(&menu);
+                printf("Appuyez sur Echap pour quitter la boucle\n");
             }
 
 
