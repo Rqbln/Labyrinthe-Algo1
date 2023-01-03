@@ -38,7 +38,7 @@ void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LA
     tabfinal[pion_row4][pion_col4] = pionsJoueurs[3]+1;
     char demarrage;
     afficheplateaufinal(tab, tabfinal);
-    printf("%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
+    printf("Le tableau a ete modifie.\n%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
     do {
         demarrage=getchar();
     }while (demarrage!='\n');
@@ -117,14 +117,17 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
 
     while (verif==1) {
         // Affichage du tableau et du pion
+        system("cls");
+        afficherTitre();
+        ligne();
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
-        printf("\nAppuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer le curseur.");
+        printf("\nAppuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer le curseur.\nPuis Appuyez deux fois sur Entree pour confirmer votre selection.");
 
         // Lecture de l'entrée utilisateur
         int c = getch();
 
-        system("cls");
+
         if (c == 0 || c == 0xE0 || c == 13) {// Flèche du clavier
             switch (select) {
                 case 1:
@@ -254,6 +257,7 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
                     verif=0;
                 }
             }
+            system("cls");
         }
     }
 }
