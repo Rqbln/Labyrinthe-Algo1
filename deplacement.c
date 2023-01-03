@@ -16,7 +16,7 @@
 
 
 
-void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1], int *carterestante){
+void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1], int *carterestante){
     // Déclaration du tableau et du pion
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
@@ -50,7 +50,7 @@ void deplacementJoueur1(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LA
     tabfinal[pion_row4][pion_col4] = pionsJoueurs[3]+1;
     char demarrage;
     afficheplateaufinal(tab, tabfinal);
-    printf("Le tableau a ete modifie. %s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
+    printf("Le tableau a ete modifie.\n%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
     do {
         demarrage=getchar();
     }while (demarrage!='\n');
@@ -138,7 +138,6 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
 
         // Lecture de l'entrée utilisateur
         int c = getch();
-        system("cls");
         if (c == 0 || c == 0xE0 || c == 13) {// Flèche du clavier
             switch (select) {
                 case 1:
