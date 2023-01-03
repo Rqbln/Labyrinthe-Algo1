@@ -1,4 +1,5 @@
 // Poubelle.c
+/*
 #include "sprog.h"
 #include <stdio.h>
 #include <time.h>
@@ -42,12 +43,12 @@ void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LA
     }
     printf("\n");
     printf("\n");
-    /* for (int i = 0; i < (LARGEUR); i++) {
+    for (int i = 0; i < (LARGEUR); i++) {
          for (int j = 0; j < (LARGEUR); j++) {
              printf("%c ", tableau[i][j]); //affichage des valeur
          }
          printf("\n");
-     }*/
+     }
     for (int i = 0; i < (21); i++) {
         for (int j = 0; j < (21); j++) {
             printf("%d ", tabfinal[i][j]); //affichage des valeur
@@ -186,7 +187,7 @@ void deplacementJoueur(int tab[LARGEUR][LARGEUR],int numjoueur,int *posxy[2])
 }
 
 // Affiche le terrain de jeu sur la console
-/*void afficherTerrain4(int tab[LARGEUR][LARGEUR]) {
+void afficherTerrain4(int tab[LARGEUR][LARGEUR]) {
     // Déclare les tableaux pour chaque forme
     int caseT1[3][3] = {0,0,0, 1,1,1, 0,1,0};
     int caseT2[3][3] = {0,1,0, 1,1,0, 0,1,0};

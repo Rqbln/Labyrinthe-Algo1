@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <conio.h>
 #include <fcntl.h>
 #include <io.h>
 
@@ -45,6 +46,89 @@ void afficherCredits(){
     printf("\n\nPremier projet realise en Algorithmique et d'Informatique a l'ECE.\n");
     printf("Auteurs : Robin Queriaux, Baptiste Chesnot, Laouig Eleouet, Lucas Girault\n");
 }
+
+void color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
+{
+    HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
+}
+
+void oui_non(int *menu){
+    int entre=0;
+    int oui=0;
+    int fleche;
+    int echap = getch();// Lit un caractère sans afficher à l'écran
+    if (echap == 27 ) { //Code ASCII de la touche Échap est 27
+        system("cls");
+        while(entre==0){
+            _setmode(_fileno(stdout), _O_U16TEXT);
+            fleche=getch();
+            system("cls");
+            switch (fleche) {
+                case 13:
+                    if(oui==0) {
+                        entre=1;
+                    }
+                    if(oui==1) {
+                        entre=1;
+                        *menu=1;
+                    }
+                    break;
+                case 75:
+                    oui=1;
+                    color(5,0);
+                    wprintf(L"\x250C\x2500\x2500\x2500\x2510");
+                    color(15,0);
+                    wprintf(L"\x202D\x250C\x2500\x2500\x2500\x2510");
+                    color(5,0);
+                    wprintf(L"\n");
+                    wprintf(L"\x2502");
+                    wprintf(L"\x004E\x006F\x006E");
+                    wprintf(L"\x2502");
+                    color(15,0);
+                    wprintf(L"\x202D\x2502");
+                    wprintf(L"\x004F\x0075\x0069");
+                    wprintf(L"\x2502");
+                    color(5,0);
+                    wprintf(L"\n");
+                    wprintf(L"\x2514\x2500\x2500\x2500\x2518");
+                    color(15,0);
+                    wprintf(L"\x202D\x2514\x2500\x2500\x2500\x2518");
+
+                    break;
+                case 77:
+                    oui=0;
+                    color(15,0);
+                    wprintf(L"\x250C\x2500\x2500\x2500\x2510");
+                    color(5,0);
+                    wprintf(L"\x202D\x250C\x2500\x2500\x2500\x2510");
+                    color(15,0);
+                    wprintf(L"\n");
+                    wprintf(L"\x2502");
+                    wprintf(L"\x004E\x006F\x006E");
+                    wprintf(L"\x2502");
+                    color(5,0);
+                    wprintf(L"\x202D\x2502");
+                    wprintf(L"\x004F\x0075\x0069");
+                    wprintf(L"\x2502");
+                    color(15,0);
+                    wprintf(L"\n");
+                    wprintf(L"\x2514\x2500\x2500\x2500\x2518");
+                    color(5,0);
+                    wprintf(L"\x202D\x2514\x2500\x2500\x2500\x2518");
+                    color(15,0);
+
+                    break;
+
+            }
+
+            _setmode(_fileno(stdout), _O_TEXT);
+        }
+
+    }
+
+}
+
 void caractere(int *caracteres){
     switch (*caracteres) {
         case 0:
