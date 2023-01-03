@@ -48,6 +48,113 @@ void color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de coul
     SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
 }
 
+void save_game(Sauvegarde *state) {
+    char filename[BUFFER_SIZE];
+    Sauvegarde save;
+
+    // Demander à l'utilisateur de saisir le nom de la sauvegarde
+    printf("Entrez le nom de la sauvegarde: ");
+    fflush(NULL);
+    fgets(filename, sizeof(filename), stdin);
+
+    // Supprimer le retour à la ligne à la fin de la chaîne de caractères
+    filename[strcspn(filename, "\n")] = 0;
+
+    // Créer le dossier de sauvegardes s'il n'existe pas
+    if (mkdir("Sauvegardes") == -1) {
+        // Vérifier si le dossier existe déjà ou s'il y a eu une erreur
+        if (errno != EEXIST) {
+            // Erreur
+
+            return;
+        }
+    }
+    printf("Dossier cree avec succes.\n");
+
+
+
+    char full_filename[BUFFER_SIZE];
+    // Ajouter l'extension de fichier et le chemin du dossier de sauvegardes
+    snprintf(full_filename, sizeof(full_filename), "Sauvegardes/%s.cfg", filename);
+
+
+
+
+    // Ouvrir le fichier de configuration en écriture
+    FILE *fp = fopen(full_filename, "wb");
+    if (fp == NULL) {
+        // Erreur
+        return;
+    }
+    size_t size = sizeof(Sauvegarde);
+    fwrite(&size, sizeof(size_t), 1, fp);
+    fwrite(&save, sizeof(Sauvegarde), 1, fp);
+    printf("Fichier ouvert avec succes.\n");
+
+
+    // Copier l'état du jeu dans la structure de sauvegarde
+    for (int i = 0; i < LARGEUR; i++) {
+        for (int j = 0; j < LARGEUR; j++) {
+            save.tab[i][j] = state->tab[i][j];
+        }
+    }
+    strcpy(save.buffer, state->buffer);
+    save.x = state->x;
+    save.y = state->y;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < LONGUEUR_NOM; j++) {
+            save.nomJoueurs[i][j] = state->nomJoueurs[i][j];
+        }
+    }
+    memcpy(save.pionsJoueurs, state->pionsJoueurs, sizeof(state->pionsJoueurs));
+    memcpy(save.nomJoueurs, state->nomJoueurs, sizeof(state->nomJoueurs));
+    strcpy(save.choix, state->choix);
+    save.choix0 = state->choix0;
+    printf("test\n");
+    save.nbCartesJoueurs = state->nbCartesJoueurs;
+    for (int i = 0; i < CARTES; i++) {
+        for (int j = 0; j < CARTES; j++) {
+            save.cartesJoueurs[i][j] = state->cartesJoueurs[i][j];
+        }
+    }
+    for (int i = 0; i < LARGEUR_FINALE; i++) {
+        for (int j = 0; j < LARGEUR_FINALE; j++) {
+            save.tabfinal[i][j] = state->tabfinal[i][j];
+        }
+    }
+    save.partie = state->partie;
+    for (int i = 0; i < LARGEUR; i++) {
+        for (int j = 0; j < LARGEUR; j++) {
+            save.sauvegarde1tab[i][j] = state->sauvegarde1tab[i][j];
+        }
+    }
+    save.sauvegardetourjoueur = state->sauvegardetourjoueur;
+    save.numjoueur = state->numjoueur;
+    save.echap = state->echap;
+    save.carterestante = state->carterestante;
+    save.test_tresor = state->test_tresor;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 1; j++) {
+            save.memoricase[i][j] = state->memoricase[i][j];
+        }
+    }
+    memcpy(save.cartejoueurtab, state->cartejoueurtab, sizeof(state->cartejoueurtab));
+    save.tourJoueur = state->tourJoueur;
+    save.nbTours = state->nbTours;
+    save.ligne_ou_colonne = state->ligne_ou_colonne;
+    save.numero_ligne_colonne = state->numero_ligne_colonne;
+    save.direction = state->direction;
+
+// Écrire la structure de sauvegarde dans le fichier de configuration
+    fwrite(&save, sizeof(Sauvegarde), 1, fp);
+
+// Fermer le fichier
+    fclose(fp);
+
+    printf("Partie sauvegardee a l'adresse :\n%s\n", full_filename);
+
+}
+
 void oui_non(int *menu){
     int entre=0;
     int oui=0;

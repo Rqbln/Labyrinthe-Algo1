@@ -22,18 +22,11 @@ int main() {   //programme principal
     int memoricase[4][1];
 
     int cartejoueurtab[4]={0,0,0,0};
-    int cartejoueur1=0;
-    int cartejoueur2=0;
-    int cartejoueur3=0;
-    int cartejoueur4=0;
     int tourJoueur, nbTours=0;
     int ligne_ou_colonne, numero_ligne_colonne, direction;
 
-    //Positions initiale des joueurs
-    int posxy1[2]={0,0};
-    int posxy2[2]={0,7};
-    int posxy3[2]={7,0};
-    int posxy4[2]={7,7};
+    Sauvegarde state;
+
 
     color(15,0);
     printf("\n");
@@ -93,6 +86,7 @@ int main() {   //programme principal
             distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs);
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
 
+            save_game(&state);
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
             afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
             selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
@@ -100,13 +94,11 @@ int main() {   //programme principal
             convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab);
             deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
-            printf("jaime la ...");
             selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
             deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
             convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab);
             deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
-            printf("jaime la ...");
             selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
             deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
             convertab(tab, &test_tresor);
@@ -121,15 +113,8 @@ int main() {   //programme principal
         }
         if (choix0==2) {
             color(15,0);
-            printf("Sauvegarde de la partie en cours...\n");
-            for (int i = 0; i < LARGEUR; ++i) {
-                for (int j = 0; j < LARGEUR; ++j) {
-                    sauvegarde1tab[i][j] = tab[i][j];
-                }
-            }
-            sauvegardetourjoueur = numjoueur;
-            printf("Sauvegarde terminee\n");
-            partie = 0;
+            save_game(&state);
+
         }
         if (choix0==3) {
             color(15,0);
