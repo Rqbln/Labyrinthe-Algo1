@@ -67,7 +67,7 @@ int main() {   //programme principal
             //couleur noir
             color(15,0);
             nbTours+=1;
-            //initialisation jeu
+            //initialisation jeu plateau.c
             initialisationTableau(tab);
             init_case_en_plus(tab, &carterestante, &test_tresor);
             convertab(tab, &test_tresor);
@@ -80,8 +80,10 @@ int main() {   //programme principal
 
             //tourjoueur(&numjoueur, &echap, &nbJoueurs);
 
+            //joueur.c 6
             nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
             printf("%d joueurs seront dans cette partie.\n",nbJoueurs);
+            //joueur.c 23
             CreationNomJoueurs(&nbJoueurs, nomJoueurs);
 
             system("cls");
@@ -92,16 +94,25 @@ int main() {   //programme principal
                 printf("- %s\n", nomJoueurs[i]);
             }
             srand(time(NULL));
+            //joueur.c 31
             distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs); // il y a : system("cls");afficherTitre();ligne();
+            //joueur.c 104
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
+            //joueur.c 89
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);// il y a : system("cls");afficherTitre();ligne();
 
             while(fin<10){
+                //joueur.c 134
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
+                //deplacement.c 130
                 selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
+                //deplacement.c 279
                 deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
+                //plateau.c 62
                 convertab(tab, &test_tresor);
+                //plateau.c 89
                 coordonne(tabfinal, &x, &y, tab, posxy);
+                //deplacement.c 17
                 deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy);                 //deplacement joueur
 
                 //affiche_case_en_plus(&carterestante);
