@@ -129,9 +129,8 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 }
 void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int *carterestante){
     int i,j;
-    int verif=1;
     int select=0;
-    while (verif==1) {
+    while (1) {
         // Affichage du tableau et du pion
         system("cls");
         afficherTitre();
@@ -263,13 +262,13 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
                     *ligne_ou_colonne=0;
                     *numero_ligne_colonne=(i-2)/3;
                     *direction=j;
-                    verif=0;
+                    break;
                 }
                 if (select==1 || select==2 || select==3 || select==7 || select==8 || select==9){
                     *ligne_ou_colonne=1;
                     *numero_ligne_colonne=(j-2)/3;
                     *direction=i;
-                    verif=0;
+                    break;
                 }
             }
             system("cls");
