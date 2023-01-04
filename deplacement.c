@@ -23,20 +23,20 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 
         switch (pionsJoueurs[*tourJoueur]) {
             case 1:
-                pion_row = pion_row1;
-                pion_col = pion_col1;
+                pion_row = posxy[0][0]*3+2;
+                pion_col = posxy[0][1]*3+2;
                 break;
             case 2:
-                pion_row = pion_row2;
-                pion_col = pion_col2;
+                pion_row = posxy[1][0]*3+2;
+                pion_col = posxy[1][1]*3+2;
                 break;
             case 3:
-                pion_row = pion_row3;
-                pion_col = pion_col3;
+                pion_row = posxy[2][0]*3+2;
+                pion_col = posxy[2][1]*3+2;
                 break;
             case 4:
-                pion_row = pion_row4;
-                pion_col = pion_col4;
+                pion_row = posxy[3][0]*3+2;
+                pion_col = posxy[3][1]*3+2;
                 break;
         }
 
