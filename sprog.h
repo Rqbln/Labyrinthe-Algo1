@@ -33,7 +33,6 @@
 
 
 typedef struct {
-
     int tab[LARGEUR][LARGEUR];
     char buffer[BUFFER_SIZE];
     int x,y,nbJoueurs;

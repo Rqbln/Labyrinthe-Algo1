@@ -81,72 +81,78 @@ void save_game(Sauvegarde *state) {
 
 
     // Ouvrir le fichier de configuration en écriture
-    FILE *fp = fopen(full_filename, "wb");
+    FILE *fp = fopen(full_filename, "w");
     if (fp == NULL) {
         // Erreur
         return;
     }
-    size_t size = sizeof(Sauvegarde);
-    fwrite(&size, sizeof(size_t), 1, fp);
-    fwrite(&save, sizeof(Sauvegarde), 1, fp);
+
     printf("Fichier ouvert avec succes.\n");
 
 
     // Copier l'état du jeu dans la structure de sauvegarde
     for (int i = 0; i < LARGEUR; i++) {
         for (int j = 0; j < LARGEUR; j++) {
-            save.tab[i][j] = state->tab[i][j];
+            fprintf(fp, "%d\n", save.tab[i][j]);
         }
     }
-    strcpy(save.buffer, state->buffer);
-    save.x = state->x;
-    save.y = state->y;
+
+    for (int i = 0; i < BUFFER_SIZE; i++) {
+        fprintf(fp, "%c\n", save.buffer[i]);
+    }
+    fprintf(fp, "%d\n", save.x);
+    fprintf(fp, "%d\n", save.y);
+    fprintf(fp, "%d\n", save.nbJoueurs);
+    for (int i = 0; i < 4; i++) {
+        fprintf(fp, "%d\n", save.pionsJoueurs[i]);
+    }
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < LONGUEUR_NOM; j++) {
-            save.nomJoueurs[i][j] = state->nomJoueurs[i][j];
+            fprintf(fp, "%c\n", save.nomJoueurs[i][j]);
         }
     }
-    memcpy(save.pionsJoueurs, state->pionsJoueurs, sizeof(state->pionsJoueurs));
-    memcpy(save.nomJoueurs, state->nomJoueurs, sizeof(state->nomJoueurs));
-    strcpy(save.choix, state->choix);
-    save.choix0 = state->choix0;
-    printf("test\n");
-    save.nbCartesJoueurs = state->nbCartesJoueurs;
+    for (int i = 0; i < BUFFER_SIZE; i++) {
+        fprintf(fp, "%c\n", save.choix[i]);
+    }
+    fprintf(fp, "%d\n", save.choix0);
+    fprintf(fp, "%d\n", save.nbCartesJoueurs);
     for (int i = 0; i < CARTES; i++) {
         for (int j = 0; j < CARTES; j++) {
-            save.cartesJoueurs[i][j] = state->cartesJoueurs[i][j];
+            fprintf(fp, "%d\n", save.cartesJoueurs[i][j]);
         }
     }
     for (int i = 0; i < LARGEUR_FINALE; i++) {
         for (int j = 0; j < LARGEUR_FINALE; j++) {
-            save.tabfinal[i][j] = state->tabfinal[i][j];
+            fprintf(fp, "%d\n", save.tabfinal[i][j]);
         }
     }
-    save.partie = state->partie;
+    fprintf(fp, "%d\n", save.partie);
     for (int i = 0; i < LARGEUR; i++) {
         for (int j = 0; j < LARGEUR; j++) {
-            save.sauvegarde1tab[i][j] = state->sauvegarde1tab[i][j];
+            fprintf(fp, "%d\n", save.sauvegarde1tab[i][j]);
         }
     }
-    save.sauvegardetourjoueur = state->sauvegardetourjoueur;
-    save.numjoueur = state->numjoueur;
-    save.echap = state->echap;
-    save.carterestante = state->carterestante;
-    save.test_tresor = state->test_tresor;
+    fprintf(fp, "%d\n", save.sauvegardetourjoueur);
+    fprintf(fp, "%d\n", save.numjoueur);
+    fprintf(fp, "%d\n", save.echap);
+    fprintf(fp, "%d\n", save.carterestante);
+    fprintf(fp, "%d\n", save.test_tresor);
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 1; j++) {
-            save.memoricase[i][j] = state->memoricase[i][j];
+            fprintf(fp, "%d\n", save.memoricase[i][j]);
         }
     }
-    memcpy(save.cartejoueurtab, state->cartejoueurtab, sizeof(state->cartejoueurtab));
-    save.tourJoueur = state->tourJoueur;
-    save.nbTours = state->nbTours;
-    save.ligne_ou_colonne = state->ligne_ou_colonne;
-    save.numero_ligne_colonne = state->numero_ligne_colonne;
-    save.direction = state->direction;
+    for (int i = 0; i < 4; i++) {
+        fprintf(fp, "%d\n", save.cartejoueurtab[i]);
+    }
+    fprintf(fp, "%d\n", save.tourJoueur);
+    fprintf(fp, "%d\n", save.nbTours);
+    fprintf(fp, "%d\n", save.ligne_ou_colonne);
+    fprintf(fp, "%d\n", save.numero_ligne_colonne);
+    fprintf(fp, "%d\n", save.direction);
+
 
 // Écrire la structure de sauvegarde dans le fichier de configuration
-    fwrite(&save, sizeof(Sauvegarde), 1, fp);
 
 // Fermer le fichier
     fclose(fp);

@@ -4,7 +4,7 @@
 int main() {   //programme principal
     int tab[LARGEUR][LARGEUR];
     char buffer[BUFFER_SIZE];
-    int x,y,nbJoueurs;
+    int x=0,y=0,nbJoueurs=0;
     int pionsJoueurs[4];
     char nomJoueurs[4][LONGUEUR_NOM];
     char choix[BUFFER_SIZE];
