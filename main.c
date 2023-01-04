@@ -90,7 +90,6 @@ int main() {   //programme principal
             distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs);
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
 
-            save_game(&state);
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
             afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
             selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
