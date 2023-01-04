@@ -25,6 +25,10 @@ int main() {   //programme principal
     int tourJoueur, nbTours=0;
     int ligne_ou_colonne, numero_ligne_colonne, direction;
 
+    int cartejoueur1=0;
+    int cartejoueur2=0;
+    int cartejoueur3=0;
+    int cartejoueur4=0;
     Sauvegarde state;
 
 
