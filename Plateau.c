@@ -236,7 +236,6 @@ void coordonne(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *x, int *y, int
     }
     for (int k = 0; k < 4; ++k) {
         for (int l = 0; l < 2; ++l) {
-            tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=0;
             tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=3;
         }
     }

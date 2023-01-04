@@ -14,41 +14,46 @@
 
 
 
-void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1], int *carterestante,int posxy[4][2]){
+void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4], int *carterestante,int posxy[4][2], int* echap){
     // Déclaration du tableau et du pion
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
     int pion_row, pion_col;
     int stop=0;
 
-    switch (pionsJoueurs[*tourJoueur]) {
-        case 1:
-            pion_row = pion_row1;
-            pion_col = pion_col1;
-            break;
-        case 2:
-            pion_row = pion_row2;
-            pion_col = pion_col2;
-            break;
-        case 3:
-            pion_row = pion_row3;
-            pion_col = pion_col3;
-            break;
-        case 4:
-            pion_row = pion_row4;
-            pion_col = pion_col4;
-            break;
-//innnitialisation des cases de depart
-    }
-    memoricase[0][0]=tabfinal[pion_row1][pion_col1];
-    tabfinal[pion_row1][pion_col1] = pionsJoueurs[0]+1;
-    memoricase[1][0]=tabfinal[pion_row2][pion_col2];
-    tabfinal[pion_row2][pion_col2] = pionsJoueurs[1]+1;
-    memoricase[2][0]=tabfinal[pion_row3][pion_col3];
-    tabfinal[pion_row3][pion_col3] = pionsJoueurs[2]+1;
-    memoricase[3][0]=tabfinal[pion_row4][pion_col4];
-    tabfinal[pion_row4][pion_col4] = pionsJoueurs[3]+1;
-    //permet d enregistrer le motif des cases de depart
+        switch (pionsJoueurs[*tourJoueur]) {
+            case 1:
+                pion_row = pion_row1;
+                pion_col = pion_col1;
+                break;
+            case 2:
+                pion_row = pion_row2;
+                pion_col = pion_col2;
+                break;
+            case 3:
+                pion_row = pion_row3;
+                pion_col = pion_col3;
+                break;
+            case 4:
+                pion_row = pion_row4;
+                pion_col = pion_col4;
+                break;
+        }
+
+//innitialisation des cases de depart
+
+        memoricase[0]=tabfinal[pion_row1][pion_col1];
+        tabfinal[pion_row1][pion_col1] = pionsJoueurs[0]+1;
+        memoricase[1]=tabfinal[pion_row2][pion_col2];
+        tabfinal[pion_row2][pion_col2] = pionsJoueurs[1]+1;
+        memoricase[2]=tabfinal[pion_row3][pion_col3];
+        tabfinal[pion_row3][pion_col3] = pionsJoueurs[2]+1;
+        memoricase[3]=tabfinal[pion_row4][pion_col4];
+        tabfinal[pion_row4][pion_col4] = pionsJoueurs[3]+1;
+        //permet d enregistrer le motif des cases de depart
+        *echap=1;
+
+
     char demarrage;
     afficheplateaufinal(tab, tabfinal);
     printf("Le tableau a ete modifie.\n%s, appuyez sur 'Entree' pour deplacer votre pion\n",nomJoueurs[*tourJoueur]);
@@ -78,10 +83,10 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 // Déplacement du pion vers le haut si possible
                 if (pion_row > 0 + 3 && tabfinal[pion_row-1][pion_col] == 1 && tabfinal[pion_row-2][pion_col] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
+                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
                     pion_row-=3;
                     posxy[*tourJoueur][0]-=1;
-                    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
+                    memoricase[pionsJoueurs[*tourJoueur]-1]=tabfinal[pion_row][pion_col];
                     tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
             }
@@ -90,10 +95,10 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 // Déplacement du pion vers le bas si possible
                 if (pion_row < 21 - 3 && tabfinal[pion_row+1][pion_col] == 1 && tabfinal[pion_row+2][pion_col] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
+                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
                     pion_row+=3;
                     posxy[*tourJoueur][0]+=1;
-                    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
+                    memoricase[pionsJoueurs[*tourJoueur]-1]=tabfinal[pion_row][pion_col];
                     tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
             }
@@ -102,10 +107,10 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 // Déplacement du pion vers la gauche si possible
                 if (pion_col > 0 + 3 && tabfinal[pion_row][pion_col-1] == 1 && tabfinal[pion_row][pion_col-2] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
+                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
                     pion_col-=3;
                     posxy[*tourJoueur][1]-=1;
-                    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
+                    memoricase[pionsJoueurs[*tourJoueur]-1]=tabfinal[pion_row][pion_col];
                     tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
             }
@@ -114,10 +119,10 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 // Déplacement du pion vers la droite si possible
                 if (pion_col < 21 - 3 && tabfinal[pion_row][pion_col+1] == 1 && tabfinal[pion_row][pion_col+2] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
+                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
                     pion_col+=3;
                     posxy[*tourJoueur][1]+=1;
-                    memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
+                    memoricase[pionsJoueurs[*tourJoueur]-1]=tabfinal[pion_row][pion_col];
                     tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
             }

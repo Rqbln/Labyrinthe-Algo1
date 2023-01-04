@@ -50,7 +50,7 @@ typedef struct {
     int echap;
     int carterestante;
     int test_tresor;
-    int memoricase[4][1];
+    int memoricase[4];
     int cartejoueurtab[4];
     int tourJoueur, nbTours;
     int ligne_ou_colonne, numero_ligne_colonne, direction;
@@ -86,7 +86,7 @@ void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, char nomJoueurs[4
 void debutPartie (int *nbJoueurs, int *tourJoueur, char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int* nbTours);
 
 
-void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4],int *tourJoueur, int memoricase[4][1], int *carterestante,int posxy[4][2]);
+void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4],int *tourJoueur, int memoricase[4], int *carterestante,int posxy[4][2], int* echap);
 void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction,int posxy[4][2]);
 void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int *carterestante);
 

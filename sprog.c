@@ -139,7 +139,7 @@ void save_game(Sauvegarde *state) {
     fprintf(fp, "%d\n", save.test_tresor);
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 1; j++) {
-            fprintf(fp, "%d\n", save.memoricase[i][j]);
+            fprintf(fp, "%d\n", save.memoricase[i]);
         }
     }
     for (int i = 0; i < 4; i++) {
