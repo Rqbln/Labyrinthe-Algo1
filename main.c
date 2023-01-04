@@ -20,6 +20,7 @@ int main() {   //programme principal
     int carterestante;
     int test_tresor = 0;
     int memoricase[4][1];
+    int fin=0;
 
     int cartejoueurtab[4]={0,0,0,0};
     int tourJoueur, nbTours=0;
@@ -59,12 +60,15 @@ int main() {   //programme principal
             return 0;
         }
         if (choix0==1) {
+            //mise en page
             system("cls");
             afficherTitre();
             ligne();
+            //couleur noir
             color(15,0);
             nbTours+=1;
-            initialisationTableau(tab);                        //initialisation
+            //initialisation jeu
+            initialisationTableau(tab);
             init_case_en_plus(tab, &carterestante, &test_tresor);
             convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab, posxy);
@@ -88,34 +92,27 @@ int main() {   //programme principal
                 printf("- %s\n", nomJoueurs[i]);
             }
             srand(time(NULL));
-            distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs);
+            distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs); // il y a : system("cls");afficherTitre();ligne();
             distributionCartes(&nbJoueurs, &nbCartesJoueurs, nomJoueurs, cartesJoueurs);
+            debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);// il y a : system("cls");afficherTitre();ligne();
 
-            debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
-            afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
-            selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
-            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);
-            convertab(tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, tab, posxy);
-            deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy);                 //deplacement joueur
-            selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
-            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);
-            convertab(tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, tab, posxy);
-            deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy);                 //deplacement joueur
-            selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
-            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);
-            convertab(tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, tab, posxy);
-            deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy);                 //deplacement joueur
+            while(fin<10){
+                afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
+                selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
+                deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
+                convertab(tab, &test_tresor);
+                coordonne(tabfinal, &x, &y, tab, posxy);
+                deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy);                 //deplacement joueur
 
-            //affiche_case_en_plus(&carterestante);
-            //finJeu(&ligne, &colonne, &tab[7][7], &n);
-            printf("\n");
-            //printf("%d", carterestante);
-            //getchar(); // attend que l'utilisateur appuie sur une touche
-            //fgetc(stdin);
-            partie = 0;
+                //affiche_case_en_plus(&carterestante);
+                //finJeu(&ligne, &colonne, &tab[7][7], &n);
+                printf("\n");
+                //printf("%d", carterestante);
+                //getchar(); // attend que l'utilisateur appuie sur une touche
+                //fgetc(stdin);
+                fin+= 1;
+
+            }
         }
         if (choix0==2) {
             color(15,0);
