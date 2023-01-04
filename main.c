@@ -30,6 +30,7 @@ int main() {   //programme principal
     int cartejoueur3=0;
     int cartejoueur4=0;
     Sauvegarde state;
+    int posxy[4][2]={0,0,6,0,0,6,6,6};
 
 
     color(15,0);
@@ -66,7 +67,7 @@ int main() {   //programme principal
             initialisationTableau(tab);                        //initialisation
             init_case_en_plus(tab, &carterestante, &test_tresor);
             convertab(tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, tab);
+            coordonne(tabfinal, &x, &y, tab, posxy);
 
             //affichageTableau(tab, tabfinal);                 //affichage
             //afficheplateauprog(tab, tabfinal);
@@ -93,19 +94,21 @@ int main() {   //programme principal
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);
             afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
             selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
-            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
+            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);
             convertab(tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, tab);
-            deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
+            coordonne(tabfinal, &x, &y, tab, posxy);
+            deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy);                 //deplacement joueur
             selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
-            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
+            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);
             convertab(tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, tab);
-            deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante);                 //deplacement joueur
+            coordonne(tabfinal, &x, &y, tab, posxy);
+            deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy);                 //deplacement joueur
             selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);
-            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction);
+            deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);
             convertab(tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, tab);
+            coordonne(tabfinal, &x, &y, tab, posxy);
+            deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy);                 //deplacement joueur
+
             //affiche_case_en_plus(&carterestante);
             //finJeu(&ligne, &colonne, &tab[7][7], &n);
             printf("\n");
@@ -125,7 +128,7 @@ int main() {   //programme principal
             //tab[LARGEUR][LARGEUR]=sauvegarde1tab[LARGEUR][LARGEUR];
             numjoueur = sauvegardetourjoueur;
             convertab(sauvegarde1tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, sauvegarde1tab);
+            coordonne(tabfinal, &x, &y, sauvegarde1tab, posxy);
             afficheplateaufinal(sauvegarde1tab, tabfinal);
             partie = 0;
         }

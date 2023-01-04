@@ -14,12 +14,13 @@
 
 
 
-void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1], int *carterestante){
+void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int *tourJoueur, int memoricase[4][1], int *carterestante,int posxy[4][2]){
     // Déclaration du tableau et du pion
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
     int pion_row, pion_col;
     int stop=0;
+
     switch (pionsJoueurs[*tourJoueur]) {
         case 1:
             pion_row = pion_row1;
@@ -79,6 +80,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
                 {
                     tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
                     pion_row-=3;
+                    posxy[*tourJoueur][0]-=1;
                     memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
                     tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
@@ -90,6 +92,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
                 {
                     tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
                     pion_row+=3;
+                    posxy[*tourJoueur][0]+=1;
                     memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
                     tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
@@ -101,6 +104,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
                 {
                     tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
                     pion_col-=3;
+                    posxy[*tourJoueur][1]-=1;
                     memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
                     tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
@@ -112,6 +116,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
                 {
                     tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1][0];
                     pion_col+=3;
+                    posxy[*tourJoueur][1]+=1;
                     memoricase[pionsJoueurs[*tourJoueur]-1][0]=tabfinal[pion_row][pion_col];
                     tabfinal[pion_row][pion_col] = pionsJoueurs[*tourJoueur]+1;
                 }
@@ -271,10 +276,40 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
         }
     }
 }
-void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction) {
+void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int posxy[4][2]) {
     int i, temp;
     afficheplateaufinal(tab, tabfinal);
     affiche_case_en_plus(&*carterestante);
+    for (int k = 0; k < 4; ++k) {
+        for (int l = 0; l < 2; ++l) {
+            if(posxy[k][l]==1 || posxy[k][l] == 3 || posxy[k][l] == 5){
+                tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=0;
+                if (l==0){
+                    switch (*direction) {
+                        case 22:
+                            posxy[k][l]-=1;
+                            break;
+                        case 0:
+                            posxy[k][l]+=1;
+                            break;
+                    }
+                }
+                if (l==1){
+                    switch (*direction) {
+
+                        case 22:
+                            posxy[k][l]-=1;
+                            break;
+                        case 0:
+                            posxy[k][l]+=1;
+                            break;
+                    }
+                }
+                tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=3;
+            }
+        }
+
+    }
     switch (*ligne_ou_colonne) {
         case 0:
             if (*numero_ligne_colonne == 1 || *numero_ligne_colonne == 3 || *numero_ligne_colonne == 5) {

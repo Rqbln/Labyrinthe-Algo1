@@ -86,7 +86,7 @@ void convertab(int tab[LARGEUR][LARGEUR], int *test_tresor){
         }
     }
 }
-void coordonne(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *x, int *y, int tab[LARGEUR][LARGEUR]){
+void coordonne(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *x, int *y, int tab[LARGEUR][LARGEUR], int posxy[4][2]){
     //on definit toutes les cases differente
     int caseT1[3][3] = {0,0,0, 1,8,1, 0,1,0}; //https://i.imgur.com/aXB8t7o.png
     int caseT2[3][3] = {0,1,0, 1,8,0, 0,1,0};
@@ -232,6 +232,12 @@ void coordonne(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *x, int *y, int
                     break;
 
             }
+        }
+    }
+    for (int k = 0; k < 4; ++k) {
+        for (int l = 0; l < 2; ++l) {
+            tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=0;
+            tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=3;
         }
     }
 }
