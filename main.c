@@ -68,11 +68,7 @@ int main() {   //programme principal
             color(15,0);
             nbTours+=1;
 
-            //initialisation jeu plateau.c
-            initialisationTableau(tab);
-            init_case_en_plus(tab, &carterestante, &test_tresor);
-            convertab(tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, tab, posxy);
+
 
             //affichageTableau(tab, tabfinal);                 //affichage
             //afficheplateauprog(tab, tabfinal);
@@ -103,6 +99,12 @@ int main() {   //programme principal
             //joueur.c ligne 89
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);// il y a : system("cls");afficherTitre();ligne();
 
+            //initialisation jeu plateau.c
+            initialisationTableau(tab);
+            init_case_en_plus(tab, &carterestante, &test_tresor);
+            convertab(tab, &test_tresor);
+            coordonne(tabfinal, &x, &y, tab, posxy, pionsJoueurs, &tourJoueur);
+
             while(fin==0){
                 //joueur.c ligne 134
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
@@ -117,7 +119,7 @@ int main() {   //programme principal
 
                 convertab(tab, &test_tresor);
                 //plateau.c ligne 89
-                coordonne(tabfinal, &x, &y, tab, posxy);
+                coordonne(tabfinal, &x, &y, tab, posxy, pionsJoueurs, &tourJoueur);
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
                 //deplacement.c ligne 17   //afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);
                 deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab,cartesJoueurs,&nbCartesJoueurs, &fin);                 //deplacement joueur
@@ -146,7 +148,7 @@ int main() {   //programme principal
             //tab[LARGEUR][LARGEUR]=sauvegarde1tab[LARGEUR][LARGEUR];
             numjoueur = sauvegardetourjoueur;
             convertab(sauvegarde1tab, &test_tresor);
-            coordonne(tabfinal, &x, &y, sauvegarde1tab, posxy);
+            coordonne(tabfinal, &x, &y, sauvegarde1tab, posxy, pionsJoueurs, &tourJoueur);
             afficheplateaufinal(sauvegarde1tab, tabfinal);
             partie = 0;
         }

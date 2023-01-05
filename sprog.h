@@ -68,7 +68,7 @@ void oui_non(int *menu);
 void initialisationTableau(int tab[LARGEUR][LARGEUR]);
 void init_case_en_plus(int tab[LARGEUR][LARGEUR],int *carterestante, int *test_tresor);
 void convertab(int tab[LARGEUR][LARGEUR], int *test_tresor);
-void coordonne(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *x, int *y, int tab[LARGEUR][LARGEUR], int posxy[4][2]);
+void coordonne(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *x, int *y, int tab[LARGEUR][LARGEUR], int posxy[4][2], int pionsJoueurs[4], int* tourJoueur);
 void affect(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *x, int *y, int cases[3][3]);
 
 void affichageTableau(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE]);
