@@ -102,7 +102,7 @@ int main() {   //programme principal
             //joueur.c ligne 89
             debutPartie(&nbJoueurs, &tourJoueur, nomJoueurs, pionsJoueurs, &nbTours);// il y a : system("cls");afficherTitre();ligne();
 
-            while(fin<10){
+            while(fin==0){
                 //joueur.c ligne 134
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
                 //deplacement.c ligne 130
@@ -115,7 +115,7 @@ int main() {   //programme principal
                 coordonne(tabfinal, &x, &y, tab, posxy);
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
                 //deplacement.c ligne 17
-                deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab,cartesJoueurs,&nbCartesJoueurs);                 //deplacement joueur
+                deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab,cartesJoueurs,&nbCartesJoueurs, &fin);                 //deplacement joueur
 
                 //affiche_case_en_plus(&carterestante);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
@@ -123,8 +123,6 @@ int main() {   //programme principal
                 //printf("%d", carterestante);
                 //getchar(); // attend que l'utilisateur appuie sur une touche
                 //fgetc(stdin);
-                fin+= 1;
-
             }
         }
         if (choix0==2) {
