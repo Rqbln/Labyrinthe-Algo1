@@ -109,20 +109,25 @@ int main() {   //programme principal
                 //deplacement.c ligne 130
                 selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
                 //deplacement.c ligne 279
+                afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
+
                 deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
                 //plateau.c ligne 62
+                afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
+
                 convertab(tab, &test_tresor);
                 //plateau.c ligne 89
                 coordonne(tabfinal, &x, &y, tab, posxy);
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
                 //deplacement.c ligne 17   //afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);
                 deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab,cartesJoueurs,&nbCartesJoueurs, &fin);                 //deplacement joueur
+                afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
 
                 //affiche_case_en_plus(&carterestante);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");
                 tourJoueur+=1;
-                if (tourJoueur==4){
+                if (tourJoueur==nbJoueurs){
                     tourJoueur=0;
                 }
                 //printf("%d", carterestante);
