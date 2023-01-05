@@ -298,6 +298,7 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
     affiche_case_en_plus(&*carterestante);
     while (1){
         // Lecture de l'entrée utilisateur
+        printf("utiliser espace pour tourner la case en plus");
         int c = getch();
         if (c == 0 || c ==' ' || c == 13) {// Flèche du clavier
             if (c==' '){
@@ -319,6 +320,9 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
                 break;
             }
         }
+        system('cls');
+        afficheplateaufinal(tab, tabfinal);
+        affiche_case_en_plus(&*carterestante);
     }
     for (int k = 0; k < 4; ++k) {
         for (int l = 0; l < 2; ++l) {
