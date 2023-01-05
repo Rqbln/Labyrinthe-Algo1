@@ -134,20 +134,8 @@ void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, char nomJoueurs[4
 void afficheCarteJoueur(int *tourJoueur,int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES], int cartejoueurtab[4]){
     int cartejoueur;
     int caracteres;
-    switch (*tourJoueur) {
-        case 0:
-            cartejoueur=cartejoueurtab[0];
-            break;
-        case 1:
-            cartejoueur=cartejoueurtab[1];
-            break;
-        case 2:
-            cartejoueur=cartejoueurtab[2];
-            break;
-        case 3:
-            cartejoueur=cartejoueurtab[3];
-            break;
-    }
+    cartejoueur=cartejoueurtab[*tourJoueur];
+
     printf("%s, Voici tes cartes tresor a trouver : \n", nomJoueurs[*tourJoueur]);
     _setmode(_fileno(stdout), _O_U16TEXT);
     wprintf(L"\x250C\x2500\x2500\x2510");
@@ -162,18 +150,7 @@ void afficheCarteJoueur(int *tourJoueur,int *nbCartesJoueurs, char nomJoueurs[4]
     wprintf(L"\x2514\x2500\x2500\x2518");
     wprintf(L"\n");
     _setmode(_fileno(stdout), _O_TEXT);
-    switch (*tourJoueur) {
-        case 0:
-            cartejoueurtab[0]+=1;
-            break;
-        case 1:
-            cartejoueurtab[1]+=1;
-            break;
-        case 2:
-            cartejoueurtab[2]+=1;
-            break;
-        case 3:
-            cartejoueurtab[3]+=1;
-            break;
-    }
+
+    cartejoueurtab[*tourJoueur]+=1;
+
 }
