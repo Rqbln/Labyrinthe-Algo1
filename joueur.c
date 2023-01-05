@@ -151,6 +151,6 @@ void afficheCarteJoueur(int *tourJoueur,int *nbCartesJoueurs, char nomJoueurs[4]
     wprintf(L"\n");
     _setmode(_fileno(stdout), _O_TEXT);
 
-    cartejoueurtab[*tourJoueur]+=1;
+    //cartejoueurtab[*tourJoueur]+=1;
 
 }

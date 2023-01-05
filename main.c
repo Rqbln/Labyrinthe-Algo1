@@ -113,8 +113,9 @@ int main() {   //programme principal
                 convertab(tab, &test_tresor);
                 //plateau.c ligne 89
                 coordonne(tabfinal, &x, &y, tab, posxy);
+                afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
                 //deplacement.c ligne 17
-                deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap);                 //deplacement joueur
+                deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab);                 //deplacement joueur
 
                 //affiche_case_en_plus(&carterestante);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
