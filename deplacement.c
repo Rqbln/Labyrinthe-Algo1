@@ -154,12 +154,12 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
         ligne();
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
-        printf("\nAppuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer la tuile.\nAppuyez deux fois sur Entree pour confirmer votre selection.");
+        printf("\nAppuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer la tuile.\nAppuyez deux fois sur espace pour faire tourner la tuile supplementaire.\nAppuyez deux fois sur Entree pour confirmer votre selection.");
 
 
         // Lecture de l'entrée utilisateur
         int c = getch();
-        if (c == 0 || c == 0xE0 || c == 13) {// Flèche du clavier
+        if (c == 0 || c == 0xE0 || c ==' ' || c == 13) {// Flèche du clavier
             switch (select) {
                 case 1:
                     tabfinal[0][5]=9;
@@ -212,6 +212,23 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
                     select=12;
                 }
             }
+            else if (c==' '){
+                if ((*carterestante/100!=0)){
+                    if(((*carterestante/10)%10)==3){
+                        *carterestante-=30;
+                    } else{
+                        *carterestante+=10;
+                    }
+                }else{
+                    if((*carterestante%10)==3){
+                        *carterestante-=3;
+                    } else{
+                        *carterestante+=1;
+                    }
+
+                }
+            }
+
             switch (select) {
                 case 1:
                     tabfinal[0][5] = 8;
@@ -316,11 +333,12 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
                     }
 
                 }
-            }else{
+            }
+            else {
                 break;
             }
         }
-        system('cls');
+        system("cls");
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
     }
