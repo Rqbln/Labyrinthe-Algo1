@@ -327,25 +327,52 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
             if(posxy[k][l]==1 || posxy[k][l] == 3 || posxy[k][l] == 5){
                 tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=0;
                 if (*ligne_ou_colonne==0 && tempPosxy==0){
-                    if (*direction==22){
-                        posxy[k][1]-=1;
-                        break;
+                    if (*direction==22){ // ligne inférieure
+                        if (posxy[k][1]==0){
+                            posxy[k][1]=6;
+                            break;
+                        }
+                        else {
+                            posxy[k][1]-=1;
+
+                            break;
+                        }
+
                     }
-                    if (*direction==0){
-                        posxy[k][1]+=1;
-                        break;
+                    if (*direction==0){ // ligne supérieure
+                        if (posxy[k][1]==6){
+                            posxy[k][1]=0;
+                            break;
+                        }
+                        else {
+                            posxy[k][1]+=1;
+                            break;
+                        }
+
                     }
                     tempPosxy+=1;
 
                 }
                 if (*ligne_ou_colonne==1 && tempPosxy==0){
-                    if (*direction==22){
-                        posxy[k][0]-=1;
-                        break;
+                    if (*direction==22){ // colonne droite
+                        if (posxy[k][0]==0){
+                            posxy[k][0]=6;
+                        }
+                        else {
+                            posxy[k][0]-=1;
+                            break;
+                        }
+
                     }
-                    if (*direction==0){
-                        posxy[k][0]+=1;
-                        break;
+                    if (*direction==0){ // colonne gauche
+                        if (posxy[k][0]==6){
+                            posxy[k][0]=0;
+                        }
+                        else {
+                            posxy[k][0]+=1;
+                            break;
+                        }
+
                     }
                     tempPosxy+=1;
                 }
