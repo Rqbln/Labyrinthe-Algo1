@@ -95,6 +95,7 @@ int main() {   //programme principal
                 printf("- %s\n", nomJoueurs[i]);
             }
             srand(time(NULL));
+            tourJoueur=rand() % nbJoueurs;
             //joueur.c ligne 31
             distributionPions(&nbJoueurs,nomJoueurs,pionsJoueurs); // il y a : system("cls");afficherTitre();ligne();
             //joueur.c ligne 104
@@ -120,6 +121,10 @@ int main() {   //programme principal
                 //affiche_case_en_plus(&carterestante);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
                 printf("\n");
+                tourJoueur+=1;
+                if (tourJoueur==4){
+                    tourJoueur=0;
+                }
                 //printf("%d", carterestante);
                 //getchar(); // attend que l'utilisateur appuie sur une touche
                 //fgetc(stdin);
