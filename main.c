@@ -66,7 +66,7 @@ int main() {   //programme principal
             ligne();
             //couleur noir
             color(15,0);
-            nbTours+=1;
+
 
 
 
@@ -106,6 +106,8 @@ int main() {   //programme principal
             coordonne(tabfinal, &x, &y, tab, posxy, pionsJoueurs, &tourJoueur);
 
             while(fin==0){
+                nbTours+=1;
+                printf("tour(s):%d ",nbTours);
                 //joueur.c ligne 134
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
                 //deplacement.c ligne 130
