@@ -115,7 +115,7 @@ int main() {   //programme principal
                 coordonne(tabfinal, &x, &y, tab, posxy);
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
                 //deplacement.c ligne 17
-                deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab);                 //deplacement joueur
+                deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab,cartesJoueurs,&nbCartesJoueurs);                 //deplacement joueur
 
                 //affiche_case_en_plus(&carterestante);
                 //finJeu(&ligne, &colonne, &tab[7][7], &n);
