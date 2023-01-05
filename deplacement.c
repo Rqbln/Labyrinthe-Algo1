@@ -310,70 +310,43 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
     }
 }
 void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int posxy[4][2]) {
-    int i, temp;
+    int i, temp, tempPosxy;
     afficheplateaufinal(tab, tabfinal);
     affiche_case_en_plus(&*carterestante);
-    while (1){
-        // Lecture de l'entrée utilisateur
-        printf("utiliser espace pour tourner la case en plus");
-        int c = getch();
-        if (c == 0 || c ==' ' || c == 13) {// Flèche du clavier
-            if (c==' '){
-                if ((*carterestante/100!=0)){
-                    if(((*carterestante/10)%10)==3){
-                        *carterestante-=30;
-                    } else{
-                        *carterestante+=10;
-                    }
-                }else{
-                    if((*carterestante%10)==3){
-                        *carterestante-=3;
-                    } else{
-                        *carterestante+=1;
-                    }
-
-                }
-            }
-            else {
-                break;
-            }
-        }
-        system("cls");
-        afficheplateaufinal(tab, tabfinal);
-        affiche_case_en_plus(&*carterestante);
-    }
     for (int k = 0; k < 4; ++k) {
+        tempPosxy=0;
         for (int l = 0; l < 2; ++l) {
             if(posxy[k][l]==1 || posxy[k][l] == 3 || posxy[k][l] == 5){
                 tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=0;
-                if (*ligne_ou_colonne==0){
-                    switch (*direction) {
-                        case 22:
-                            posxy[k][1]-=1;
-                            break;
-                        case 0:
-                            posxy[k][1]+=1;
-                            break;
+                if (*ligne_ou_colonne==0 && tempPosxy==0){
+                    if (*direction==22){
+                        posxy[k][1]-=1;
+                        break;
                     }
+                    if (*direction==0){
+                        posxy[k][1]+=1;
+                        break;
+                    }
+                    tempPosxy+=1;
+
                 }
-                if (*ligne_ou_colonne==1){
-                    switch (*direction) {
-
-                        case 22:
-                            posxy[k][0]-=1;
-                            break;
-                        case 0:
-                            posxy[k][0]+=1;
-                            break;
+                if (*ligne_ou_colonne==1 && tempPosxy==0){
+                    if (*direction==22){
+                        posxy[k][0]-=1;
+                        break;
                     }
-
+                    if (*direction==0){
+                        posxy[k][0]+=1;
+                        break;
+                    }
+                    tempPosxy+=1;
                 }
 
                 tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=3;
             }
         }
-
     }
+
     switch (*ligne_ou_colonne) {
         case 0:
             if (*numero_ligne_colonne == 1 || *numero_ligne_colonne == 3 || *numero_ligne_colonne == 5) {
