@@ -296,6 +296,30 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
     int i, temp;
     afficheplateaufinal(tab, tabfinal);
     affiche_case_en_plus(&*carterestante);
+    while (1){
+        // Lecture de l'entrée utilisateur
+        int c = getch();
+        if (c == 0 || c ==' ' || c == 13) {// Flèche du clavier
+            if (c==' '){
+                if ((*carterestante/100!=0)){
+                    if(((*carterestante/10)%10)==3){
+                        *carterestante-=30;
+                    } else{
+                        *carterestante+=10;
+                    }
+                }else{
+                    if((*carterestante%10)==3){
+                        *carterestante-=3;
+                    } else{
+                        *carterestante+=1;
+                    }
+
+                }
+            }else{
+                break;
+            }
+        }
+    }
     for (int k = 0; k < 4; ++k) {
         for (int l = 0; l < 2; ++l) {
             if(posxy[k][l]==1 || posxy[k][l] == 3 || posxy[k][l] == 5){
