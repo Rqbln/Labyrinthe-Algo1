@@ -75,7 +75,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
         printf("\n");
-        printf("Deplacez vous avec les touches 'z', 'q', 's', 'd' du clavier.\nAppuyez sur 'Entree' Pour arreter de deplacer le pion.");
+        printf("%s, deplacez vous avec les touches 'z', 'q', 's', 'd' du clavier.\nAppuyez sur 'Entree' Pour arreter de deplacer le pion.", nomJoueurs[*tourJoueur]);
         printf("\n");
         // Lecture de l'entrée utilisateur
         int c = getch();
@@ -136,15 +136,15 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
                 printf("bravo pour le tresor");
                 cartejoueurtab[*tourJoueur]+=1;
                 if (*nbCartesJoueurs==cartejoueurtab[*tourJoueur]-1){
-                    printf("%s a gagné, incliner vous tous devant lui", nomJoueurs[*tourJoueur]);
+                    printf("%s a gagné, inclinez vous tous devant lui", nomJoueurs[*tourJoueur]);
                     *fin=1;
-                    printf("partie fini pour recommencer entrer 1");
+                    printf("partie finie !\nPour recommencer entrez 1");
                 }
             }
         }
     }
 }
-void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int *carterestante){
+void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int *carterestante, char nomJoueurs[4][LONGUEUR_NOM], int* tourJoueur){
     int i,j;
     int select=0;
     while (1) {
@@ -154,7 +154,7 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
         ligne();
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
-        printf("\nAppuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer la tuile.\nAppuyez deux fois sur espace pour faire tourner la tuile supplementaire.\nAppuyez deux fois sur Entree pour confirmer votre selection.");
+        printf("\n%s, Appuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer la tuile.\nAppuyez deux fois sur espace pour faire tourner la tuile supplementaire.\nAppuyez deux fois sur Entree pour confirmer votre selection.",nomJoueurs[*tourJoueur]);
 
 
         // Lecture de l'entrée utilisateur

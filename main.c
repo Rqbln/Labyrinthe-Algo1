@@ -109,7 +109,7 @@ int main() {   //programme principal
                 //joueur.c ligne 134
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
                 //deplacement.c ligne 130
-                selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
+                selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante, nomJoueurs, &tourJoueur);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
                 //deplacement.c ligne 279
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
 
