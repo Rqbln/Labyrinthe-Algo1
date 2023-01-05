@@ -219,7 +219,15 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
                     } else{
                         *carterestante+=10;
                     }
-                }else{
+                }
+                else if((*carterestante/10==8)){
+                    if((*carterestante%10)==1){
+                        *carterestante-=1;
+                    } else{
+                        *carterestante+=1;
+                    }
+                }
+                else{
                     if((*carterestante%10)==3){
                         *carterestante-=3;
                     } else{
