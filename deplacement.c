@@ -71,6 +71,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
         system("cls");
         afficherTitre();
         ligne();
+        afficheCarteJoueur(&*tourJoueur,&*nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
         // Affichage du tableau et du pion
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
@@ -144,7 +145,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
         }
     }
 }
-void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int *carterestante, char nomJoueurs[4][LONGUEUR_NOM], int* tourJoueur){
+void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int *carterestante, char nomJoueurs[4][LONGUEUR_NOM], int* tourJoueur, int* nbCartesJoueurs, int cartesJoueurs[CARTES][CARTES],int cartejoueurtab[4]){
     int i,j;
     int select=0;
     while (1) {
@@ -152,6 +153,7 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
         system("cls");
         afficherTitre();
         ligne();
+        afficheCarteJoueur(&*tourJoueur,&*nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
         printf("\n%s, Appuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer la tuile.\nAppuyez deux fois sur espace pour faire tourner la tuile supplementaire.\nAppuyez deux fois sur Entree pour confirmer votre selection.",nomJoueurs[*tourJoueur]);
@@ -325,7 +327,7 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
         tempPosxy=0;
         for (int l = 0; l < 2; ++l) {
             if(posxy[k][l]==1 || posxy[k][l] == 3 || posxy[k][l] == 5){
-
+                tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=0;
                 if (*ligne_ou_colonne==0 && tempPosxy==0){
                     if (*direction==22){ // ligne inférieure
                         if (posxy[k][1]==0){
@@ -376,8 +378,7 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
                     }
                     tempPosxy+=1;
                 }
-
-
+                tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=3;
             }
         }
     }
