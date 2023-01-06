@@ -326,7 +326,7 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
     for (int k = 0; k < 4; ++k) {
         tempPosxy=0;
         for (int l = 0; l < 2; ++l) {
-            if(posxy[k][l]==1 || posxy[k][l] == 3 || posxy[k][l] == 5){
+            if(posxy[k][l]==*numero_ligne_colonne){
                 tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=0;
                 if (*ligne_ou_colonne==0 && tempPosxy==0){
                     if (*direction==22){ // ligne inférieure
