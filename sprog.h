@@ -62,6 +62,7 @@ void ligne();
 void caractere(int *caracteres);
 void afficherRegles();
 void afficherCredits();
+void nouvellePartie(int tab[LARGEUR][LARGEUR], char buffer[BUFFER_SIZE], int *x, int *y, int *nbJoueurs, int pionsJoueurs[4], char nomJoueurs[4][LONGUEUR_NOM], char choix[BUFFER_SIZE], int *choix0, int *nbCartesJoueurs, int cartesJoueurs[CARTES][CARTES], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *partie, int sauvegarde1tab[LARGEUR][LARGEUR], int *sauvegardetourjoueur, int *numjoueur, int *echap, int *carterestante, int *test_tresor, int memoricase[4], int *fin, int cartejoueurtab[4], int *tourJoueur, int *nbTours, int *verifTours, int *ligne_ou_colonne, int *numero_ligne_colonne, int *direction, int *cartejoueur1, int *cartejoueur2, int *cartejoueur3, int *cartejoueur4,int posxy[4][2]);
 void save_game(Sauvegarde *state);
 void oui_non(int *menu);
 

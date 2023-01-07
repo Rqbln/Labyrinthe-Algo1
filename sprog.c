@@ -27,6 +27,46 @@ void afficherTitre (){
     color(15,0);
 }
 
+void nouvellePartie(int tab[LARGEUR][LARGEUR], char buffer[BUFFER_SIZE], int *x, int *y, int *nbJoueurs, int pionsJoueurs[4], char nomJoueurs[4][LONGUEUR_NOM], char choix[BUFFER_SIZE], int *choix0, int *nbCartesJoueurs, int cartesJoueurs[CARTES][CARTES], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int *partie, int sauvegarde1tab[LARGEUR][LARGEUR], int *sauvegardetourjoueur, int *numjoueur, int *echap, int *carterestante, int *test_tresor, int memoricase[4], int *fin, int cartejoueurtab[4], int *tourJoueur, int *nbTours, int *verifTours, int *ligne_ou_colonne, int *numero_ligne_colonne, int *direction, int *cartejoueur1, int *cartejoueur2, int *cartejoueur3, int *cartejoueur4,int posxy[4][2]) {
+//Remise à zéro de toutes les valeurs
+    *x = 0;
+    *y = 0;
+    *nbJoueurs = 0;
+    *choix0 = 0;
+    *nbCartesJoueurs = 0;
+    *partie = 0;
+    *sauvegardetourjoueur = 0;
+    *numjoueur = 1;
+    *echap = 0;
+    *carterestante = 0;
+    *test_tresor = 0;
+    *fin = 0;
+    *tourJoueur = 0;
+    *nbTours = 1;
+    *verifTours = 0;
+    *ligne_ou_colonne = 0;
+    *numero_ligne_colonne = 0;
+    *direction = 0;
+    *cartejoueur1 = 0;
+    *cartejoueur2 = 0;
+    *cartejoueur3 = 0;
+    *cartejoueur4 = 0;
+    memset(buffer, 0, BUFFER_SIZE);
+    memset(choix, 0, BUFFER_SIZE);
+    memset(tab, 0, LARGEUR * LARGEUR * sizeof(int));
+    memset(tabfinal, 0, LARGEUR_FINALE * LARGEUR_FINALE * sizeof(int));
+    memset(sauvegarde1tab, 0, LARGEUR * LARGEUR * sizeof(int));
+    memset(pionsJoueurs, 0, 4 * sizeof(int));
+    memset(nomJoueurs, 0, 4 * LONGUEUR_NOM * sizeof(char));
+    memset(cartesJoueurs, 0, CARTES * CARTES * sizeof(int));
+    memset(cartejoueurtab, 0, 4 * sizeof(int));
+    memset(memoricase, 0, 4 * sizeof(int));
+    for (int i = 0; i < 4; i++) {
+        posxy[i][0] = (i % 2) * 6;
+        posxy[i][1] = (i / 2) * 6;
+    }
+}
+
 void ligne(){
     _setmode(_fileno(stdout), _O_U16TEXT);
     color(13,0);

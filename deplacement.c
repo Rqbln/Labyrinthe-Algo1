@@ -145,12 +145,15 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
             if(memoricase[pionsJoueurs[*tourJoueur]-1]==cartesJoueurs[*tourJoueur][cartejoueurtab[*tourJoueur]]){
                 TrouverTresor=1;
                 cartejoueurtab[*tourJoueur]+=1;
-                if (*nbCartesJoueurs==cartejoueurtab[*tourJoueur]-1){
-                    printf("%s a gagné, inclinez vous tous devant lui", nomJoueurs[*tourJoueur]);
-                    getch();
-                    getch();
+                if (*nbCartesJoueurs>=cartejoueurtab[*tourJoueur]-7){
+                    system("cls");
+                    afficherTitre();
+                    ligne();
+                    afficheplateaufinal(tab, tabfinal);
+                    printf("Partie Terminee !\n%s a gagne en %d tours, inclinez vous tous devant lui.\nPour retourner au menu, appuyez sur n'importe quelle touche.\n", nomJoueurs[*tourJoueur], *nbTours);
                     *fin=1;
-                    printf("partie finie !\nPour recommencer entrez 1");
+                    getch();
+                    return;
                 }
             }
         }

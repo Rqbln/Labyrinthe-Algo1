@@ -21,6 +21,7 @@ int main() {   //programme principal
     int test_tresor = 0;
     int memoricase[4];
     int fin=0;
+    int chargePartie=0;
 
     int cartejoueurtab[4]={0,0,0,0};
     int tourJoueur, nbTours=1, verifTours=0;
@@ -40,8 +41,8 @@ int main() {   //programme principal
     ligne();
     color(13,0);
 
-    printf("Menu :");
-    printf("\n1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\n");
+    printf("Menu :\n");
+    printf("1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\n");
     color(13,0);
     ligne();
     while (partie==0){
@@ -60,7 +61,10 @@ int main() {   //programme principal
             return 0;
         }
         if (choix0==1) {
-            //mise en page
+            if (chargePartie==0){
+                nouvellePartie(tab, buffer, &x, &y, &nbJoueurs, pionsJoueurs, nomJoueurs, choix, &choix0, &nbCartesJoueurs, cartesJoueurs, tabfinal, &partie, sauvegarde1tab, &sauvegardetourjoueur, &numjoueur, &echap, &carterestante, &test_tresor, memoricase, &fin, cartejoueurtab, &tourJoueur, &nbTours, &verifTours, &ligne_ou_colonne, &numero_ligne_colonne, &direction, &cartejoueur1, &cartejoueur2, &cartejoueur3, &cartejoueur4, posxy);
+                //remise des valeurs à 0 si l'utilisateur ne charge pas une partie
+            }
             system("cls");
             afficherTitre();
             ligne();
@@ -134,18 +138,30 @@ int main() {   //programme principal
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
                 //deplacement.c ligne 17   //afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);
                 deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab,cartesJoueurs,&nbCartesJoueurs, &fin, &nbTours, &nbJoueurs);                 //deplacement joueur
-                afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
+                    if (fin==0){
+                        afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
 
-                //affiche_case_en_plus(&carterestante);
-                //finJeu(&ligne, &colonne, &tab[7][7], &n);
-                printf("\n");
-                tourJoueur+=1;
-                if (tourJoueur==nbJoueurs){
-                    tourJoueur=0;
-                }
-                //printf("%d", carterestante);
-                //getchar(); // attend que l'utilisateur appuie sur une touche
-                //fgetc(stdin);
+                        //affiche_case_en_plus(&carterestante);
+                        //finJeu(&ligne, &colonne, &tab[7][7], &n);
+                        printf("\n");
+                        tourJoueur+=1;
+                        if (tourJoueur==nbJoueurs){
+                            tourJoueur=0;
+                        }
+                        //printf("%d", carterestante);
+                        //getchar(); // attend que l'utilisateur appuie sur une touche
+                        //fgetc(stdin);
+                    }
+                    else{
+                        system("cls");
+                        afficherTitre();
+                        ligne();
+                        color(15,0);
+                        printf("Menu :\n");
+                        printf("1. Nouvelle partie\n2. Sauvegarder la partie en cours\n3. Charger une partie sauvegardee\n4. Afficher les regles / credits\n0. Quitter le jeu\n");
+                        ligne();
+                        color(13,0);
+                    }
             }
         }
         if (choix0==2) {
