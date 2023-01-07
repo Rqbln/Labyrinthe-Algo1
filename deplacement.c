@@ -44,16 +44,16 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 //innitialisation des cases de depart
 
         memoricase[0]=tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2];
-        tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2] = pionsJoueurs[0]+1;
+        tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2] = 2;
 
         memoricase[1]=tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2];
-        tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2] = pionsJoueurs[1]+1;
+        tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2] = 3;
 
         memoricase[2]=tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2];
-        tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2] = pionsJoueurs[2]+1;
+        tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2] = 4;
 
         memoricase[3]=tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2];
-        tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2]= pionsJoueurs[3]+1;
+        tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2]= 5;
         //permet d enregistrer le motif des cases de depart
         *echap=1;
 
