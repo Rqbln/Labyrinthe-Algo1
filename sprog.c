@@ -43,7 +43,7 @@ void afficherRegles(){
 }
 void afficherCredits(){
     color(15,0);
-    printf("\n\nPremier projet realise en Algorithmique et d'Informatique a l'ECE.\n");
+    printf("\n\nPremier projet realise en Algorithmique et Informatique a l'ECE.\n");
     printf("Auteurs : Robin Queriaux, Baptiste Chesnot, Laouig Eleouet, Lucas Girault\n");
 }
 

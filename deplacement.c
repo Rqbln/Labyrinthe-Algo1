@@ -19,6 +19,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
     // Le tableau est initialisé à '-' pour chaque case
     // Le pion est placé en position (0, 0) au début du programme
     int pion_row, pion_col;
+    int TrouverTresor=0;
     int stop=0;
 
         switch (pionsJoueurs[*tourJoueur]) {
@@ -73,6 +74,9 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
         ligne();
         printf("Tour %d :\n",*nbTours);
         afficheCarteJoueur(&*tourJoueur,&*nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
+        if (TrouverTresor==1){
+            printf("Bravo, vous avez trouve un tresor !\n");
+        }
         // Affichage du tableau et du pion
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
@@ -139,9 +143,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
                 stop=1;
             }
             if(memoricase[pionsJoueurs[*tourJoueur]-1]==cartesJoueurs[*tourJoueur][cartejoueurtab[*tourJoueur]]){
-                printf("bravo pour le tresor");
-                getch();
-                getch();
+                TrouverTresor=1;
                 cartejoueurtab[*tourJoueur]+=1;
                 if (*nbCartesJoueurs==cartejoueurtab[*tourJoueur]-1){
                     printf("%s a gagné, inclinez vous tous devant lui", nomJoueurs[*tourJoueur]);
