@@ -114,6 +114,11 @@ int main() {   //programme principal
                     verifTours+=1;
                 }
 
+                for (int i = 0; i < nbJoueurs; ++i) {
+                    memoricase[i]=tabfinal[(posxy[i][0])*3+2][(posxy[i][1])*3+2];
+                    tabfinal[(posxy[i][0])*3+2][(posxy[i][1])*3+2] = pionsJoueurs[i]+1;
+                }
+
                 //joueur.c ligne 134
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
                 //deplacement.c ligne 130
@@ -128,7 +133,7 @@ int main() {   //programme principal
                 coordonne(tabfinal, &x, &y, tab, posxy, pionsJoueurs, &tourJoueur);
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
                 //deplacement.c ligne 17   //afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);
-                deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab,cartesJoueurs,&nbCartesJoueurs, &fin, &nbTours);                 //deplacement joueur
+                deplacementJoueur(tabfinal, tab, nomJoueurs, pionsJoueurs, &tourJoueur,memoricase,&carterestante,posxy,&echap, cartejoueurtab,cartesJoueurs,&nbCartesJoueurs, &fin, &nbTours, &nbJoueurs);                 //deplacement joueur
                 afficheCarteJoueur(&tourJoueur,&nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);
 
                 //affiche_case_en_plus(&carterestante);
