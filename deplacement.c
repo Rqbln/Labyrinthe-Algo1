@@ -87,7 +87,8 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 // Déplacement du pion vers le haut si possible
                 if (pion_row > 0 + 3 && tabfinal[pion_row-1][pion_col] == 1 && tabfinal[pion_row-2][pion_col] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
+                    //tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
+                    tabfinal[pion_row][pion_col] = 1;
                     pion_row-=3;
                     posxy[*tourJoueur][0]-=1;
                     memoricase[pionsJoueurs[*tourJoueur]-1]=tabfinal[pion_row][pion_col];
@@ -99,7 +100,8 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 // Déplacement du pion vers le bas si possible
                 if (pion_row < 21 - 3 && tabfinal[pion_row+1][pion_col] == 1 && tabfinal[pion_row+2][pion_col] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
+                    //tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
+                    tabfinal[pion_row][pion_col] = 1;
                     pion_row+=3;
                     posxy[*tourJoueur][0]+=1;
                     memoricase[pionsJoueurs[*tourJoueur]-1]=tabfinal[pion_row][pion_col];
@@ -111,7 +113,8 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 // Déplacement du pion vers la gauche si possible
                 if (pion_col > 0 + 3 && tabfinal[pion_row][pion_col-1] == 1 && tabfinal[pion_row][pion_col-2] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
+                    //tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
+                    tabfinal[pion_row][pion_col] = 1;
                     pion_col-=3;
                     posxy[*tourJoueur][1]-=1;
                     memoricase[pionsJoueurs[*tourJoueur]-1]=tabfinal[pion_row][pion_col];
@@ -123,7 +126,8 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 // Déplacement du pion vers la droite si possible
                 if (pion_col < 21 - 3 && tabfinal[pion_row][pion_col+1] == 1 && tabfinal[pion_row][pion_col+2] == 1)
                 {
-                    tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
+                    //tabfinal[pion_row][pion_col] = memoricase[pionsJoueurs[*tourJoueur]-1];
+                    tabfinal[pion_row][pion_col] = 1;
                     pion_col+=3;
                     posxy[*tourJoueur][1]+=1;
                     memoricase[pionsJoueurs[*tourJoueur]-1]=tabfinal[pion_row][pion_col];
@@ -135,9 +139,13 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
             }
             if(memoricase[pionsJoueurs[*tourJoueur]-1]==cartesJoueurs[*tourJoueur][cartejoueurtab[*tourJoueur]]){
                 printf("bravo pour le tresor");
+                getch();
+                getch();
                 cartejoueurtab[*tourJoueur]+=1;
                 if (*nbCartesJoueurs==cartejoueurtab[*tourJoueur]-1){
                     printf("%s a gagné, inclinez vous tous devant lui", nomJoueurs[*tourJoueur]);
+                    getch();
+                    getch();
                     *fin=1;
                     printf("partie finie !\nPour recommencer entrez 1");
                 }
