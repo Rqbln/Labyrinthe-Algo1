@@ -319,7 +319,7 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
         }
     }
 }
-void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int posxy[4][2]) {
+void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int posxy[4][2], int pionsJoueurs[4], int* tourJoueur) {
     int i, temp, tempPosxy;
     afficheplateaufinal(tab, tabfinal);
     affiche_case_en_plus(&*carterestante);
@@ -378,7 +378,7 @@ void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE
                     }
                     tempPosxy+=1;
                 }
-                tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=3;
+                tabfinal[(posxy[k][0])*3+2][(posxy[k][1])*3+2]=pionsJoueurs[*tourJoueur]+2;
             }
         }
     }

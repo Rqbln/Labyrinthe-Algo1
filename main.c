@@ -114,7 +114,7 @@ int main() {   //programme principal
                 selection_ligne_colonne(tab,tabfinal, &ligne_ou_colonne, &numero_ligne_colonne,&direction, &carterestante, nomJoueurs, &tourJoueur, &nbCartesJoueurs, cartesJoueurs, cartejoueurtab);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
                 //deplacement.c ligne 279
 
-                deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
+                deplacement_de_tuile(tab, tabfinal, &carterestante, &ligne_ou_colonne, &numero_ligne_colonne,&direction, posxy, pionsJoueurs, &tourJoueur);//afficheplateaufinal(tab, tabfinal);affiche_case_en_plus(&*carterestante);system("cls");afficherTitre();ligne();
                 //plateau.c ligne 62
 
                 convertab(tab, &test_tresor);
