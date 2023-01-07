@@ -39,6 +39,8 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
         color(2,0);
         wprintf(L"\x0032\x002e\x0020\x2663\n");
         color(15,0);
+        pionsJoueurs[2] = 41;
+        pionsJoueurs[3] = 42;
 
     }
     if (*nbJoueurs == 3){
@@ -50,7 +52,7 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
         color(4,0);
         wprintf(L"\x0033\x002e\x0020\x2665\n");
         color(15,0);
-
+        pionsJoueurs [3] = 42;
     }
     if (*nbJoueurs == 4){
         _setmode(_fileno(stdout), _O_U16TEXT);
@@ -74,7 +76,7 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
             fgets(input,BUFFER_SIZE,stdin);
             pionsJoueurs[i]= atoi(input);
         }
-        pions[i]= atoi(input);
+        pionsJoueurs[i]= atoi(input);
     }
     system("cls");
     afficherTitre();

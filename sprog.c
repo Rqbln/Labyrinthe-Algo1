@@ -287,12 +287,12 @@ void caractere(int *caracteres){
         case 0:
             _setmode(_fileno(stdout), _O_U16TEXT);
             color(2,2);
-            wprintf(L"\x2588\x2588"); //affichage des valeurs
+            wprintf(L"\x2588\x2588"); //Mur
             color(15,0);
             break;
         case 1:
             _setmode(_fileno(stdout), _O_U16TEXT);
-            wprintf(L"\x00A0\x00A0"); //affichage des valeurs
+            wprintf(L"\x00A0\x00A0"); //Couloir
             break;
         case 2:
             _setmode(_fileno(stdout), _O_U16TEXT);      //pion1
@@ -505,13 +505,13 @@ void caractere(int *caracteres){
             break;
         case 41:
             _setmode(_fileno(stdout), _O_U16TEXT);
-            color (12,0);
+            color (10,0);
             wprintf(L"\x2592\x2592"); //affichage des valeurs   COIN HD
             color (15,0);
             break;
         case 42:
             _setmode(_fileno(stdout), _O_U16TEXT);
-            color(10,0);
+            color(12,0);
             wprintf(L"\x2592\x2592"); //affichage des valeurs   COIN BG
             color (15,0);
             break;
