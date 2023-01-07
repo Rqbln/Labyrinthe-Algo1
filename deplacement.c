@@ -150,7 +150,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
                     afficherTitre();
                     ligne();
                     afficheplateaufinal(tab, tabfinal);
-                    printf("Partie Terminee !\n%s a gagne en %d tours, inclinez vous tous devant lui.\nPour retourner au menu, appuyez sur n'importe quelle touche.\n", nomJoueurs[*tourJoueur], *nbTours);
+                    printf("L'aventure se termine ici, jeunes aventuriers !\n%s a gagne en %d tours, inclinez vous tous, paysans, devant le seul et unique %s.\nPour retourner au menu, appuyez sur n'importe quelle touche.\n", nomJoueurs[*tourJoueur], *nbTours,nomJoueurs[*tourJoueur]);
                     *fin=1;
                     getch();
                     return;

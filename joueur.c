@@ -6,12 +6,12 @@
 void nombreJoueurs(int *nbJoueurs, int *nbCartesJoueurs){
     char buffer[BUFFER_SIZE];
     // Saisie du nombre de joueurs
-    printf("Entrez le nombre de joueurs (entre 2 et 4) :");
+    printf("Entrez le nombre d'aventuriers (entre 2 et 4) :");
     fflush(stdin);
     fgets(buffer, BUFFER_SIZE, stdin);
     // Conversion de la saisie en entier et vérification de la validité
     while (sscanf(buffer, "%d", nbJoueurs) != 1 || *nbJoueurs < 2 || *nbJoueurs > 4) {
-        printf("Entrez le nombre de joueurs (entre 2 et 4) :");
+        printf("Entrez le nombre de d'aventuriers (entre 2 et 4) :");
         fflush(stdin);
         fgets(buffer, BUFFER_SIZE, stdin);
     }
@@ -24,7 +24,7 @@ void CreationNomJoueurs(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM]){
 
     // Demande le nom de chaque joueur
     for (int i = 0; i < *nbJoueurs; i++) {
-        printf("Entrez le nom du joueur %d :", i+1);
+        printf("Entrez votre nom d'illustre aventurier, joueur %d :", i+1);
         scanf("%s", nomJoueurs[i]);
     }
 }
@@ -92,7 +92,7 @@ void debutPartie (int *nbJoueurs, int *tourJoueur, char nomJoueurs[4][LONGUEUR_N
     srand(time(NULL));
     *tourJoueur=rand()%*nbJoueurs;
     char demarrage;
-    printf("La partie peut commencer.\n%s, appuyez sur 'Entree' pour lancer la partie !\n",nomJoueurs[*tourJoueur]);
+    printf("La quête peut dès lors commencer.\n%s, appuyez sur 'Entree' pour lancer l'aventure !\n",nomJoueurs[*tourJoueur]);
     do {
         demarrage=getchar();
     }while (demarrage!='\n');
@@ -100,7 +100,7 @@ void debutPartie (int *nbJoueurs, int *tourJoueur, char nomJoueurs[4][LONGUEUR_N
     afficherTitre();
     ligne();
     printf("Tour %d :\n",*nbTours);
-    printf("C'est a %s de commencer !\n",nomJoueurs[*tourJoueur]);
+    printf("C'est a %s de s'aventurer dans le labyrinthe !\n",nomJoueurs[*tourJoueur]);
 }
 
 void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM],int cartesJoueurs[CARTES][CARTES]){
@@ -138,7 +138,7 @@ void afficheCarteJoueur(int *tourJoueur,int *nbCartesJoueurs, char nomJoueurs[4]
     int caracteres;
     cartejoueur=cartejoueurtab[*tourJoueur];
 
-    printf("%s, Voici tes cartes tresor :\n", nomJoueurs[*tourJoueur]);
+    printf("%s, Voici tes cartes tresor jeune aventurier :\n", nomJoueurs[*tourJoueur]);
     _setmode(_fileno(stdout), _O_U16TEXT);
     for (int i = 0; i < cartejoueur+1; ++i) {
         wprintf(L"\x250C\x2500\x2500\x2510");

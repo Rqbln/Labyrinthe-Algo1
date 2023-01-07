@@ -57,7 +57,7 @@ int main() {   //programme principal
         }
 
         if (choix0==0) {
-            printf("Deconnexion... A bientot !\n");
+            printf("Sortie du labyrinthe... A bientot dans le royaume des illusions jeune aventurier !\n");
             return 0;
         }
         if (choix0==1) {
@@ -83,14 +83,14 @@ int main() {   //programme principal
 
             //joueur.c ligne 6
             nombreJoueurs(&nbJoueurs, &nbCartesJoueurs);
-            printf("%d joueurs seront dans cette partie.\n",nbJoueurs);
+            printf("%d aventuriers se disputerons le titre de roi du labyrinthe !\n",nbJoueurs);
             //joueur.c ligne 23
             CreationNomJoueurs(&nbJoueurs, nomJoueurs);
 
             system("cls");
             afficherTitre();
             ligne();
-            printf("Les noms des joueurs sont :\n"); // Affiche les noms des joueurs
+            printf("Les noms des aventuriers sont :\n"); // Affiche les noms des joueurs
             for (int i = 0; i < nbJoueurs; i++) {
                 printf("- %s\n", nomJoueurs[i]);
             }
