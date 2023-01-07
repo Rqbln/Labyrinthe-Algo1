@@ -171,7 +171,7 @@ void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINA
         afficheCarteJoueur(&*tourJoueur,&*nbCartesJoueurs, nomJoueurs,cartesJoueurs,cartejoueurtab);//caractere(&caracteres);
         afficheplateaufinal(tab, tabfinal);
         affiche_case_en_plus(&*carterestante);
-        printf("\n%s, Appuyez sur :\n- Fleche Haut\n- Fleche Bas\npour deplacer la tuile.\nAppuyez deux fois sur espace pour faire tourner la tuile supplementaire.\nAppuyez deux fois sur Entree pour confirmer votre selection.",nomJoueurs[*tourJoueur]);
+        printf("\n%s, Appuyez sur 'Fleche Haut' ou 'Fleche Bas' pour deplacer la tuile.\nAppuyez deux fois sur espace pour faire tourner la tuile supplementaire.\nAppuyez deux fois sur Entree pour confirmer votre selection.",nomJoueurs[*tourJoueur]);
 
 
         // Lecture de l'entrée utilisateur

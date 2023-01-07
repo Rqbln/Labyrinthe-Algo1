@@ -92,7 +92,7 @@ void debutPartie (int *nbJoueurs, int *tourJoueur, char nomJoueurs[4][LONGUEUR_N
     srand(time(NULL));
     *tourJoueur=rand()%*nbJoueurs;
     char demarrage;
-    printf("La quête peut dès lors commencer.\n%s, appuyez sur 'Entree' pour lancer l'aventure !\n",nomJoueurs[*tourJoueur]);
+    printf("La quete peut des lors commencer.\n%s, appuyez sur 'Entree' pour lancer l'aventure !\n",nomJoueurs[*tourJoueur]);
     do {
         demarrage=getchar();
     }while (demarrage!='\n');
