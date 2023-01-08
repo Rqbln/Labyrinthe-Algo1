@@ -9,17 +9,8 @@
 #define CARTES 24
 #define BUFFER_SIZE 32
 #define LONGUEUR_NOM 50
-#define pion_row1 2
-#define pion_row3 2
-#define pion_row2 20
-#define pion_row4 20
-#define pion_col1 2
-#define pion_col3 11 //20 c est juste pour le test
-#define pion_col2 2
-#define pion_col4 20
 
-//#ifndef INITPLATEAU_H_INCLUDED
-//#define AFFICHAGEC_H_INCLUDED
+
 #include <windows.h>
 #include <time.h>
 #include <fcntl.h>

@@ -177,7 +177,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
             if(memoricase[pionsJoueurs[*tourJoueur]-1]==cartesJoueurs[*tourJoueur][cartejoueurtab[*tourJoueur]]){
                 TrouverTresor=1;
                 cartejoueurtab[*tourJoueur]+=1;
-                if (*nbCartesJoueurs==cartejoueurtab[*tourJoueur]-1){
+                if (*nbCartesJoueurs<=cartejoueurtab[*tourJoueur]-1){
                     system("cls");
                     afficherTitre();
                     ligne();

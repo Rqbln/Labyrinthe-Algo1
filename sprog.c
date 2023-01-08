@@ -77,8 +77,8 @@ void ligne(){
 void afficherRegles(){
     color(15,0);
     printf("Regles du jeu de societe Labyrinthe:\n\n");
-    printf("Labyrinthe est une chasse aux tresors dans un labyrinthe en mouvement constant.\n");
-    printf("Le but de chaque joueur est de reussir a recuperer des tresors en deplacant les murs du labyrinthe,\ncomme un dedale de couloirs qu'on decale a sa guise.\n");
+    printf("Le jeu se joue avec un plateau de 7x7 tuiles, 16 tuiles 'couloir de labyrinthe' a position fixe, 34 tuiles 'couloir de labyrinthe' a positionner aleatoirement et 24 cartes 'tresor' a distribuer.\nLes joueurs utilisent egalement 4 pions pour se deplacer dans le labyrinthe. ");
+    printf("Le but du jeu est d'etre le premier a trouver tous les tresors caches dans le labyrinthe\nen utilisant les couloirs qui glissent et evoluent a chaque tour. Les joueurs doivent naviguer dans le labyrinthe changeant pour atteindre les tresors caches.\n");
     printf("Le plus malin a deplacer les couloirs sera le gagnant !\n");
 }
 void afficherCredits(){
