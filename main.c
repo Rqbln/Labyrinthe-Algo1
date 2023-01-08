@@ -108,18 +108,7 @@ int main() {   //programme principal
             init_case_en_plus(tab, &carterestante, &test_tresor);
             convertab(tab, &test_tresor);
             coordonne(tabfinal, &x, &y, tab, posxy, pionsJoueurs, &tourJoueur);
-
-            memoricase[0]=tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2];
-            tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2] = 2; //pionsJoueurs[0]+1
-
-            memoricase[1]=tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2];
-            tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2] = 3;
-
-            memoricase[2]=tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2];
-            tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2] = 4;
-
-            memoricase[3]=tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2];
-            tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2]= 5;
+            memoireCase(memoricase, tabfinal, posxy, &nbJoueurs);
 
             while(fin==0){
                 if (verifTours==nbJoueurs){

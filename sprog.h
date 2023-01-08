@@ -86,7 +86,7 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
 void distributionCartes (int *nbJoueurs, int *nbCartesJoueurs, char nomJoueurs[4][LONGUEUR_NOM], int cartesJoueurs[CARTES][CARTES]);
 void debutPartie (int *nbJoueurs, int *tourJoueur, char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4], int* nbTours);
 
-
+void memoireCase(int memoricase[4], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int posxy[4][2], int* nbJoueurs);
 void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LARGEUR][LARGEUR], char nomJoueurs[4][LONGUEUR_NOM], int pionsJoueurs[4],int *tourJoueur, int memoricase[4], int *carterestante,int posxy[4][2], int* echap, int cartejoueurtab[4],int cartesJoueurs[CARTES][CARTES], int *nbCartesJoueurs, int *fin, int *nbTours, int* nbJoueurs);
 void deplacement_de_tuile(int tab[LARGEUR][LARGEUR], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *carterestante,int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction,int posxy[4][2], int pionsJoueurs[4], int* tourJoueur, int* nbTours);
 void selection_ligne_colonne(int tab[LARGEUR][LARGEUR],int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE],int *ligne_ou_colonne, int *numero_ligne_colonne,int *direction, int *carterestante, char nomJoueurs[4][LONGUEUR_NOM], int* tourJoueur, int* nbCartesJoueurs, int cartesJoueurs[CARTES][CARTES],int cartejoueurtab[4], int* nbTours);

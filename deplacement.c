@@ -10,7 +10,49 @@
 // et déplace un pion sur ce plateau en fonction des entrées de l'utilisateur.
 // Les flèches du clavier permettent de déplacer le pion et la touche 'q' permet de quitter le programme.
 
+void memoireCase(int memoricase[4], int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int posxy[4][2], int* nbJoueurs){
+    if(*nbJoueurs==2){
+        memoricase[0]=tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2];
+        tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2] = 2;
 
+        memoricase[1]=tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2];
+        tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2] = 3;
+
+        memoricase[2]=tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2];
+        tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2] = 41;
+
+        memoricase[3]=tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2];
+        tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2]= 43;
+    }
+    if(*nbJoueurs==3){
+        memoricase[0]=tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2];
+        tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2] = 2;
+
+        memoricase[1]=tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2];
+        tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2] = 3;
+
+        memoricase[2]=tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2];
+        tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2] = 4;
+
+        memoricase[3]=tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2];
+        tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2]= 43;
+    }
+    if(*nbJoueurs==4){
+        memoricase[0]=tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2];
+        tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2] = 2;
+
+        memoricase[1]=tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2];
+        tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2] = 3;
+
+        memoricase[2]=tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2];
+        tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2] = 4;
+
+        memoricase[3]=tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2];
+        tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2]= 5;
+
+    }
+
+}
 
 
 
@@ -43,17 +85,7 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
 
 //innitialisation des cases de depart
 
-        memoricase[0]=tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2];
-        tabfinal[(posxy[0][0])*3+2][(posxy[0][1])*3+2] = 2;
-
-        memoricase[1]=tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2];
-        tabfinal[(posxy[1][0])*3+2][(posxy[1][1])*3+2] = 3;
-
-        memoricase[2]=tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2];
-        tabfinal[(posxy[2][0])*3+2][(posxy[2][1])*3+2] = 4;
-
-        memoricase[3]=tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2];
-        tabfinal[(posxy[3][0])*3+2][(posxy[3][1])*3+2]= 5;
+    memoireCase(memoricase, tabfinal, posxy, &*nbJoueurs);
         //permet d enregistrer le motif des cases de depart
         *echap=1;
 
@@ -145,12 +177,12 @@ void deplacementJoueur(int tabfinal[LARGEUR_FINALE][LARGEUR_FINALE], int tab[LAR
             if(memoricase[pionsJoueurs[*tourJoueur]-1]==cartesJoueurs[*tourJoueur][cartejoueurtab[*tourJoueur]]){
                 TrouverTresor=1;
                 cartejoueurtab[*tourJoueur]+=1;
-                if (*nbCartesJoueurs>=cartejoueurtab[*tourJoueur]-7){
+                if (*nbCartesJoueurs==cartejoueurtab[*tourJoueur]-1){
                     system("cls");
                     afficherTitre();
                     ligne();
                     afficheplateaufinal(tab, tabfinal);
-                    printf("L'aventure se termine ici, jeunes aventuriers !\n%s a gagne en %d tours, inclinez vous tous, paysans, devant le seul et unique %s.\nPour retourner au menu, appuyez sur n'importe quelle touche.\n", nomJoueurs[*tourJoueur], *nbTours,nomJoueurs[*tourJoueur]);
+                    printf("L'aventure se termine ici, jeunes aventuriers !\n%s a gagne en %d tours. Inclinez vous tous, paysans, devant le seul et unique %s.\nPour retourner au menu, appuyez sur n'importe quelle touche.\n", nomJoueurs[*tourJoueur], *nbTours,nomJoueurs[*tourJoueur]);
                     *fin=1;
                     getch();
                     return;

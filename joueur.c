@@ -76,7 +76,6 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
             fgets(input,BUFFER_SIZE,stdin);
             pionsJoueurs[i]= atoi(input);
         }
-        pionsJoueurs[i]= atoi(input);
     }
     system("cls");
     afficherTitre();
@@ -84,6 +83,9 @@ void distributionPions(int *nbJoueurs,char nomJoueurs[4][LONGUEUR_NOM],int pions
     printf("Choix des pions :\n");
     for (int i = 0; i < *nbJoueurs; ++i) {
         printf("- %s a choisi le pion %d\n",nomJoueurs[i],pionsJoueurs[i]);
+    }
+    for (int i = 0; i < *nbJoueurs; ++i) {
+        pionsJoueurs[i] = i + 1;
     }
     printf("\n");
 }
