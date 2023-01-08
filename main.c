@@ -57,7 +57,12 @@ int main() {   //programme principal
         }
 
         if (choix0==0) {
-            printf("Sortie du labyrinthe... A bientot dans le royaume des illusions jeune aventurier !\n");
+            system("cls");
+            afficherTitre();
+            ligne();
+            color(15,0);
+            printf("Sortie du labyrinthe... A bientot dans le royaume des illusions jeune aventurier !\n(Appuyez sur n'importe quelle touche pour quitter)\n");
+            getch();
             return 0;
         }
         if (choix0==1) {
